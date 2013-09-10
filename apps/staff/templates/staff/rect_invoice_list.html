@@ -1,0 +1,37 @@
+{% extends 'staff_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+
+{% block staff_content %}
+    <div class="span12">
+        <div class="row-fluid">
+            <div class="span12 staff-buttons">
+                <a href="{% url 'staff_create_invoice' %}" class="btn">Nova factura</a>
+                <a href="{% url 'staff_order_list_create_invoice' %}" class="btn">Nova factura a partir de comanda</a>
+            </div>
+        </div>
+        <table class="table table-bordered staff-table">
+            <thead>
+                <tr>
+                    <td>Data</td>
+                    <td>Client</td>
+                    <td>Factura rectificativa</td>
+                    <td>Factura</td>
+                    <td>Import</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in invoice_list %}
+                    <tr class="">
+                        <td>{{i.creation_date}}</td>
+                        <td>{{i.user.name}}</td>
+                        <td><a href="{% url 'staff_rect_invoice_detail_pdf' i.id %}">{{i}}</a></td>
+                        <td><a href="{% url 'staff_invoice_detail_pdf' i.invoice.id %}">{{i.invoice}}</a></td>
+                        <td>{{i.price|floatformat:2}}&euro;</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

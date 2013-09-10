@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<style>
+    @page {
+        size: a4;
+        margin:1cm;
+        font-size:18px;
+        }
+</style>
+
+</head>    
+<body>
+    <div>
+        <h2>{{data.company}}</h2>
+        <p style="margin-bottom:1cm;">{{data.address}}</br>
+        {{data.cp}} {{data.town}}</br>
+        {{data.country}}</p>
+    </div>
+    <div>
+        <table style="border:1px solid #000000;border-collapse:collapse;">
+            <thead>
+                <tr style="border:1px solid #000000;">
+                    <td style="border:1px solid #000000;padding:5px;">Comanda</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Nom</td>
+                    <td colspan="4" style="border:1px solid #000000;padding:5px;">Adreça</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Codi</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in es_1 %}
+                    <tr style="border:1px solid #000000;">
+                        <td style="border:1px solid #000000;padding:5px;">{{i}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;">{{i.to}}</td>
+                        <td colspan="4" style="border:1px solid #000000;padding:5px;">{{i.address}}, {{i.postal_code}} {{i.town}}, {{i.country}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% if es_2 %}
+    <pdf:nextpage />
+    <div>
+        <h2>{{data.company}}</h2>
+        <p style="margin-bottom:1cm;">{{data.address}}</br>
+        {{data.cp}} {{data.town}}</br>
+        {{data.country}}</p>
+    </div>
+    <div>
+        <table style="border:1px solid #000000;border-collapse:collapse;">
+            <thead>
+                <tr style="border:1px solid #000000;">
+                    <td style="border:1px solid #000000;padding:5px;">Comanda</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Nom</td>
+                    <td colspan="4" style="border:1px solid #000000;padding:5px;">Adreça</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Codi</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in es_2 %}
+                    <tr style="border:1px solid #000000;">
+                        <td style="border:1px solid #000000;padding:5px;">{{i}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;">{{i.to}}</td>
+                        <td colspan="4" style="border:1px solid #000000;padding:5px;">{{i.address}}, {{i.postal_code}} {{i.town}}, {{i.country}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+{% if es_3 %}
+    <pdf:nextpage />
+    <div>
+        <h2>{{data.company}}</h2>
+        <p style="margin-bottom:1cm;">{{data.address}}</br>
+        {{data.cp}} {{data.town}}</br>
+        {{data.country}}</p>
+    </div>
+    <div>
+        <table style="border:1px solid #000000;border-collapse:collapse;">
+            <thead>
+                <tr style="border:1px solid #000000;">
+                    <td style="border:1px solid #000000;padding:5px;">Comanda</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Nom</td>
+                    <td colspan="4" style="border:1px solid #000000;padding:5px;">Adreça</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Codi</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in es_3 %}
+                    <tr style="border:1px solid #000000;">
+                        <td style="border:1px solid #000000;padding:5px;">{{i}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;">{{i.to}}</td>
+                        <td colspan="4" style="border:1px solid #000000;padding:5px;">{{i.address}}, {{i.postal_code}} {{i.town}}, {{i.country}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+{% if es_4 %}
+    <pdf:nextpage />
+    <div>
+        <h2>{{data.company}}</h2>
+        <p style="margin-bottom:1cm;">{{data.address}}</br>
+        {{data.cp}} {{data.town}}</br>
+        {{data.country}}</p>
+    </div>
+    <div>
+        <table style="border:1px solid #000000;border-collapse:collapse;">
+            <thead>
+                <tr style="border:1px solid #000000;">
+                    <td style="border:1px solid #000000;padding:5px;">Comanda</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Nom</td>
+                    <td colspan="4" style="border:1px solid #000000;padding:5px;">Adreça</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Codi</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in es_4 %}
+                    <tr style="border:1px solid #000000;">
+                        <td style="border:1px solid #000000;padding:5px;">{{i}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;">{{i.to}}</td>
+                        <td colspan="4" style="border:1px solid #000000;padding:5px;">{{i.address}}, {{i.postal_code}} {{i.town}}, {{i.country}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+{% if eu_1 %}
+    <pdf:nextpage />
+    <div>
+        <h2>{{data.company}}</h2>
+        <p style="margin-bottom:1cm;">{{data.address}}</br>
+        {{data.cp}} {{data.town}}</br>
+        {{data.country}}</p>
+    </div>
+    <div>
+        <table style="border:1px solid #000000;border-collapse:collapse;">
+            <thead>
+                <tr style="border:1px solid #000000;">
+                    <td style="border:1px solid #000000;padding:5px;">Comanda</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Nom</td>
+                    <td colspan="4" style="border:1px solid #000000;padding:5px;">Adreça</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Codi</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in eu_1 %}
+                    <tr style="border:1px solid #000000;">
+                        <td style="border:1px solid #000000;padding:5px;">{{i}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;">{{i.to}}</td>
+                        <td colspan="4" style="border:1px solid #000000;padding:5px;">{{i.address}}, {{i.postal_code}} {{i.town}}, {{i.country}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+{% if eu_2 %}
+    <pdf:nextpage />
+    <div>
+        <h2>{{data.company}}</h2>
+        <p style="margin-bottom:1cm;">{{data.address}}</br>
+        {{data.cp}} {{data.town}}</br>
+        {{data.country}}</p>
+    </div>
+    <div>
+        <table style="border:1px solid #000000;border-collapse:collapse;">
+            <thead>
+                <tr style="border:1px solid #000000;">
+                    <td style="border:1px solid #000000;padding:5px;">Comanda</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Nom</td>
+                    <td colspan="4" style="border:1px solid #000000;padding:5px;">Adreça</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Codi</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in eu_2 %}
+                    <tr style="border:1px solid #000000;">
+                        <td style="border:1px solid #000000;padding:5px;">{{i}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;">{{i.to}}</td>
+                        <td colspan="4" style="border:1px solid #000000;padding:5px;">{{i.address}}, {{i.postal_code}} {{i.town}}, {{i.country}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+{% if eu_3 %}
+    <pdf:nextpage />
+    <div>
+        <h2>{{data.company}}</h2>
+        <p style="margin-bottom:1cm;">{{data.address}}</br>
+        {{data.cp}} {{data.town}}</br>
+        {{data.country}}</p>
+    </div>
+    <div>
+        <table style="border:1px solid #000000;border-collapse:collapse;">
+            <thead>
+                <tr style="border:1px solid #000000;">
+                    <td style="border:1px solid #000000;padding:5px;">Comanda</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Nom</td>
+                    <td colspan="4" style="border:1px solid #000000;padding:5px;">Adreça</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Codi</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in eu_3 %}
+                    <tr style="border:1px solid #000000;">
+                        <td style="border:1px solid #000000;padding:5px;">{{i}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;">{{i.to}}</td>
+                        <td colspan="4" style="border:1px solid #000000;padding:5px;">{{i.address}}, {{i.postal_code}} {{i.town}}, {{i.country}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+{% if eu_4 %}
+    <pdf:nextpage />
+    <div>
+        <h2>{{data.company}}</h2>
+        <p style="margin-bottom:1cm;">{{data.address}}</br>
+        {{data.cp}} {{data.town}}</br>
+        {{data.country}}</p>
+    </div>
+    <div>
+        <table style="border:1px solid #000000;border-collapse:collapse;">
+            <thead>
+                <tr style="border:1px solid #000000;">
+                    <td style="border:1px solid #000000;padding:5px;">Comanda</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Nom</td>
+                    <td colspan="4" style="border:1px solid #000000;padding:5px;">Adreça</td>
+                    <td colspan="3" style="border:1px solid #000000;padding:5px;">Codi</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in eu_4 %}
+                    <tr style="border:1px solid #000000;">
+                        <td style="border:1px solid #000000;padding:5px;">{{i}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;">{{i.to}}</td>
+                        <td colspan="4" style="border:1px solid #000000;padding:5px;">{{i.address}}, {{i.postal_code}} {{i.town}}, {{i.country}}</td>
+                        <td colspan="3" style="border:1px solid #000000;padding:5px;"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+</body>
+</html>

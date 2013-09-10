@@ -1,0 +1,50 @@
+{% extends 'staff_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}&nbsp;-&nbsp;Taller{% endblock %}
+
+
+{% block staff_content %}
+    <div class="span12 staff">
+        <div class="row-fluid">
+            <div class="span6 offset3 info-box workshop-info-box">
+                <div class="info-box-inner">
+                    <h3>Resum</h3>
+                    <p class="lead">Plaques pendents de produir: {{tag_count}}</p>
+                    {% if tag_list %}
+                    <a href="{% url 'staff_workshop_pdf' %}" class="btn">Genera full de treball</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% if tag_list %}
+        <table class="table table-bordered staff-table">
+            <thead>
+                <tr>
+                    <td class="center">qu. i producte</td>
+                    <td class="center">color</td>
+                    <td class="center">front principal</td>
+                    <td class="center">tel. 1</td>
+                    <td class="center">tel. 2</td>
+                    <td class="center">tel. 3</td>
+                    <td class="center">made</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in tag_list %}
+                    <tr>
+                        <td class="center">{{i.quantity}}&nbsp;x&nbsp;{{i.product}}</td>
+                        <td class="center">{% if i.color %}{{i.color}}{% endif %}</td>
+                        <td class="center"><strong>{{i.front_main|upper}}</strong></td>
+                        <td class="center"><strong>{{i.front_tel|upper}}</strong>{{i.back_1|upper}}</td>
+                        <td class="center">{{i.back_2|upper}}</td>
+                        <td class="center">{{i.back_3|upper}}</td>
+                        <td class="center"><a href="{% url 'staff_item_made' i.id %}">made</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+{% endblock %}

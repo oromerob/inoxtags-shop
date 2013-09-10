@@ -1,0 +1,37 @@
+{% extends 'staff_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+
+{% block staff_content %}
+    <div class="span12">
+        <table class="table table-bordered staff-table">
+            <thead>
+                <tr>
+                    <td>Data</td>
+                    <td>Client</td>
+                    <td>Adreça</td>
+                    <td>CP - Població</td>
+                    <td>Comanda</td>
+                    <td>Enviat</td>
+                    <td>Codi</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in order_list %}
+                    {% if not i.shipping_code %}
+                    <tr class="">
+                        <td>{{i.creation_date|date}}</td>
+                        <td>{{i.to}}</td>
+                        <td>{{i.address}}</td>
+                        <td>{{i.postal_code}} {{i.town}}</td>
+                        <td><a href="{% url 'staff_order_detail_pdf' i.id %}">{{i}}</a></td>
+                        <td>{% if not i.shipped %}<a href="{% url 'staff_shipment_shipped' i.id %}">Marca enviat</a>{% else %}Enviat{% endif %}</td>
+                        <td><form method="post" id="form" action="{% url 'staff_shipment_code_add_form' i.id %}">{% csrf_token %}{{form.as_p}}<input type="submit" class="btn" value="Desa"/></form></td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+
+{% block content %}
+    {% if not user.name or not user.shipping_address or not user.shipping_code or not user.shipping_town or not user.shipping_country %}
+    <div class="container contingut">
+        <div class="row-fluid">
+            <div id="payment-info" class="span6 offset3 info-box">
+                <div class="info-box-inner">
+                    <h3 class="center">{% trans "Ens falten dades." %}</h3>
+                    <p class="lead">{% trans "Per poder continuar tramitant la teva comanda, primer cal que ens facilitis totes les teves dades d'enviament." %}</p>
+                    <ul>
+                        {% if not user.name %}
+                        <li>{% trans "El vostre nom." %}</li>
+                        {% endif %}
+                        {% if not user.shipping_address %}
+                        <li>{% trans "La vostra adreça." %}</li>
+                        {% endif %}
+                        {% if not user.shipping_code %}
+                        <li>{% trans "El vostre codi postal." %}</li>
+                        {% endif %}
+                        {% if not user.shipping_town %}
+                        <li>{% trans "La vostra població." %}</li>
+                        {% endif %}
+                        {% if not user.shipping_country %}
+                        <li>{% trans "El vostre país." %}</li>
+                        {% endif %}
+                    </ul>
+                    <a href="{% url 'shipping_data_update' %}">{% trans "Completa les teves dades d'enviament." %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container contingut">
+        <div class="row-fluid">
+            <div id="payment-info" class="span6 info-box">
+                <div class="info-box-inner">
+                    <h3>{% trans "Resum de la compra" %}:</h3>
+                    <p class="lead">{% trans "Nº de productes" %}:&nbsp;<strong>{{CountCartItems}}</strong></p>
+                    <p class="lead">{% trans "Import total" %}:&nbsp;<strong>{{CartPrice|floatformat:2}}&euro;</strong></p>
+                    <hr>
+                    <h3>{% trans "Dades d'enviament" %}:</h3>
+                    <p>
+                        {{user.name}}<br>
+                        {{user.shipping_address}}<br>
+                        {{user.shipping_code}}&nbsp;{{user.shipping_town}}<br>
+                        {{user.shipping_country}}<br>
+                    </p>
+                    <a href="{% url 'shipping_data_update' %}">{% trans "Canvia les teves dades d'enviament." %}</a>
+                    <hr>
+                    <div class="form">
+                        <h3 class="center">{% trans "Si totes les dades són correctes, selecciona la forma de pagament" %}:</h3>
+                        <div id="payButton">
+                            <button class="btn cardForm btn-large" type="button">Targeta</button>
+                            <button class="btn bankTrans btn-large" type="button">Transferència</button>
+                        </div>
+                        <div class="cardForm">
+                            <form class="form-horizontal" action="{{action}}" method="POST" id="braintree-payment-form">{% csrf_token %}
+                                <input type="hidden" name="tr_data" value="{{tr_data}}" />
+                                <div class="">
+                                    <div class="control-group">
+                                        <label class="control-label">{% trans "Número de la tarjeta" %}</label>
+                                        <div class="controls">
+                                            <input type="text" name="transaction[credit_card][number]" />
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">CVV</label>
+                                        <div class="controls">
+                                            <input type="text" name="transaction[credit_card][cvv]" />
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">{% trans "Caducitat (MM/AAAA)" %}</label>
+                                        <div class="controls">
+                                            <input type="text" name="transaction[credit_card][expiration_date]" />
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <input class="btn btn-success btn-large" type="submit" id="submit" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <script type="text/javascript" src="https://js.braintreegateway.com/v1/braintree.js"></script>
+                            <script type="text/javascript">
+                                var braintree = Braintree.create("MIIBCgKCAQEApX6dqL6WCNaEz7XOvgdJkyhfj80yqQ/fLprgwP+R5tjxeQMBu7o263Na1J4Qd5Fnf3oDJm/gJhlRmC982nCbydAcktDj+gjesq54hwm/IOqKozx8HpUr0+atm0CL+gPjZZ0WkBF3Ib/0vKrhHnzOpQZLBdcmIwe0SjkSfhYRFJ9S5/qPT+C3sfjxP+ihH9BGnXCHscERBDrHhXLwGHX287XbjBbXQQ2tLDDCvxryzPIxd+vz1w9VI7dcJ5r3JTmvFyJhQBbDdUmJ3/fq0DE7LqKxC6n5HGX/qq4PhBg5l31cTLGyJbCHkS3dyOyUZ4M3Qt+u6THzXlvGSMELOhsMLwIDAQAB");
+                                braintree.onSubmitEncryptForm('braintree-payment-form');
+                            </script>
+                        </div>
+                        <div class="bankTrans">
+                            <p class="lead">{% trans "Si prefereixes pagar-nos amb transferència bancaria, recorda que al concepte has d'indicar la referència que t'indiquem i que començarem a preparar-te l'enviament un cop rebem l'ingés al nostre compte. Per seguir prem el botó 'Pagar amb transferència' i et mostrarem les dades per fer l'ingés i t'enviarem al mateix moment un mail perquè puguis consultar-ho en qualsevol moment." %}</p>
+                            <div id="bankTrans">
+                                <a href="{% url 'bank_transfer' %}" class="btn btn-success btn-large">{% trans "Pagar amb transferència" %}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="span6">
+                <table id="list" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td class="center" colspan="2"><h4>{% trans "Productes al carro" %}:</h4></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in CartProducts %}
+                            <tr>
+                                <td class="span4">
+                                    <div class="payment-cart-detail-img">
+                                        <img src="{{MEDIA_URL}}{{i.product.img_1}}" class="img-rounded" alt=""/>
+                                        <h3 class="num">{{i.quantity}}&nbsp;x</h3>
+                                    </div>
+                                </td>
+                                <td class="span8">
+                                    {% if i.front_main %}<p>{% trans "Nom de l'animal" %}:&nbsp;<strong>{{i.front_main|upper}}</strong>{% if i.color %},&nbsp;{% trans "en color" %}&nbsp;{{i.color}}</p>{% endif %}</p>{% endif %}
+                                    {% if i.front_tel %}<p>{% trans "Telèfon" %}:&nbsp;{{i.front_tel|upper}}</p>{% endif %}
+                                    {% if i.back_1 %}<p>{% trans "Nom propietari" %}:&nbsp;{{i.back_1|upper}}</p>{% endif %}
+                                    {% if i.back_2 %}<p>{% trans "Telèfon" %}:&nbsp;{{i.back_2|upper}}</p>{% endif %}
+                                    {% if i.back_3 %}<p>{% trans "Altres" %}:&nbsp;{{i.back_3|upper}}</p>{% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+$(document).ready(function(){
+    var linea = $('.producte');
+    while (linea.length >= 6) {
+        $(linea.splice(0, 6)).wrapAll('<div id="cart_items" class="row" />');
+    }
+    $(linea.splice(0, linea.length)).wrapAll('<div id="cart_items" class="row" />');
+    $("div.cardForm").hide();
+    $("div.bankTrans").hide();
+    $("button.cardForm").click(function(){
+        $("div.cardForm").toggle(600);
+    });
+    $("button.bankTrans").click(function(){
+        $("div.bankTrans").toggle(600);
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'staff_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+
+{% block staff_content %}
+    <div class="span12">
+        <table class="table table-bordered staff-table">
+            <thead>
+                <tr>
+                    <td>Data</td>
+                    <td>Client</td>
+                    <td>Comanda</td>
+                    <td>Import</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in order_list %}
+                    {% if not i.invoice and i.user.invoice_name and i.user.invoice_address and i.user.invoice_town and i.user.invoice_tax_code %}
+                        <tr class="">
+                            <td>{{i.creation_date}}</td>
+                            <td>{{i.user.name}}</td>
+                            <td><a href="{% url 'staff_order_detail_pdf' i.id %}">{{i}}</a></td>
+                            <td>{{i.price|floatformat:2}}&euro;</td>
+                            <td><a href="{% url 'staff_create_invoice_from_order' i.id %}">Facturar</a></td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

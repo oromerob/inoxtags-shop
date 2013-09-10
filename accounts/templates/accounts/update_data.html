@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container contingut">
+    <div class="row">
+        <div id="update-user" class="span4 offset4 info-box">
+            <div class="info-box-inner">
+                <fieldset>
+                    <legend>{{ title }}</legend>
+                    <form id="form" method="post">{% csrf_token %}
+                        {{ form.as_p }}
+                        <a href="{% url 'inox_user_detail' %}" class="btn">{% trans "Back" %}</a>
+                        <input type="SUBMIT" class="btn btn-success pull-right" value="{% trans 'Add' %}"/>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

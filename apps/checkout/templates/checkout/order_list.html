@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+ 
+
+{% block content %}
+    {% if not order_list %}
+    <div class="container contingut">
+        <div class="row-fluid">
+            <div class="span6 offset3 info-box">
+                <div class="info-box-inner">
+                    <h2>{% trans "Encara no has fet cap comanda" %}</h2>
+                    <p class="lead">{% trans "Quan hagis fet una compra, aquí hi podràs fer el seguiment per saber si estan ja acabats els productes que has demanat, o si estan en camí, o hi podràs consultar el codi de seguiment perquè puguis veure si ja està a punt d'arribar-te." %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container contingut">
+        <div class="row list">
+                            <table id="list" class="table table-bordered span10 offset1">
+                                <thead>
+                                    <tr>
+                                        <td class="center" colspan="5"><h4>{% trans "Comandes" %}</h4></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td class="center span2">{% trans "Data" %}</td>
+                                            <td class="center span2">{% trans "Número de comanda" %}</td>
+                                            <td class="center span2">{% trans "Import total" %}</td>
+                                            <td class="center span2">{% trans "Estat" %}</td>
+                                            <td class="center span2">{% trans "Detall" %}</td>
+                                        </tr>
+                                    {% for i in order_list %}
+                                        <tr>
+                                            <td class="center span2">{{i.creation_date|date}}</td>
+                                            <td class="center span2">{{i}}</td>
+                                            <td class="center span2">{{i.price|floatformat:2}}&euro;</td>
+                                            <td class="center span2">
+                                                {% if i.shipped %}
+                                                    <strong>{% trans "Enviada" %}:&nbsp;{{i.ship_date|date}}</strong>
+                                                {% else %}
+                                                    <strong>{% trans "En producció" %}</strong>
+                                                {% endif %}
+                                            </td>
+                                            <td class="center span2"><a href="{% url 'user_order_detail' i.id %}">{% trans "detalls" %}</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascript %}
+{% endblock %} 

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block titol %}{% trans "Payment result" %}{% endblock %}
+
+
+{% block content %}
+    {% if not status %}
+    <div class="container contingut">
+        <div class="row">
+            <div class="span6 offset3 payment-result payment-result-success">
+                <h2>{% trans "La teva comanda s'ha gestionat correctament" %}</h2>
+                <p class="lead">{% trans "En breu rebràs a la bústia del teu correu electrònic un missatge amb totes les dades de la teva comanda." %}</p>
+                <p class="lead">{% trans "A partir d'ara podràs consultar l'estat de la teva comanda registrant-te a la nostra web." %}</p>
+                <a class="btn" href="/">{% trans "Torna" %}</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container contingut">
+        <div class="row">
+            <div class="span6 offset3 payment-result payment-result-error">
+                <h2>{% trans "Error en el pagament" %}</h2>
+                <p>{% trans "Segons el nostre proveïdor, l'error ha sigut:" %}</p>
+                <p class="lead">{{status}}</p>
+                <p class="lead">{% trans "Si tens qualsevol dubte, contacta'ns, intentarem ajudat-te en tot el que puguem." %}</p>
+                <a class="btn" href="{% url 'checkout_summary' %}">{% trans "Reintenta el pagament" %}</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascript %}
+{% endblock %} 

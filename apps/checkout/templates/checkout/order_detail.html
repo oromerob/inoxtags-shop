@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+ 
+
+{% block content %}
+    <div class="container contingut">
+        <div class="row">
+            <div id="order-detail" class="span6">
+                <div class="row-fluid">
+                    <div class="span12 info-box">
+                        <div class="info-box-inner">
+                            <h2>{% trans "Comanda de" %}&nbsp;{{order.creation_date|date}}</h2>
+                            <p>{% trans "Comanda número" %}:&nbsp;{{order.creation_date|date:"Y"}}/{{order.id}}</p>
+                            <p>{% trans "Realitzada" %}: {{order.creation_date}}</p>
+                            <p>{% trans "Import" %}: <span class="num">{{order.price|floatformat:2}}&euro;</span></p>
+                            <p class="lead">{% trans "Estat" %}:&nbsp;
+                            {% if order.shipped %}
+                                <strong>{% trans "La teva comanda ha sigut enviada." %}</strong></p>
+                                <p>{% trans "L'enviament es va fer" %}: {{order.ship_date|date}}</p>
+                                <p>{% if order.shipping_code %}{% trans "Pots seguir l'enviament de la teva comanda amb aquest codi" %}: {{order.shipping_code}}{% else %}{% trans "En breu publicarem el codi de seguiment de l'enviament de la teva comanda." %}{% endif %}</p>
+                            {% else %}
+                                <strong>{% trans "Estem produïnt la teva comanda, quan estigui en transit, t'avisarem." %}</strong></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="order-detail-products" class="span6">
+                <table id="list" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td class="center" colspan="2"><h4>{% trans "Productes" %}:</h4></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in product_list %}
+                            <tr>
+                                <td class="span4">
+                                    <div class="order-detail-product-img">
+                                        <img src="{{MEDIA_URL}}{{i.product.img_1}}" class="img-rounded" alt=""/>
+                                        <h3 class="num">{{i.quantity}}&nbsp;x</h3>
+                                    </div>
+                                </td>
+                                <td id="description" class="center span8">
+                                    {% if i.front_main %}<p>{% trans "Nom de l'animal" %}:&nbsp;<strong>{{i.front_main|upper}}</strong>{% if i.color %},&nbsp;{% trans "en color" %}&nbsp;{{i.color}}</p>{% endif %}</p>{% endif %}
+                                    {% if i.front_tel %}<p>{% trans "Telèfon" %}:&nbsp;{{i.front_tel|upper}}</p>{% endif %}
+                                    {% if i.back_1 %}<p>{% trans "Nom propietari" %}<span class="red">*</span>:&nbsp;{{i.back_1|upper}}</p>{% endif %}
+                                    {% if i.back_2 %}<p>{% trans "Telèfon" %}<span class="red">*</span>:&nbsp;{{i.back_2|upper}}</p>{% endif %}
+                                    {% if i.back_3 %}<p>{% trans "Altres" %}<span class="red">*</span>:&nbsp;{{i.back_3|upper}}</p>{% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %} 

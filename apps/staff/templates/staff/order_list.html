@@ -1,0 +1,45 @@
+{% extends 'staff_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+
+{% block staff_content %}
+    <div class="span12">
+        <div class="row-fluid">
+            <div class="span12 staff-buttons">
+                {% if to_do %}<a href="{% url 'staff_workshop' %}" class="btn">{{to_do}}&nbsp;comandes inacabades</a>{% endif %}
+                {% if unpayed %}<a href="{% url 'staff_order_unpayed_list' %}" class="btn">{{unpayed}}&nbsp;comandes inpagades</a>{% endif %}
+                {% if undelivered %}<a href="{% url 'staff_hand_delivery_list' %}" class="btn">{{undelivered}}&nbsp;comandes pendents d'entregar</a>{% endif %}
+                {% if unshipped %}<a href="{% url 'staff_shipment_list' %}" class="btn">{{unshipped}}&nbsp;comandes pendents d'enviament</a>{% endif %}
+            </div>
+        </div>
+        <table class="table table-bordered staff-table">
+            <thead>
+                <tr>
+                    <td>Data</td>
+                    <td>Client</td>
+                    <td>Comanda</td>
+                    <td>Factura</td>
+                    <td>Import</td>
+                    <td>Pagat</td>
+                    <td>Enviat</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in order_list %}
+                    <tr class="{% if i.deleted %}staff-red{% else %}{% if not i.payed %}staff-yellow{% endif %}{% endif %}">
+                        <td>{{i.creation_date}}</td>
+                        <td>{% if i.user.name %}{{i.user.name}}{% else %}{{i.user.email}}{% endif %}</td>
+                        <td><a href="{% url 'staff_order_detail_pdf' i.id %}">{{i}}</a></td>
+                        <td>{% if i.invoice %}<a href="{% url 'staff_invoice_detail_pdf' i.invoice.id %}">{{i.invoice}}</a>{% endif %}</td>
+                        <td>{{i.price|floatformat:2}}&euro;</td>
+                        <td>{% if i.payed %}Pagat{% else %}Pendent de pagar{% endif %}</td>
+                        <td>{% if not i.made %}Al taller{% else %}{% if i.shipped %}Enviat{% else %}Pendent d'enviar{% endif %}{% endif %}</td>
+                        <td>{% if not i.deleted %}<a href="{% url 'staff_order_delete' i.id %}">Elimina</a>{% endif %}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

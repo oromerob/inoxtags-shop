@@ -1,0 +1,32 @@
+{% extends 'staff_base.html' %}
+{% load i18n %}
+
+
+{% block staff_content %}
+    <div class="span12">
+        {% if preorder_list %}
+        <table class="table table-bordered staff-table">
+            <thead>
+                <tr>
+                    <td class="center">Data</td>
+                    <td class="center">id</td>
+                    <td class="center">Import</td>
+                    <td class="center">Ref.</td>
+                    <td class="center">Marca</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in preorder_list %}
+                    <tr>
+                        <td class="center">{{i.creation_date}}</td>
+                        <td class="center">{{i.id}}</td>
+                        <td class="center">{{i.price|floatformat:2}}&euro;</td>
+                        <td class="center">Ref#{{i}}</td>
+                        <td class="center"><a href="{% url 'staff_bank_transfer_done' i.id %}">Marca</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+{% endblock %}

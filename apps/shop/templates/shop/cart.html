@@ -1,0 +1,231 @@
+{% extends 'shop_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}&nbsp;-&nbsp;{% trans "Carro" %}{% endblock %}
+
+
+{% block shop_content %}
+        <div class="span12 cart visible-desktop">
+            {% if CountCartItems >= 1 %}
+            <table class="table table-bordered cart-table">
+                <thead>
+                    <tr>
+                        <td>{% trans "Producte" %}</td>
+                        <td class="center">{% trans "Personalització" %}</td>
+                        <td class="center">{% trans "Quantitat" %}</td>
+                        <td class="center">{% trans "Preu per placa" %}</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in CartProducts %}
+                        <tr>
+                            <td>{{i.product}}</td>
+                            <td class="center">
+                                <p>
+                                {% if i.color %}
+                                    {{i.color}},&nbsp;
+                                {% endif %}
+                                {% if i.front_main %}
+                                    <strong>{{i.front_main|upper}}</strong>,&nbsp;
+                                {% endif %}
+                                {% if i.front_tel %}
+                                    {{i.front_tel|upper}}
+                                {% endif %}
+                                </p>
+                                <p>
+                                {% if i.back_1 %}
+                                    {{i.back_1|upper}},&nbsp;
+                                {% endif %}
+                                {% if i.back_2 %}
+                                    {{i.back_2|upper}},&nbsp;
+                                {% endif %}
+                                {% if i.back_3 %}
+                                    {{i.back_3|upper}}
+                                {% endif %}
+                                </p>
+                            </td>
+                            <td class="center">{{i.quantity}}</td>
+                            <td class="center">
+                                {% if user.is_professional %}
+                                    {% if CountCartItems == 1 %}
+                                        {{i.price_special_1|floatformat:"2"}}&nbsp;&euro;
+                                    {% elif CountCartItems == 2 %}
+                                        {{i.price_special_2|floatformat:"2"}}&nbsp;&euro;
+                                    {% elif CountCartItems == 3 %}
+                                        {{i.price_special_3|floatformat:"2"}}&nbsp;&euro;
+                                    {% else %}
+                                        {{i.price_special_4|floatformat:"2"}}&nbsp;&euro;
+                                    {% endif %}
+                                {% else %}
+                                    {{i.price|floatformat:"2"}}&nbsp;&euro;
+                                {% endif %}
+                            </td>
+                            <td>
+                                <form method="post" class="cart-form" action="{% url 'cart_remove' i.id %}">{% csrf_token %}
+                                    <input type="submit" value="{% trans "Elimina" %}"/>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="row-fluid">
+                <div class="span6">
+                    <table class="table table-bordered cart-table">
+                        </tbody>   
+                            <tr>
+                                <td class="center"><p class="cart-amount"><strong>TOTAL</strong></p></td>
+                                <td class="center"><p class="num cart-amount"><strong>{{CartPrice|floatformat:"2"}}&nbsp;&euro;</strong></p></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6 buttons">
+                    {% if user.is_staff %}
+                    <a href="{% url 'staff_checkout' %}" class="btn btn-success">{% trans "Checkout" %}</a>
+                    {% else %}
+                    <a href="{% url 'checkout_summary' %}" class="btn btn-success">{% trans "Finalitza la compra" %}</a>
+                    {% endif %}
+                    <a href="{% url 'shop_main' %}" class="btn">{% trans "Torna a la tenda" %}</a>
+                </div> 
+            </div>
+            {% else %}
+            <h1>{% trans "El carro està buit" %}</h1>
+            {% endif %}
+        </div>
+        <div class="span12 cart hidden-desktop">
+            {% if CountCartItems >= 1 %}
+            <table class="table table-bordered cart-table">
+                <thead>
+                    <tr>
+                        <!--<td>{% trans "Producte" %}</td>-->
+                        <!--<td class="centra">{% trans "Personalització" %}</td>-->
+                        <td class="center">{% trans "Placa" %}</td>
+                        <td class="center">{% trans "Qu." %}</td>
+                        <td class="center">{% trans "Preu/placa" %}</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in CartProducts %}
+                        <tr>
+                            <!--<td>{{i.product}}</td>-->
+                            <td class="center">
+                                {{i.product}},&nbsp;
+                                {% if i.color %}
+                                    {{i.color}},&nbsp;
+                                {% endif %}
+                                {% if i.front_main %}
+                                    <strong>{{i.front_main|upper}}</strong>,&nbsp;
+                                {% endif %}
+                                {% if i.front_tel %}
+                                    {{i.front_tel|upper}},&nbsp;
+                                {% endif %}
+                                {% if i.back_1 %}
+                                    {{i.back_1|upper}},&nbsp;
+                                {% endif %}
+                                {% if i.back_2 %}
+                                    {{i.back_2|upper}},&nbsp;
+                                {% endif %}
+                                {% if i.back_3 %}
+                                    {{i.back_3|upper}},&nbsp;
+                                {% endif %}
+                            </td>
+                            <td class="center">{{i.quantity}}</td>
+                            <td class="center">
+                                {% if user.is_professional %}
+                                    {% if CountCartItems == 1 %}
+                                        {{i.price_special_1|floatformat:"2"}}&nbsp;&euro;
+                                    {% elif CountCartItems == 2 %}
+                                        {{i.price_special_2|floatformat:"2"}}&nbsp;&euro;
+                                    {% elif CountCartItems == 3 %}
+                                        {{i.price_special_3|floatformat:"2"}}&nbsp;&euro;
+                                    {% else %}
+                                        {{i.price_special_4|floatformat:"2"}}&nbsp;&euro;
+                                    {% endif %}
+                                {% else %}
+                                    {{i.price|floatformat:"2"}}&nbsp;&euro;
+                                {% endif %}
+                            </td>
+                            <td>
+                                <form method="post" class="cart-form" action="{% url 'cart_remove' i.id %}">{% csrf_token %}
+                                    <input class="visible-tablet" type="submit" value="{% trans "Elimina" %}"/>
+                                    <input class="visible-phone btn" type="submit" value="X"/>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="span6 offset3">
+                <table class="table table-bordered cart-table">
+                    </tbody>   
+                        <tr>
+                            <td class="center cart-amount"><strong>TOTAL</strong></td>
+                            <td class="center cart-amount num"><strong>{{CartPrice|floatformat:"2"}}&nbsp;&euro;</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="visible-tablet span6 offset3">
+                {% if user.is_staff %}
+                <a href="{% url 'staff_checkout' %}" class="btn btn-success full-width">{% trans "Checkout" %}</a>
+                {% else %}
+                <a href="{% url 'checkout_summary' %}" class="btn btn-success full-width">{% trans "Finalitza la compra" %}</a>
+                {% endif %}
+                <a href="{% url 'shop_main' %}" class="btn full-width">{% trans "Torna a la tenda" %}</a>
+            </div>
+            <div class="visible-phone">
+                <div class="span4">
+                    {% if user.is_staff %}
+                        <a href="{% url 'staff_checkout' %}" class="btn btn-success span4">{% trans "Checkout" %}</a>
+                    {% else %}
+                    <a href="{% url 'checkout_summary' %}" class="btn btn-success span4">{% trans "Finalitza la compra" %}</a>
+                    {% endif %}
+                </div>
+                <div class="span4">
+                    <a href="{% url 'shop_main' %}" class="btn span4">{% trans "Torna a la tenda" %}</a>
+                </div>
+            </div>
+            {% else %}
+            <h1>{% trans "El carro està buit" %}</h1>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block cart_add_products %}
+<div id="add-products" class="row">
+    <div class="span12">
+        <h4>{% trans "Afegeix més productes al carro" %}:</h4>
+        {% for i in product_list %}
+            <div class="span2 product">
+                <a href="{% url 'shop_product_create' i.slug %}"><img src="{{MEDIA_URL}}{{i.img_1}}"/></a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{{STATIC_URL}}flex-slider/jquery.flexslider.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var linea = $('.product');
+        while (linea.length >= 4) {
+            $(linea.splice(0, 4)).wrapAll('<div class="row-fluid" />');
+        }
+        $(linea.splice(0, linea.length)).wrapAll('<div class="row-fluid" />');
+    });
+    /*$(window).load(function() {
+        $('.flexslider').flexslider({
+            animation: "slide"
+        });
+    });*/
+</script>
+
+{% endblock %}

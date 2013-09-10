@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+
+{% block content %}
+
+<div class="container contingut">
+    <div id="contact" class="row">
+        <div class="span9 pull-right">
+            <form id="contact-form" method='post' action=''>{% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" class="btn" value="{% trans 'Envía' %}"/>
+            </form>
+        </div>
+        <div class="span3">
+            <fieldset>
+                <legend>{% trans "Contact us" %}</legend>
+            <table class="contact-table table">
+                <thead>
+                    <tr>
+                        <th><p><i class="icon-phone"></i></p></th>
+                        <th><p>{{contact_data.phone}}</p></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="icon-envelope"></i></td>
+                        <td><p><a href="mailto:{{contact_data.email}}">{{contact_data.email}}</a></p></td>
+                    </tr>
+                    <tr>
+                        <td><p><i class="icon-pencil"></i></p></td>
+                        <td><p>{{contact_data.address}}</p><p>{{contact_data.cp}}&nbsp;{{contact_data.town}}</p><p>{{contact_data.country}}</p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+            <img class="photo" src="{{STATIC_URL}}/img/ID-10072005.png" alt="" />
+            <p class="photo_attr">{% trans "Image courtesy of" %} Witthaya Phonsawat / <a href="http://www.freedigitalphotos.net" target="_blank">FreeDigitalPhotos.net</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+                

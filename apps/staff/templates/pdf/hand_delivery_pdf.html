@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<style>
+    @page {
+        size: a4;
+        margin:1cm;
+        font-size:18px;
+        }
+</style>
+
+</head>    
+<body>
+    <div>
+        <table style="border:1px solid #000000;border-collapse:collapse;">
+            <thead>
+                <tr style="border:1px solid #000000;">
+                    <td colspan="2" style="border:1px solid #000000;padding:5px;">Nom</td>
+                    <td colspan="2" style="border:1px solid #000000;padding:5px;">Adreça</td>
+                    <td style="border:1px solid #000000;padding:5px;">C.P.</td>
+                    <td style="border:1px solid #000000;padding:5px;">Localitat</td>
+                    <td colspan="2" style="border:1px solid #000000;padding:5px;">Comanda/Factura</td>
+                    <td style="border:1px solid #000000;padding:5px;">Import</td>
+                    <td style="border:1px solid #000000;padding:5px;">Pagat</td>
+                    <td style="border:1px solid #000000;padding:5px;">Entregat</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in order_list %}
+                    <tr style="border:1px solid #000000;">
+                        <td colspan="2" style="border:1px solid #000000;padding:5px;">{{i.user.name}}</td>
+                        <td colspan="2" style="border:1px solid #000000;padding:5px;">{{i.user.shipping_address}}</td>
+                        <td style="border:1px solid #000000;padding:5px;">{{i.user.shipping_code}}</td>
+                        <td style="border:1px solid #000000;padding:5px;">{{i.user.shipping_town}}</td>
+                        <td colspan="2" style="border:1px solid #000000;padding:5px;">{% if i.invoice %}Fact. {{i.invoice}}{% else %}{{i}}{% endif %}</td>
+                        <td style="border:1px solid #000000;padding:5px;">{{i.price|floatformat:2}}</td>
+                        <td style="border:1px solid #000000;padding:5px;"></td>
+                        <td style="border:1px solid #000000;padding:5px;"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{% extends 'staff_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+
+{% block staff_content %}
+    <div class="span12">
+        <div class="row-fluid">
+            <div class="span12 staff-buttons">
+                <a href="{% url 'staff_shipment_list_pdf' %}" class="btn">Generar full d'enviaments</a>
+                <a href="{% url 'staff_shipment_code_add_list' %}" class="btn">Introduir codis de seguiment</a>
+                <a href="{% url 'staff_shipment_code_list' %}" class="btn">Consultar codis de seguiment</a>
+            </div>
+        </div>
+        {% if es_order_list %}
+        <table class="table table-bordered staff-table">
+            <thead>
+                <tr>
+                    <td>Data</td>
+                    <td>Client</td>
+                    <td>Comanda/Factura</td>
+                    <td>Import</td>
+                    <td>Adreça</td>
+                    <td>CP - Població</td>
+                    <td>Marca en mà</td>
+                    <td>Enviat</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in es_order_list %}
+                    <tr class="">
+                        <td>{{i.creation_date|date}}</td>
+                        <td>{{i.to}}</td>
+                        <td><a href="{% url 'staff_order_detail_pdf' i.id %}">{{i}}</a>{% if i.invoice %}<br><a href="{% url 'staff_invoice_detail_pdf' i.invoice.id %}">Fact. {{i.invoice}}</a>{% endif %}</td>
+                        <td>{{i.price|floatformat:2}}&euro;</td>
+                        <td>{{i.address}}</td>
+                        <td>{{i.postal_code}} - {{i.town}}</td>
+                        <td><a href="{% url 'staff_order_mark_hand_delivery' i.id %}">Entrega en mà</a></td>
+                        <td><a href="{% url 'staff_shipment_shipped' i.id %}">Enviat</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+        {% if eu_order_list %}
+        <table class="table table-bordered staff-table">
+            <thead>
+                <tr>
+                    <td>Data</td>
+                    <td>Client</td>
+                    <td>Comanda/Factura</td>
+                    <td>Import</td>
+                    <td>Adreça</td>
+                    <td>CP - Població</td>
+                    <td>País</td>
+                    <td>Enviat</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in eu_order_list %}
+                    <tr class="">
+                        <td>{{i.creation_date|date}}</td>
+                        <td>{{i.to}}</td>
+                        <td><a href="#">{{i}}</a>{% if i.invoice %}<br><a href="#">Fact. {{i.invoice}}</a>{% endif %}</td>
+                        <td>{{i.price|floatformat:2}}&euro;</td>
+                        <td>{{i.address}}</td>
+                        <td>{{i.postal_code}} - {{i.town}}</td>
+                        <td>{{i.country}}</td>
+                        <td><a href="#">Enviat</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'shop_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+
+{% block shop_content %}
+        <div class="span6 prod-marketing">
+            <div class="row-fluid">
+                <div class="span12 product prod-img">
+                    <img src="{{MEDIA_URL}}{{product.img_1}}" alt=""> <!--Imatge principal del producte-->
+                    <h1 class="num">{{product.category.price|floatformat:2}} &euro;</h1>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <button class="btn galeria" type="button">{% trans "Galeria d'imatges" %}</button>
+                    <button class="btn descripcio" type="button">{% trans "Descripció" %}</button>
+                </div>
+            </div>
+            <div class="row-fluid galeria"></div><!--Galeria d'imatges del producte-->
+            <div class="row-fluid descripcio">
+                <div class="span12">
+                    <!--Aquí s'han de posar una descripció extesa dels materials i una altra de la personalització que es pot fer.-->
+                    <h3>{{product.name}}</h3>
+                    <p>{{product.description}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="span6 prod-form">
+            <form id="product" class="form-horizontal" method="post" action="">{% csrf_token %}
+                <div class="control-group">
+                    <label class="control-label" for="quantity">{% trans "Quantitat" %}</label>
+                    <div class="controls">
+                        {{form.quantity}}
+                        {{form.quantity.errors}}
+                    </div>
+                </div>
+                {% if product.category.has_color %}
+                    <div class="control-group">
+                        <label class="control-label" for="color">{% trans "Color" %}</label>
+                        <div class="controls">
+                            {{form.color}}
+                        </div>
+                    </div>
+                {% endif %}
+                    {{form.color.errors}}
+                {% if product.category.has_front_main %}
+                    <div class="control-group">
+                        <label class="control-label" for="front_principal">{% trans "Nom animal" %}</label>
+                        <div class="controls">
+                            {{form.front_main}}
+                        </div>
+                    </div>
+                {% endif %}
+                    {{form.front_principal.errors}}
+                {% if product.category.has_front_tel %}
+                    <div class="control-group">
+                        <label class="control-label" for="front_tel">{% trans "Telèfon" %}</label>
+                        <div class="controls">
+                            {{form.front_tel}}
+                        </div>
+                    </div>
+                {% endif %}
+                    {{form.front_tel.errors}}
+                {% if product.category.has_back_1 %}
+                    <div class="control-group">
+                        <label class="control-label" for="back_1">{% trans "Nom propietari" %}<span class="red">*</span></label>
+                        <div class="controls">
+                            {{form.back_1}}
+                        </div>
+                    </div>
+                {% endif %}
+                    {{form.back_1.errors}}
+                {% if product.category.has_back_2 %}
+                    <div class="control-group">
+                        <label class="control-label" for="back_2">{% trans "Telèfon" %}<span class="red">*</span></label>
+                        <div class="controls">
+                            {{form.back_2}}
+                        </div>
+                    </div>
+                {% endif %}
+                    {{form.back_2.errors}}
+                {% if product.category.has_back_3 %}
+                    <div class="control-group">
+                        <label class="control-label" for="back_3">{% trans "Altres" %}<span class="red">*</span></label>
+                        <div class="controls">
+                            {{form.back_3}}
+                        </div>
+                    </div>
+                {% endif %}
+                    {{form.back_3.errors}}
+                {% if user.is_staff %}
+                    <div class="control-group">
+                        <label class="control-label" for="repetition">{% trans "Repetició" %}</label>
+                        <div class="controls">
+                            {{form.repetition}}
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="submit" class="btn btn-success" value="{% trans "Afegeix al carro" %}"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $(document).ready(function(){
+            $("div.galeria").hide();
+            $("div.descripcio").hide();
+            $("button.galeria").click(function(){
+                $("div.galeria").toggle(600);
+            });
+            $("button.descripcio").click(function(){
+                $("div.descripcio").toggle(600);
+            });
+        });
+    </script>
+{% endblock %}

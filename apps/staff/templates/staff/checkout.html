@@ -1,0 +1,69 @@
+{% extends 'staff_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+
+{% block css_staff %}{% endblock %}
+
+{% block staff_content %}
+    <div class="row">
+        <div class="span12 cart visible-desktop">
+            {% if CountCartItems >= 1 %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>Producte</td>
+                        <td class="centra">Personalització</td>
+                        <td class="centra">Quantitat</td>
+                        <td class="centra">Repetició</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in CartProducts %}
+                        <tr>
+                            <td>{{i.product}}</td>
+                            <td class="centra">
+                                <p>
+                                {% if i.color %}
+                                    {{i.color}},&nbsp;
+                                {% endif %}
+                                {% if i.front_main %}
+                                    <span class="upp"><strong>{{i.front_main|upper}}</strong>,&nbsp;
+                                {% endif %}
+                                {% if i.front_tel %}
+                                    {{i.front_tel|upper}}
+                                {% endif %}
+                                </p>
+                                <p>
+                                {% if i.back_1 %}
+                                    {{i.back_1|upper}},&nbsp;
+                                {% endif %}
+                                {% if i.back_2 %}
+                                    {{i.back_2|upper}},&nbsp;
+                                {% endif %}
+                                {% if i.back_3 %}
+                                    {{i.back_3|upper}}
+                                {% endif %}
+                                </span></p>
+                            </td>
+                            <td class="centra">{{i.quantity}}</td>
+                            <td class="centra">{% if i.repetition %}Repetició{% endif %}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="span12">
+            <form id="form" method="post" action="">{% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" class="btn btn-success" value="Desa"/>
+            </form>
+            {% else %}
+            <h1>{% trans "El carro està buit" %}</h1>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}{% endblock %} 

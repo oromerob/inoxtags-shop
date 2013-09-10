@@ -1,0 +1,92 @@
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>{% trans "Dades per la transferència" %}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+    @import url(http://fonts.googleapis.com/css?family=Oleo+Script);
+</style>
+</head>
+<body style="margin: 0; padding: 0;">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">	
+		<tr>
+			<td style="padding: 10px 0 30px 0;">
+				<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; border-collapse: collapse;">
+					<tr>
+						<td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<td align="center" style="color: #153643; font-family: Arial, sans-serif; font-size: 24px;">
+										<b>{% trans "Moltes gràcies" %}, {{pre_order.user.name}} {% trans "per comprar a la web d'INOXtags." %}</b>
+									</td>
+								</tr>
+								<tr>
+									<td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                        <p>{% trans "Referència" %}:&nbsp;<b>Ref#{{pre_order}}</b></p>
+                                        <p>{% trans "Realitzada" %}: <b>{{pre_order.creation_date}}</b></p>
+                                        <p>{% trans "Import" %}: <b>{{pre_order.price|floatformat:2}}&euro;</b></p>
+									</td>
+								</tr>
+								<tr>
+									<td align="justify" style="color: #153643; font-family: Arial, sans-serif; font-size: 16px;">
+										<p>{% trans "Has seleccionat fer el pagament amb una transferència bancaria. Aquestes són les nostres dades:" %}</p>
+                                        <p>{% trans "Compte" %}:&nbsp;<b>{{transfer_data.bank_account}}</b></p>
+                                        <p>{% trans "Iban" %}:&nbsp;<b>{{transfer_data.bank_iban}}</b></p>
+                                        <p>{% trans "Titular" %}:&nbsp;<b>{{transfer_data.company|upper}}</b></p>
+                                        <p>{% trans "Adreça" %}:&nbsp;<b>{{transfer_data.invoice_address|upper}},&nbsp;{{transfer_data.invoice_cp}}&nbsp;{{transfer_data.invoice_town}}</b></p>
+                                        <p>{% trans "Concepte" %}:&nbsp;<b>Ref#{{pre_order.creation_date|date:"Y"}}/{{pre_order.id}}</b></p>
+										<p>{% trans "Has de saber que fins que no rebem la transferència, no començarem a produir la teva comanda, així que si t'en desdius no cal que facis res, simplement no fent efectiu el pagament, la comanda no es tramitarà. Un cop rebem l'ingrés, entre el temps que necessitem per fer-la i l'enviament, t'arribarà en un plaç d'uns 7 dies per enviaments a la península ibèrica, o 10 per a la resta d'Europa. Recorda que pots consultar l'estat de les teves comandes registrant-te a la nostra web. També hi podràs visualitzar les teves factures si et cal." %}</p>
+									</td>
+								</tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+				<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; border-collapse: collapse; margin-top:10px;">
+					<tr>
+						<td bgcolor="#ffffff" style="padding: 10px 10px 20px 10px;">
+                            {% for i in products %}
+							<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border: 1px solid #cccccc; border-collapse: collapse; margin-top:10px;">
+								<tr>
+									<td align="" style="margin-top:10px;">
+							            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td align="center" width="25%" style="color: #153643; font-family: Arial, sans-serif; font-size: 16px;padding:5px;">
+                                                    {{i.quantity}}&nbsp;x
+                                                </td>
+                                                <td width="25%" style="color: #153643; font-family: Arial, sans-serif; font-size: 16px;padding:5px;">
+                                                    <img src="{{MEDIA_URL}}{{i.product.img_1}}" alt=""/>
+                                                </td>
+                                                <td width="50%" style="color: #153643; font-family: Arial, sans-serif; font-size: 16px;padding:5px;"> {% if i.front_main %}<p>{% trans "Nom de l'animal" %}:&nbsp;<strong>{{i.front_main|upper}}</strong>{% if i.color %},&nbsp;{% trans "en color" %}&nbsp;{{i.color}}</p>{% endif %}</p>{% endif %}
+                                                {% if i.front_tel %}<p>{% trans "Telèfon" %}:&nbsp;{{i.front_tel|upper}}</p>{% endif %}
+                                                {% if i.back_1 %}<p>{% trans "Nom propietari" %}<span class="red">*</span>:&nbsp;{{i.back_1|upper}}</p>{% endif %}
+                                                {% if i.back_2 %}<p>{% trans "Telèfon" %}<span class="red">*</span>:&nbsp;{{i.back_2|upper}}</p>{% endif %}
+                                                {% if i.back_3 %}<p>{% trans "Altres" %}<span class="red">*</span>:&nbsp;{{i.back_3|upper}}</p>{% endif %}
+                                                </td>
+                                            </tr>
+                                        </table>
+									</td>
+								</tr>
+							</table>
+                            {% endfor %}
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#93000B" style="padding: 30px 30px 30px 30px;">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<td style="color: #ffffff; font-family: 'Oleo Script', cursive; font-size: 28px;" width="75%">
+                                        <a style="color:white;margin-left:30px;text-decoration:none;" href="#">INOXtags</a>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

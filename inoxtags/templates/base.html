@@ -1,0 +1,215 @@
+{% load i18n %}
+{% load url from future %}
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ ProjectName }}{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ Description }}">
+    <meta name="author" content="info@elprimoproductions.com">
+    <meta name="Keywords" content="{% for tag in Tags %}{{ tag.tag }},{% endfor %}">
+
+    <!-- Le styles -->
+
+    <link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url('{{STATIC_URL}}img/background.png');
+            }
+        @font-face {
+            font-family:'Oleo Script';
+            src: url('{{STATIC_URL}}css/fonts/OleoScript-Regular.ttf');
+            }
+        @font-face {
+            font-family:'Courgette';
+            src: url('{{STATIC_URL}}css/fonts/Courgette-Regular.ttf');
+            }
+    </style>
+
+    <link href="{{STATIC_URL}}css/style.css" rel="stylesheet">
+
+    {% block css %}{% endblock %}
+    {% block head_extra %}{% endblock %}
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="{{STATIC_URL}}ico/favicon.ico">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{STATIC_URL}}ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{STATIC_URL}}ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{STATIC_URL}}ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="{{STATIC_URL}}ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+<body>
+
+
+
+    <!-- NAVBAR
+    ================================================== -->
+
+    <!-- Wrap the .navbar in .container to center it on the page and provide easy way to target it with .navbar-wrapper. -->
+
+    <header class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="{% url 'home_page' %}">{{ ProjectName }}</a>
+          <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+                <li><a href="{% url 'shop_main' %}">Botiga</a></li>
+                <li><a href="{% url 'partner_main' %}">On trobar-nos</a></li>
+              <li><a href="{% url 'contact_form' %}">Contacta</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+          <div class="nav-collapse collapse pull-right">
+            <ul class="nav">
+                {% if CartPrice > 0 %}
+                    <li><a href="/shop/cart/"><i class="icon-shopping-cart"></i>&nbsp;<span class="num">{{CartPrice|floatformat:2}}&euro;</span></a></li>
+                {% endif %}
+                {% if user.is_authenticated %}
+
+                    {% if user.is_staff %}
+                        <li class="dropdown visible-desktop">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                {% if user.is_superuser %}
+                                    <li><a href="/admin" target="_blank">Admin</a></li>
+                                {% endif %}
+                                <li><a href="{% url 'staff_workshop' %}">Taller</a></li>
+                                <li><a href="{% url 'staff_bank_transfer_list' %}">Transferències rebudes</a></li>
+                                <li><a href="{% url 'staff_order_list' %}">Totes les comandes</a></li>
+                                <li><a href="{% url 'staff_order_unpayed_list' %}">Comandes pendents de pagament</a></li>
+                                <li><a href="{% url 'staff_order_delete_list' %}">Comandes Actives</a></li>
+                                <li><a href="{% url 'staff_order_modify_list' %}">Modifica comanda</a></li>
+                                <li><a href="{% url 'staff_hand_delivery_list' %}">Entregues en mà</a></li>
+                                <li><a href="{% url 'staff_shipment_list' %}">Gestionar enviaments</a></li>
+                                <li><a href="{% url 'staff_invoice_list' %}">Factures</a></li>
+                                <li><a href="{% url 'staff_rect_invoice_list' %}">Factures rectificatives</a></li>
+                                <li><a href="{% url 'staff_order_list_create_invoice' %}">Nova factura de comanda</a></li>
+                                <li><a href="{% url 'staff_create_invoice' %}">Nova factura</a></li>
+                            </ul>
+                        </li>
+                        {% if user.is_superuser %}
+                            <li class="hidden-desktop"><a href="/admin" target="_blank">Admin</a></li>
+                        {% endif %}
+                        <li class="hidden-desktop"><a href="{% url 'staff_workshop' %}">Taller</a></li>
+                        <li class="hidden-desktop"><a href="{% url 'staff_bank_transfer_list' %}">Transferències rebudes</a></li>
+                        <li class="hidden-desktop"><a href="{% url 'staff_order_list' %}">Comandes</a></li>
+                        <li class="hidden-desktop"><a href="{% url 'staff_order_unpayed_list' %}">Comandes pendents de pagament</a></li>
+                        <li class="hidden-desktop"><a href="{% url 'staff_order_delete_list' %}">Anul.lar comanda</a></li>
+                        <li class="hidden-desktop"><a href="{% url 'staff_order_modify_list' %}">Modifica comanda</a></li>
+                        <li class="hidden-desktop"><a href="{% url 'staff_hand_delivery_list' %}">Entregues en mà</a></li>
+                        <li class="hidden-desktop"><a href="{% url 'staff_shipment_list' %}">Gestionar enviaments</a></li>
+                        <li class="hidden-desktop"><a href="{% url 'staff_invoice_list' %}">Factures</a></li>
+                        <li class="hidden-desktop"><a href="{% url 'staff_rect_invoice_list' %}">Factures rectificatives</a></li>
+                        <li class="hidden-desktop"><a href="{% url 'staff_order_list_create_invoice' %}">Nova factura de comanda</a></li>
+                        <li class="hidden-desktop"><a href="{% url 'staff_create_invoice' %}">Nova factura</a></li>
+                        <li><a href="{% url 'django.contrib.auth.views.logout' %}">{% trans "Log out" %}</a></li>
+                    {% else %}
+                        <li><a href="{% url 'user_order_list' %}" class="hidden-desktop">{% trans "Comandes" %}</a></li>
+                        <li><a href="{% url 'user_invoice_list' %}" class="hidden-desktop">{% trans "Factures" %}</a></li>
+                        <li><a href="{% url 'inox_user_detail' %}" class="hidden-desktop">{% trans "Configuració del compte" %}</a></li>
+                        <li><a href="{% url 'auth_password_change' %}" class="hidden-desktop">{% trans "Change password" %}</a></li>
+                        <li class="dropdown visible-desktop pull-right">
+                            <a class="dropdown-toggle" data-toggle="dropdown"
+                                href="#">{{ user.email }} <span class="caret"></span></a>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="{% url 'inox_user_detail' %}">{% trans "Configuració del compte" %}</a></li>
+                                <li><a href="{% url 'auth_password_change' %}">{% trans "Change password" %}</a></li>
+                                <li><a href="{% url 'user_order_list' %}">{% trans "Comandes" %}</a></li>
+                                <li><a href="{% url 'user_invoice_list' %}">{% trans "Factures" %}</a></li>
+                                <li><a href="{% url 'django.contrib.auth.views.logout' %}">{% trans "Log out" %}</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{% url 'django.contrib.auth.views.logout' %}" class="hidden-desktop">{% trans "Log out" %}</a></li>
+                    {% endif %}
+
+                {% else %}
+                    <li>
+                        <a href="#loginModal" data-toggle="modal" class="visible-desktop">{% trans "Log in" %}</a>
+                        <a href="{% url 'django.contrib.auth.views.login' %}" class="hidden-desktop">{% trans "Log in" %}</a>
+                    </li>
+                {% endif %}
+            </ul>
+            <ul class="nav pull-right">
+                <li class="dropdown">
+                    {% get_current_language as Lang %}
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Lang }}&nbsp;<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        {% for lang in LANGUAGES %}
+                        <form class="lang-form" name="setLang{{lang.1}}" action="/i18n/setlang/" method="post">{% csrf_token %}
+                            <li>
+                                <input name="next" type="hidden" value="{{request.get_full_path}}">
+                                <input type="hidden" name="language" value="{{lang.0}}"/>
+                                <a href="#" onclick="document.setLang{{lang.1}}.submit();return false;">{{lang.1}}</a>
+                            </li>
+                        </form>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+          </div>
+        </div><!-- /.container -->
+      </div><!-- /.navbar-inner -->
+
+    </header><!-- /.navbar-fixed-top -->
+    
+
+    <div id="loginModal" class="modal hide fade visible-desktop" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">{% trans "Log in" %}</h3>
+        </div>
+        <div class="modal-body">
+            <form action="{% url 'django.contrib.auth.views.login' %}" method="post">
+              {% csrf_token %}
+                {{AuthForm.as_p}}
+                <p>{% trans "Forgot password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>!</p>
+                <p>{% trans "Not member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>
+              <input type="hidden" name="next" value="{{request.get_full_path}}" />
+        </div>
+        <div class="modal-footer">
+              <input type="submit" class="btn btn-success pull-right" value="{% trans "Log in" %}" />
+            </form>
+
+            <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "Close" %}</button>
+        </div>
+    </div>
+{% block content %}{% endblock %}
+
+
+      <!-- FOOTER -->
+      <footer>
+          <div class="container">
+            <p>&copy; {% if Creation|date:"Y" == Now|date:"Y" %}{{ Creation|date:"Y" }}{% else %}{{ Creation|date:"Y" }}-{{ Now|date:"Y" }}{% endif %} {{ Company }} &middot; <a href="{% url 'about_page' %}">{% trans "Qui som" %}</a> &middot; <a href="{% url 'privacy_page' %}">{% trans "Política de privacitat" %}</a> &middot; <a href="{% url 'terms_page' %}">{% trans "Condicions d'ús" %}</a></p>
+          </div><!-- /.container -->
+      </footer>
+
+
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{STATIC_URL}}js/jquery.js"></script>
+    <script src="{{STATIC_URL}}js/bootstrap.js"></script>
+    {% block javascript %}{% endblock %}
+  </body>
+</html>

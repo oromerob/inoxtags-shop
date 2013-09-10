@@ -1,0 +1,186 @@
+#-*- coding:utf-8 -*-
+import datetime
+from django.db import models
+from django.utils.translation import ugettext as _
+
+from autoslug import AutoSlugField
+from transmeta import TransMeta
+
+
+class Category(models.Model):
+    __metaclass__ = TransMeta
+
+    category = models.CharField(max_length=50, verbose_name=_("Category"))
+    slug = AutoSlugField(max_length=100, unique=True, populate_from='category')
+    img = models.ImageField(upload_to="product/img/", blank=True, verbose_name=_("Image"))
+    description = models.TextField(blank=True, verbose_name=_("Description"))
+    # product's price depends on the category
+    price = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per particulars')
+    price_special_1 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (una placa)')
+    price_special_2 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (dues plaques)')
+    price_special_3 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (tres plaques)')
+    price_special_4 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (més de tres plaques)')
+    price_in_hand = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals, entrega en mà')
+    has_color = models.BooleanField(default=False)
+    has_front_main = models.BooleanField(default=False)
+    has_front_tel = models.BooleanField(default=False)
+    has_back_1 = models.BooleanField(default=False)
+    has_back_2 = models.BooleanField(default=False)
+    has_back_3 = models.BooleanField(default=False)
+
+
+    def __unicode__(self):
+        return self.category
+
+    class Meta:
+        verbose_name_plural = "Categories"
+        translate = ('category', 'description',)
+
+
+class Shape(models.Model):
+    __metaclass__ = TransMeta
+
+    shape = models.CharField(max_length=100, verbose_name=_("Shape"))
+
+    class Meta:
+        translate = ('shape',)
+
+    def __unicode__(self):
+        return self.shape
+
+
+class Color(models.Model):
+    __metaclass__ = TransMeta
+
+    color = models.CharField(max_length=20, verbose_name=_("Color"))
+
+    class Meta:
+        translate = ('color',)
+
+    def __unicode__(self):
+        return self.color
+
+
+class Product(models.Model):
+    __metaclass__ = TransMeta
+
+    # Base product to customize in the shop
+    category = models.ForeignKey(Category)
+    shape = models.ForeignKey(Shape)
+    slug = AutoSlugField(max_length=100, populate_from='name')
+    img_1 = models.ImageField(upload_to="img/", verbose_name="imatge principal")
+    img_2 = models.ImageField(upload_to="img/", verbose_name="imatge combinada (davant i darrera)", blank=True)
+    img_3 = models.ImageField(upload_to="img/", verbose_name="imatge acotada amb mides", blank=True)
+    description = models.TextField(verbose_name=_("Description"))
+
+    def __unicode__(self):
+        return u"%s %s" % (self.category, self.shape)
+
+    def name(self):
+        return u"%s %s" % (self.category, self.shape)
+
+    class Meta:
+        verbose_name_plural = "Products"
+        ordering = ['category']
+        translate = ('description',)
+
+
+class CartManager(models.Manager):
+    def create_cart(self):
+        cart = self.create(creation_date=datetime.datetime.now())
+        request.session['CART_ID'] = cart.id
+        return cart
+
+
+class Cart(models.Model):
+    creation_date = models.DateTimeField(verbose_name='creation date', auto_now_add=True)
+    checked_out = models.BooleanField(default=False, verbose_name="checked out")
+
+    def __unicode__(self):
+        return unicode(self.id)
+
+    def get_count(self):
+        result = 0
+        for item in self.customproduct_set.all():
+            if not item.repetition:
+                result += item.quantity
+        return result
+
+    def get_count_total(self):
+        result = 0
+        for item in self.customproduct_set.all():
+            result += item.quantity
+        return result
+
+    def get_price(self, user):
+        result = 0
+        count = self.get_count()
+        try:
+            if user.is_professional:
+                if count >= 4:
+                    for item in self.customproduct_set.all():
+                        if not item.repetition:
+                            result += item.price_special_4 * item.quantity
+                elif count == 3:
+                    for item in self.customproduct_set.all():
+                        if not item.repetition:
+                            result += item.price_special_3 * item.quantity
+                elif count == 2:
+                    for item in self.customproduct_set.all():
+                        if not item.repetition:
+                            result += item.price_special_2 * item.quantity
+                else:
+                    for item in self.customproduct_set.all():
+                        if not item.repetition:
+                            result += item.price_special_1 * item.quantity
+            else:
+                for item in self.customproduct_set.all():
+                    if not item.repetition:
+                        result += item.price * item.quantity
+        except:
+            for item in self.customproduct_set.all():
+                if not item.repetition:
+                    result += item.price * item.quantity
+        return result
+
+    class Meta:
+        ordering = ('-creation_date',)
+
+
+class CustomProduct(models.Model):
+    # Customizable product displayed in the shop.
+
+    QUANTITY_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
+
+    cart = models.ForeignKey(Cart)
+    quantity = models.PositiveIntegerField(verbose_name='quantitat', choices=QUANTITY_CHOICES)
+    product = models.ForeignKey(Product)
+    # Product costumisation
+    color = models.ForeignKey(Color, blank=True, null=True)
+    front_main = models.CharField(max_length=15, blank=True, verbose_name="frontal principal")
+    front_tel = models.CharField(max_length=15, blank=True, verbose_name="frontal telèfon")
+    back_1 = models.CharField(max_length=15, blank=True, verbose_name="revers 1")
+    back_2 = models.CharField(max_length=15, blank=True, verbose_name="revers 2")
+    back_3 = models.CharField(max_length=15, blank=True, verbose_name="revers 3")
+    # inherits prices from category
+    price = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per particulars')
+    price_special_1 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (una placa)')
+    price_special_2 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (dues plaques)')
+    price_special_3 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (tres plaques)')
+    price_special_4 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (més de tres plaques)')
+    price_in_hand = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals, entrega en mà')
+    # internal fields
+    made = models.BooleanField(default=False)
+    repetition = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return unicode(self.id)
+
+    class Meta:
+        verbose_name_plural = "Custom products"

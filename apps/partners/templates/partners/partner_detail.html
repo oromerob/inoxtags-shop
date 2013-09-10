@@ -1,0 +1,34 @@
+{% extends 'partners/partner_main.html' %}
+{% load i18n %}
+{% load easy_maps_tags %}
+
+
+{% block partners %}
+    <div class="span12 partners">
+                    <div class="row-fluid info-box">
+                        <div class="info-box-inner">
+                            <div class="span6 partner-detail">
+                                <h2>{{partner.name}}</h2>
+                                <table>
+                                    <tr>
+                                        <td><span class="lead">{% trans "Adreça" %}:</span></td>
+                                        <td><span class="lead">{{partner.shipping_address}}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><span class="lead">{{partner.shipping_code}}&nbsp;{{partner.town}}</span></td>
+                                    </tr>
+                                    {% if partner.website %}
+                                        <tr>
+                                            <td colspan="2"><p class="lead"><a href="{{partner.website}}" target="_blank">{{partner.website}}</a></p></td>
+                                        </tr>
+                                    {% endif %}
+                                </table>
+                            </div>
+                            <div class="span6 partner-map">
+                                {% easy_map address 400 250 %}
+                            </div>
+                        </div>
+                    </div>
+    </div>
+{% endblock %}

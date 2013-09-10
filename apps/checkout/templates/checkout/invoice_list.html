@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+ 
+
+{% block content %}
+    <div class="container contingut">
+        <div class="row">
+            {% if user.invoice_tax_code and user.invoice_address and user.invoice_code and user.invoice_town and user.invoice_name %}
+                {% if invoice_list %}
+                            <table id="list" class="table table-bordered span10 offset1 invoices">
+                                <thead>
+                                    <tr>
+                                        <td class="center" colspan="5"><h4>{% trans "Factures" %}:</h4></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td class="center span2">{% trans "Data" %}</td>
+                                            <td class="center span2">{% trans "Número de factura" %}</td>
+                                            <td class="center span2">{% trans "Comanda corresponent" %}</td>
+                                            <td class="center span2">{% trans "Import total" %}</td>
+                                            <td class="center span2">{% trans "Detall" %}</td>
+                                        </tr>
+                                    {% for i in invoice_list %}
+                                        <tr>
+                                            <td class="center span2">{{i.creation_date|date}}</td>
+                                            <td class="center span2">{{i}}</td>
+                                            <td class="center span2">{{i.order}}</td>
+                                            <td class="center span2">{{i.price|floatformat:2}}&euro;</td>
+                                            <td class="center span2"><a href="{% url 'user_invoice_pdf' i.id %}">{% trans "pdf" %}</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                {% else %}
+                    <div class="span8 offset2 invoices">
+                        <h3>{% trans "No hi ha factures" %}</h3>
+                        <p class="lead">{% trans "Encara no heu generat cap factura, si teniu comandes realitzades i acabeu d'introduir les vostres dades de facturació, poseu-vos en contacte amb nosaltres, hem de generar les factures manualment." %}</p>
+                    </div>
+                {% endif %}
+                {% if rect_invoice_list %}
+                            <table class="table table-bordered span10 offset1 invoices">
+                                <thead>
+                                    <tr>
+                                        <td class="center" colspan="5"><h4>{% trans "Factures rectificatives" %}:</h4></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td class="center span2">{% trans "Data" %}</td>
+                                            <td class="center span2">{% trans "Número de factura rectificativa" %}</td>
+                                            <td class="center span2">{% trans "Factura corresponent" %}</td>
+                                            <td class="center span2">{% trans "Import total" %}</td>
+                                            <td class="center span2">{% trans "Detall" %}</td>
+                                        </tr>
+                                    {% for i in rect_invoice_list %}
+                                        <tr>
+                                            <td class="center span2">{{i.creation_date|date}}</td>
+                                            <td class="center span2">{{i}}</td>
+                                            <td class="center span2">{{i.invoice}}</td>
+                                            <td class="center span2">{{i.price|floatformat:2}}&euro;</td>
+                                            <td class="center span2"><a href="{% url 'user_rect_invoice_pdf' i.id %}">{% trans "pdf" %}</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                {% endif %}
+                {% if order_list %}
+                            <table class="table table-bordered span10 offset1 invoices">
+                                <thead>
+                                    <tr>
+                                        <td class="center" colspan="5"><h4>{% trans "Comandes no facturades" %}:</h4></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td class="center span3">{% trans "Data" %}</td>
+                                            <td class="center span3">{% trans "Comanda" %}</td>
+                                            <td class="center span3">{% trans "Import total" %}</td>
+                                            <td class="center span3">{% trans "Generar factura" %}</td>
+                                        </tr>
+                                    {% for i in order_list %}
+                                        {% if not i.has_invoice %}
+                                        <tr>
+                                            <td class="center span2">{{i.creation_date|date}}</td>
+                                            <td class="center span2">{{i}}</td>
+                                            <td class="center span2">{{i.price|floatformat:2}}&euro;</td>
+                                            <td class="center span2"><a href="#">{% trans "generar" %}</a></td>
+                                        </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                {% endif %}
+
+
+            {% else %}
+                <div class="span8 offset2 invoices">
+                    <h3 class="red">{% trans "Atenció" %}!</h3>
+                    <p class="lead">{% trans "Per poder generar les factures, primer ens heu de proveir de les vostres dades de facturació. Ho podeu fer a 'Configuració del compte', 'Dades de facturació'. Per a qualsevol dubte, poseu-vos en contacte amb nosaltres, us atendrem el més aviat possible." %}</p>
+                </div>
+            {% endif %}                
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %} 

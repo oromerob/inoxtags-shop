@@ -1,0 +1,21 @@
+{% extends 'partners/partner_main.html' %}
+{% load i18n %}
+{% load url from future %}
+
+
+{% block partners %}
+    <div id="partner-list" class="span12">
+        {% regroup partner_list by town as town_list %}
+        {% for town in town_list %}
+        <fieldset>
+            <legend>{{town.grouper}}</legend>
+            <div class="row-fluid">
+                <table class="span12">
+                    {% for partner in town.list %}
+                    <tr><td><a href="{% url 'partner_detail' partner.id %}">{{partner.name}}</a></td><td id="address">{{partner.shipping_address}}</td></tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </fieldset>
+        {% endfor %}
+{% endblock %}

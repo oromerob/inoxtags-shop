@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<style>
+    @page {
+        size: a4;
+        margin-top:3cm;
+        margin-left:2.5cm;
+        margin-right:1.5cm;
+        margin-bottom:2cm;
+        @frame inoxtags {
+            -pdf-frame-content: inoxtagsContent;
+            top:2cm;
+            left:2.5cm;
+            width:6cm;
+            }
+        @frame customer {
+            -pdf-frame-content: customerContent;
+            top:3cm;
+            right:1.5cm;
+            width:8cm;
+            }
+        @frame invoice {
+            -pdf-frame-content: invoiceContent;
+            top:7cm;
+            left:2.5cm;
+            right:1.5cm;
+            }
+        }
+    @font-face {
+        font-family: OleoScript;
+        src: url({{MEDIA_URL}}{{invoice.data.logo_font}})
+        }
+</style>
+
+</head>    
+<body>
+    <div id="inoxtagsContent">
+        <table>
+            <tbody>
+                <tr><td style="font-size:42px;font-family:OleoScript;">{{invoice.data.name}}</td></tr>
+                <tr><td style="font-size:14px;">{{invoice.data.company|upper}}</td></tr>
+                <tr><td>Tel. {{invoice.data.phone}}</td></tr>
+                <tr><td>NIF: {{invoice.data.tax_code}}</td></tr>
+                <tr><td>{{invoice.data.invoice_address}}</td></tr>
+                <tr><td>{{invoice.data.invoice_cp}} {{invoice.data.invoice_town}}</td></tr>
+                <tr><td>{{invoice.data.invoice_country}}</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="customerContent" style="border:1px solid #000000;">
+        <table>
+            <tbody>
+                <tr><td style="padding-left:5px;padding:5px;">
+                    <span style="font-size:16px;">{{invoice.user.invoice_name|upper}}</span><br>
+                    NIF: {{invoice.user.invoice_tax_code}}<br>
+                    {{invoice.user.invoice_address}}<br>
+                    {{invoice.user.invoice_code}} {{invoice.user.invoice_town}}<br>
+                    {{invoice.user.shipping_country}}
+                </td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="invoiceContent">
+        <table style="border:1px solid #000000;border-collapse:collapse;">
+            <thead>
+                <tr style="border:1px solid #000000;">
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Tipo documento</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Fecha documento</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Referencia</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border:1px solid #000000;">
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">Factura rectificativa</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{{invoice.creation_date|date}}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{{invoice}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="border:1px solid #000000;border-collapse:collapse;margin-top:1cm;">
+            <tbody>
+                <tr style="border:1px solid #000000;">
+                    <td colspan="3" style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">Descripción</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">Importe</td>
+                </tr>
+                <tr style="border:1px solid #000000;">
+                    <td colspan="3" style="border:1px solid #000000;padding-top:13px;padding-bottom:100px;text-align:center;font-size:12px;">{% if invoice.invoice.order %}Albarán {{invoice.invoice.order}}{% else %}{{invoice.invoice.concept}}{% endif %}</td>
+                    <td style="border:1px solid #000000;padding-top:13px;padding-bottom:100px;text-align:center;font-size:12px;">{{invoice.price_base|floatformat:2}}&euro;</td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="border:1px solid #000000;border-collapse:collapse;margin-top:1cm;">
+            <tbody>
+                <tr style="border:1px solid #000000;">
+                    <td style="border:1px solid #000000;padding-top:3px;padding-left:5px;font-size:12px;">Total Imponible<br><span style="text-align:right;padding-right:5px;">{{invoice.price_base|floatformat:2}}&euro;</span></td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">IVA<br>{{invoice.iva}}%</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">Cuota<br>{{invoice.price_iva|floatformat:2}}&euro;</td>
+                    <td style="border:1px solid #000000;padding-top:3px;padding-right:5px;text-align:right;">TOTAL FACTURA<br><span style="font-size:14px;">{{invoice.price|floatformat:2}}&euro;</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="border:1px solid #000000;border-collapse:collapse;margin-top:3cm;">
+            <tbody>
+                <tr>
+                    <td style="border:1px solid #000000;padding-top:8px;padding-bottom:40px;padding-left:5px;font-size:12px;">Observaciones:<br>Rectifica la Factura {{invoice.invoice}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

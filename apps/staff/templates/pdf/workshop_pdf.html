@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<style>
+    @page {
+        size: a4;
+        margin:1cm;
+        font-size:18px;
+        }
+</style>
+
+</head>    
+<body>
+    <div>
+        <table style="border:1px solid #000000;border-collapse:collapse;">
+            <thead>
+                <tr style="border:1px solid #000000;">
+                    <td style="border:1px solid #000000;padding:5px;">uds. x Model</td>
+                    <td style="border:1px solid #000000;padding:5px;">Color</td>
+                    <td style="border:1px solid #000000;padding:5px;"><strong>Front principal</strong></td>
+                    <td style="border:1px solid #000000;padding:5px;"><strong>front tel.</strong>/back#1</td>
+                    <td style="border:1px solid #000000;padding:5px;">back#2</td>
+                    <td style="border:1px solid #000000;padding:5px;">back#3</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in item_list %}
+                    <tr style="border:1px solid #000000;">
+                        <td style="border:1px solid #000000;padding:5px;">{{i.quantity}}&nbsp;x&nbsp;{{i.product}}</td>
+                        <td style="border:1px solid #000000;padding:5px;">{{i.color}}</td>
+                        <td style="border:1px solid #000000;padding:5px;font-size:20px;"><strong>{{i.front_main|upper}}</strong></td>
+                        <td style="border:1px solid #000000;padding:5px;font-size:20px;"><strong>{{i.front_tel|upper}}</strong>{{i.back_1|upper}}</td>
+                        <td style="border:1px solid #000000;padding:5px;font-size:20px;">{{i.back_2|upper}}</td>
+                        <td style="border:1px solid #000000;padding:5px;font-size:20px;">{{i.back_3|upper}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

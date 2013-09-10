@@ -1,0 +1,37 @@
+{% extends 'staff_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+
+{% block staff_content %}
+    <div class="span12">
+        <table class="table table-bordered staff-table">
+            <thead>
+                <tr>
+                    <td>Comanda</td>
+                    <td>Data</td>
+                    <td>Client</td>
+                    <td>Adreça</td>
+                    <td>Pais</td>
+                    <td>Data enviament</td>
+                    <td>Codi</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in order_list %}
+                    {% if i.shipping_code %}
+                    <tr class="">
+                        <td>{{i}}</td>
+                        <td>{{i.creation_date|date}}</td>
+                        <td>{{i.to}}</td>
+                        <td>{{i.address}}, {{i.postal_code}} {{i.town}}</td>
+                        <td>{{i.country}}</td>
+                        <td>{{i.ship_date|date}}</td>
+                        <td>{{i.shipping_code}}</td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

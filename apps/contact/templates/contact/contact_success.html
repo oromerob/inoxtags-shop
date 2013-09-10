@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="container contingut">
+    <div class="row">
+        <div class="span4 offset4 info-box">
+            <div class="info-box-inner">
+                <p class="lead">{% trans "Message recieved successfully" %}</p>
+
+                <p class="lead"><a href="{% url 'home_page' %}">{% trans "Home" %}</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

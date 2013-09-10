@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+
+    /* Carousel base class */
+    .carousel {
+      margin-bottom: 60px;
+    }
+
+    .carousel .container {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .carousel-control {
+      background-color: transparent;
+      border: 0;
+      font-size: 120px;
+      margin-top: 0;
+      text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    }
+
+    /*.carousel .item {
+      max-height: 100%;
+    }*/
+    .carousel img {
+      min-width: 100%;
+      height: 500px;
+      }
+
+    .carousel-caption {
+      background-color: transparent;
+      position: static;
+      max-width: 550px;
+      padding: 0 20px;
+      margin-bottom: 100px;
+    }
+    .carousel-caption h1,
+    .carousel-caption .lead {
+      margin: 0;
+      line-height: 1.25;
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    }
+    .carousel-caption .btn {
+      margin-top: 10px;
+    }
+
+    /* Featurettes
+    ------------------------- */
+    .featurette-divider {
+        margin: 40px 0; /* Space out the Bootstrap <hr> more */
+        }
+    .featurette {
+        padding-top: 10px; /* Vertically center images part 1: add padding above and below text. */
+        overflow: hidden; /* Vertically center images part 2: clear their floats. */
+        }
+    .featurette-image {
+        margin-top: -20px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+        }
+    /* Give some space on the sides of the floated elements so text doesn't run right into it. */
+    .featurette-image.pull-left {
+        margin-right: 40px;
+        }
+    .featurette-image.pull-right {
+        margin-left: 40px;
+        }
+    /* Thin out the marketing headings */
+    .featurette-heading {
+        font-size: 50px;
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: -1px;
+        } 
+
+    @media (max-width: 979px) {
+
+        .carousel .item {
+            height: 400px;
+            }
+        .carousel img {
+            min-width: 100%;
+            }
+        .featurette {
+            height: auto;
+            padding: 0;
+            }
+        .featurette-image.pull-left,
+        .featurette-image.pull-right {
+            display: block;
+            float: none;
+            max-width: 80%;
+            margin: 0 auto 20px;
+            } 
+        }
+
+    @media (max-width: 767px) {
+
+        .carousel {
+            margin-left: -20px;
+            margin-right: -20px;
+            }
+        .carousel .container {
+
+            }
+        .carousel .item {
+            height: 300px;
+            }
+        .carousel img {
+            height: 300px;
+            min-width: 100%;
+            }
+        .carousel-caption {
+            width: 65%;
+            padding: 0 70px;
+            margin-bottom: 40px;
+            }
+        .carousel-caption h1 {
+            font-size: 30px;
+            }
+        .carousel-caption .lead,
+        .carousel-caption .btn {
+            font-size: 18px;
+            }
+        .featurette-heading {
+            font-size: 30px;
+            }
+        .featurette .lead {
+            font-size: 18px;
+            line-height: 1.5;
+            } 
+        .featurette-divider {
+            margin: 20px 0; /* Space out the Bootstrap <hr> more */
+            }
+        }
+
+    @media (max-width: 480px) {
+
+        .carousel img {
+        min-height:100%;
+        width:auto;
+      }
+    }
+
+    /* Configuració dels botons telèfon */
+
+    a.tel {
+        margin-top:20px;
+        margin-left:20px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block content %}
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide hidden-phone">
+
+      <div class="carousel-inner">
+
+		{% for i in sliders %}
+				<div class="item">
+					<img src="{{MEDIA_URL}}{{i.img}}" alt="">
+					<div class="container">
+						<div class="carousel-caption">
+							<h1>{{i.title}}</h1>
+							<p class="lead">{{i.text}}</p>
+							<a class="btn btn-large btn-primary" href="{{i.btn_link}}">{{i.btn_txt}}</a>
+
+						</div>
+					</div>
+				</div>
+		{% endfor %}
+
+      </div>
+      
+      
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div><!-- /.carousel -->
+
+    <div class="visible-phone">
+        <ul class="nav nav-pills">
+            <li><a href="/shop" class="tel">A la botiga</a></li>
+            {% if user.is_authenticated %}
+            {% else %}
+                <li><a href="/accounts/signin" class="tel">Identifica't</a></li>
+            {% endif %}
+        </ul>
+    </div>
+<div class="container">
+    <div class="row">
+        {% for i in featurettes %}
+            <div class="featurette span12">
+                <img class="featurette-image span5" src="{{MEDIA_URL}}{{i.img}}" alt="{{i.img_desc}}">
+                <h2 class="featurette-heading">
+                    {{i.slogan}}
+                    <span class="muted">{{i.subslogan}}</span>
+                </h2>
+                {{i.text|safe}}</p>
+            </div>
+            <hr class="featurette-divider">
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+      !function ($) {
+        $(function(){
+          // carousel demo
+            $('#myCarousel').carousel()
+            $('.item').first().addClass('active');
+            $('.featurette p').addClass('lead');
+            $('.featurette ul li').addClass('lead');
+            $('.featurette-image:even').addClass('pull-right');
+            $('.featurette-image:odd').addClass('pull-left');
+        })
+      }(window.jQuery)
+    </script>
+{% endblock %}

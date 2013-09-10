@@ -1,0 +1,13 @@
+{% extends 'staff_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+
+{% block staff_content %}
+        <div class="offset3 span6 staff-form">
+            <form method='post' acion="">{% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" class="btn btn-success" value="Afegeix"/>
+            </form>
+        </div>
+{% endblock %}

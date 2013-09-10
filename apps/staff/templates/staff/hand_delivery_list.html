@@ -1,0 +1,48 @@
+{% extends 'staff_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+
+{% block staff_content %}
+    <div class="span12">
+        {% if not order_list %}
+        <div class="row-fluid">
+            <div class="span4 offset4 info-box">
+                <div class="info-box-inner">
+                    <h3>No hi ha comandes per entregar en mà acabades i pendents d'entregar.</h3>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="row-fluid">
+            <div class="span12 staff-buttons">
+                <a href="{% url 'staff_hand_delivery_pdf' %}" class="btn">Genera entregues en mà</a>
+            </div>
+        </div>
+        <table class="table table-bordered staff-table">
+            <thead>
+                <tr>
+                    <td>Data</td>
+                    <td>Client</td>
+                    <td>Comanda/Factura</td>
+                    <td>Import</td>
+                    <td>Pagat</td>
+                    <td>Entregat</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in order_list %}
+                    <tr>
+                        <td>{{i.creation_date}}</td>
+                        <td>{{i.user.name}}</td>
+                        <td>{% if i.user.invoice_name and i.user.invoice_tax_code and i.user.invoice_address and i.user.invoice_code and i.user.invoice_town %}{% if i.invoice %}<a href="{% url 'staff_invoice_detail_pdf' i.invoice.id %}">Fact. {{i.invoice}}</a>{% else %}<a href="{% url 'staff_create_invoice_from_order' i.id %}">Genera factura</a>{% endif %}{% else %}<a href="{% url 'staff_order_detail_pdf' i.id %}">{{i}}</a>{% endif %}</td>
+                        <td>{{i.price|floatformat:2}}&euro;</td>
+                        <td>{% if i.payed %}Pagat{% else %}<a href="{% url 'staff_hand_delivery_payed' i.id %}">pagat</a>{% endif %}</td>
+                        <td><a href="{% url 'staff_hand_delivery_done' i.id %}">entregat</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+{% endblock %}

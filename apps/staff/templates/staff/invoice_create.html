@@ -1,0 +1,12 @@
+{% extends 'staff_base.html' %}
+{% load i18n %}
+
+
+{% block staff_content %}
+    <div class="span4 offset4 staff-form">
+        <form method="post" action="">{% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class="btn" value="Desa" />
+        </form>
+    </div>
+{% endblock %}

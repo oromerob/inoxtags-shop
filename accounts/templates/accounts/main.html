@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+
+{% block title %} - {% trans "Dades del compte" %}{% endblock %}
+
+
+{% block content %}
+<div class="container contingut">
+    <div class="row-fluid">
+        <div class="span4 {% if not user.is_professional %}offset2{% endif %} info-box">
+            <div class="info-box-inner">
+                <fieldset>
+                    <legend>{% trans "Dades d'enviament" %}</legend>
+                    {% if user.shipping_address %}
+                    <address>
+                        <strong>{{user.name}}</strong></br>
+                        {{user.shipping_address}}</br>
+                        {{user.shipping_code}} {{user.shipping_town}}</br>
+                        {{user.shipping_country}}</br>
+                    </address>
+                    <a href="{% url 'shipping_data_update' %}">{% trans "Modifica" %}</a>
+                    {% else %}
+                    <p class="">
+                        {% trans "Encara no has introduit les teves dades d'enviament, recorda que és inprescindible per poder enviar-te el que compris." %}
+                    </p>
+                    <a class="" href="{% url 'shipping_data_update' %}">{% trans "Add" %}</a>
+                    {% endif %}
+                </fieldset>
+            </div>
+        </div>
+        <div class="span4 info-box">
+            <div class="info-box-inner">
+                <fieldset>
+                    <legend>{% trans "Dades de facturació" %}</legend>
+                    {% if user.invoice_required and user.invoice_tax_code %}
+                    <address>
+                        <strong>{{user.invoice_name}}</strong></br>
+                        <strong>{{user.invoice_tax_code}}</strong></br>
+                        {{user.invoice_address}}</br>
+                        {{user.invoice_code}} {{user.invoice_town}}</br>
+                    </address>
+                    <a href="{% url 'invoice_data_update' %}">{% trans "Update" %}</a>
+                    {% else %}
+                    <p class="">
+                        {% trans "Si desitges que amb el teu enviament t'enviem una factura en comptes d'un albarà, cal que ens facilitis les teves dades." %}
+                    </p>
+                    <a class="" href="{% url 'invoice_data_update' %}">{% trans "Add" %}</a>
+                    {% endif %}
+                </fieldset>
+            </div>
+        </div>
+        {% if user.is_professional %}
+        <div class="span4 info-box">
+            <div class="info-box-inner">
+                <fieldset>
+                    <legend>{% trans "Dades professionals" %}</legend>
+                    <address>
+                        {{user.phone_1}}</br>
+                        {{user.phone_2}}</br>
+                        {{user.website}}</br>
+                    </address>
+                    <a href="{% url 'professional_data_update' %}">{% trans "Modifica" %}</a>
+                </fieldset>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

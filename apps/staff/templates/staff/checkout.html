@@ -6,7 +6,8 @@
 {% block css_staff %}{% endblock %}
 
 {% block staff_content %}
-    <div class="row">
+<div class="span12 staff">
+    <div class="row-fluid">
         <div class="span12 cart visible-desktop">
             {% if CountCartItems >= 1 %}
             <table class="table table-bordered">
@@ -63,6 +64,7 @@
             {% endif %}
         </div>
     </div>
+</div>
 
 {% endblock %}
 

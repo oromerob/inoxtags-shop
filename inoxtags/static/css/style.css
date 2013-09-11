@@ -252,6 +252,9 @@
     #add-products {
         margin-top:40px;
         }
+    #add-products > div > div > div {
+        margin-top:20px;
+    }
 
     /* Custom product */
     .prod-form > form input[type="text"] {

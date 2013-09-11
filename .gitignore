@@ -1,0 +1,12 @@
+*.pyc
+*.pyo
+*.swp
+*.swo
+database.inoxtags.db
+manage.py
+local_settings.py
+settings.py
+collect_static/
+load
+ck_uploads
+migrations/

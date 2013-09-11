@@ -168,7 +168,7 @@
 					<img src="{{MEDIA_URL}}{{i.img}}" alt="">
 					<div class="container">
 						<div class="carousel-caption">
-							<h1>{{i.title}}</h1>
+							<h1>{{i.title|safe}}</h1>
 							<p class="lead">{{i.text}}</p>
 							<a class="btn btn-large btn-primary" href="{{i.btn_link}}">{{i.btn_txt}}</a>
 

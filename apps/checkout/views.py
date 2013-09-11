@@ -108,10 +108,12 @@ class PaymentResultView(TemplateView):
             msg.attach_alternative(html_content, "text/html")
             msg.send()
 
+            '''
             # Auto generates invoice if set
 
             if request.user.invoice_required:
                 Invoice.objects.create(user=request.user, order=order, price=price, iva=Decimal(str(iva)))
+            '''
 
             # Mark the cart as checked out
 
@@ -198,8 +200,7 @@ class InvoiceListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(InvoiceListView, self).get_context_data(**kwargs)
         context['rect_invoice_list'] = RectInvoice.objects.filter(user=self.request.user)
-        context['order_list'] = Order.objects.filter(user=self.request.user).filter(deleted=False)
-        #context['order_list'] = Order.objects.filter(user=self.request.user).filter(deleted=False).filter(has_invoice=False)
+        context['order_list'] = Order.objects.filter(user=self.request.user).filter(deleted=False).filter(invoice=None)
         return context
 
 

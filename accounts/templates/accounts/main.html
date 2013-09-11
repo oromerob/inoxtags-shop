@@ -34,7 +34,7 @@
             <div class="info-box-inner">
                 <fieldset>
                     <legend>{% trans "Dades de facturació" %}</legend>
-                    {% if user.invoice_required and user.invoice_tax_code %}
+                    {% if user.invoice_address and user.invoice_tax_code and user.invoice_name and user.invoice_code and invoice_town %}
                     <address>
                         <strong>{{user.invoice_name}}</strong></br>
                         <strong>{{user.invoice_tax_code}}</strong></br>

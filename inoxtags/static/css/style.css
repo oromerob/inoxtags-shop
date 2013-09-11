@@ -272,6 +272,9 @@
         color:white;
         text-shadow: 0 1px 1px rgba(0,0,0,.4);
         }
+
+    /* shop */
+
     #products-responsive > .row-fluid > .product > a > img {
         max-height:202.5px;
         }
@@ -324,6 +327,14 @@
     #products > .row-fluid > .product > .imgText a:hover {
         text-decoration:none;
         }
+    @media (min-width:980px) and (max-width:1199px) {
+        #products > .row-fluid > .product > .imgText p {
+            font-size:80%;
+            }
+        #products > .row-fluid > .product > .imgText a {
+            font-size:80%;
+            }
+    }
     
     /* Contact 
     ---------------------------------------------------*/

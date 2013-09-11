@@ -56,14 +56,16 @@
         </div>
     </div>
     <div class="row-fluid">
-        <div class="span12">
-            <form id="form" method="post" action="">{% csrf_token %}
-                {{form.as_p}}
-                <input type="submit" class="btn btn-success" value="Desa"/>
-            </form>
-            {% else %}
-            <h1>{% trans "El carro està buit" %}</h1>
-            {% endif %}
+        <div class="span4 info-box">
+            <div class="info-box-inner">
+                <form id="form" method="post" action="">{% csrf_token %}
+                    {{form.as_p}}
+                    <input type="submit" class="btn btn-success" value="Desa"/>
+                </form>
+                {% else %}
+                <h1>{% trans "El carro està buit" %}</h1>
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>

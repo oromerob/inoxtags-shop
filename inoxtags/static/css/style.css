@@ -328,7 +328,10 @@
         }
     @media (min-width:980px) and (max-width:1199px) {
         #products > .row-fluid > .product > .imgText h2 {
-            font-size:70%;
+            margin-top:10px;
+            margin-left:10px;
+            margin-right:10px;
+            font-size:80%;
         }
         #products > .row-fluid > .product > .imgText p {
             font-size:80%;

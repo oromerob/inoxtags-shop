@@ -331,6 +331,7 @@
             margin-top:10px;
             margin-left:10px;
             margin-right:10px;
+            margin-bottom:10px;
             font-size:90%;
             line-height:28px;
         }
@@ -339,6 +340,7 @@
             margin-bottom:10px;
             margin-left:10px;
             margin-right:10px;
+            margin-top:0px;
         }
     }
     

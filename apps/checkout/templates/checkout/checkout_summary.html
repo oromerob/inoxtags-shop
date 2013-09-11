@@ -57,7 +57,8 @@
                             {# <button class="btn cardForm btn-large" type="button">Targeta</button> #}
                             <button class="btn bankTrans btn-large" type="button">Transferència</button>
                         </div>
-                        {# <div class="cardForm">
+                        {% comment %}
+                        <div class="cardForm">
                             <form class="form-horizontal" action="{{action}}" method="POST" id="braintree-payment-form">{% csrf_token %}
                                 <input type="hidden" name="tr_data" value="{{tr_data}}" />
                                 <div class="">
@@ -91,7 +92,8 @@
                                 var braintree = Braintree.create("MIIBCgKCAQEApX6dqL6WCNaEz7XOvgdJkyhfj80yqQ/fLprgwP+R5tjxeQMBu7o263Na1J4Qd5Fnf3oDJm/gJhlRmC982nCbydAcktDj+gjesq54hwm/IOqKozx8HpUr0+atm0CL+gPjZZ0WkBF3Ib/0vKrhHnzOpQZLBdcmIwe0SjkSfhYRFJ9S5/qPT+C3sfjxP+ihH9BGnXCHscERBDrHhXLwGHX287XbjBbXQQ2tLDDCvxryzPIxd+vz1w9VI7dcJ5r3JTmvFyJhQBbDdUmJ3/fq0DE7LqKxC6n5HGX/qq4PhBg5l31cTLGyJbCHkS3dyOyUZ4M3Qt+u6THzXlvGSMELOhsMLwIDAQAB");
                                 braintree.onSubmitEncryptForm('braintree-payment-form');
                             </script>
-                        </div> #}
+                        </div>
+                        {% endcomment %}
                         <div class="bankTrans">
                             <p class="lead">{% trans "Si prefereixes pagar-nos amb transferència bancaria, recorda que al concepte has d'indicar la referència que t'indiquem i que començarem a preparar-te l'enviament un cop rebem l'ingés al nostre compte. Per seguir prem el botó 'Pagar amb transferència' i et mostrarem les dades per fer l'ingés i t'enviarem al mateix moment un mail perquè puguis consultar-ho en qualsevol moment." %}</p>
                             <div id="bankTrans">

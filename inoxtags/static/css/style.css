@@ -331,12 +331,10 @@
             margin-top:10px;
             margin-left:10px;
             margin-right:10px;
-            font-size:80%;
+            font-size:90%;
+            line-height:28px;
         }
         #products > .row-fluid > .product > .imgText p {
-            font-size:80%;
-        }
-        #products > .row-fluid > .product > .imgText a {
             font-size:80%;
         }
     }

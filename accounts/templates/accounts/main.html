@@ -34,7 +34,12 @@
             <div class="info-box-inner">
                 <fieldset>
                     <legend>{% trans "Dades de facturació" %}</legend>
-                    {% if user.invoice_address and user.invoice_tax_code and user.invoice_name and user.invoice_code and invoice_town %}
+                    {% if not user.invoice_address and not user.invoice_tax_code and not user.invoice_name and not user.invoice_code and not user.invoice_town %}
+                    <p class="">
+                        {% trans "Per poder-te fer factura, cal que ens facilitis les teves dades." %}
+                    </p>
+                    <a class="" href="{% url 'invoice_data_update' %}">{% trans "Add" %}</a>
+                    {% else %}
                     <address>
                         <strong>{{user.invoice_name}}</strong></br>
                         <strong>{{user.invoice_tax_code}}</strong></br>
@@ -42,11 +47,6 @@
                         {{user.invoice_code}} {{user.invoice_town}}</br>
                     </address>
                     <a href="{% url 'invoice_data_update' %}">{% trans "Update" %}</a>
-                    {% else %}
-                    <p class="">
-                        {% trans "Si desitges que amb el teu enviament t'enviem una factura en comptes d'un albarà, cal que ens facilitis les teves dades." %}
-                    </p>
-                    <a class="" href="{% url 'invoice_data_update' %}">{% trans "Add" %}</a>
                     {% endif %}
                 </fieldset>
             </div>

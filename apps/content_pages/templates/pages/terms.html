@@ -6,12 +6,7 @@
     <div class="container contingut">
         <div class="row-fluid info-box green-background">
             <div class="info-box-inner terms">
-                {% if text.privacity %}
-                    <h1>{% trans "Privacy" %}</h1>
-                    {{text.privacity|safe}}
-                {% else %}
-                    <h1>{% trans "Terms of service" %}</h1>
-                    {{text.terms|safe}}
+                    {{text|safe}}
                 {% endif %}
             </div>
         </div>

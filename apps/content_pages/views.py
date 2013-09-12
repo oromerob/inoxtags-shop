@@ -28,7 +28,8 @@ class TermsPageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(TermsPageView, self).get_context_data(**kwargs)
-        context['text'] = Tos.objects.values("terms").get()
+        tos = Tos.objects.get()
+        context['text'] = tos.terms
         return context
 
 
@@ -38,5 +39,6 @@ class PrivacyPageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(PrivacyPageView, self).get_context_data(**kwargs)
-        context['text'] = Tos.objects.values("privacity").get()
+        tos = Tos.objects.get()
+        context['text'] = tos.privacity
         return context

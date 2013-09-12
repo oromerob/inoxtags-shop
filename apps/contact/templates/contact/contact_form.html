@@ -6,12 +6,6 @@
 
 <div class="container contingut">
     <div id="contact" class="row">
-        <div class="span9 pull-right">
-            <form id="contact-form" method='post' action=''>{% csrf_token %}
-                {{form.as_p}}
-                <input type="submit" class="btn" value="{% trans 'Envía' %}"/>
-            </form>
-        </div>
         <div class="span3">
             <fieldset>
                 <legend>{% trans "Contact us" %}</legend>
@@ -33,9 +27,15 @@
                     </tr>
                 </tbody>
             </table>
-        </fieldset>
+            </fieldset>
             <img class="photo" src="{{STATIC_URL}}/img/ID-10072005.png" alt="" />
             <p class="photo_attr">{% trans "Image courtesy of" %} Witthaya Phonsawat / <a href="http://www.freedigitalphotos.net" target="_blank">FreeDigitalPhotos.net</a></p>
+        </div>
+        <div class="span9">
+            <form id="contact-form" method='post' action=''>{% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" class="btn" value="{% trans 'Envía' %}"/>
+            </form>
         </div>
     </div>
 </div>

@@ -8,7 +8,8 @@
         <div class="row">
             {% if user.invoice_tax_code and user.invoice_address and user.invoice_code and user.invoice_town and user.invoice_name %}
                 {% if invoice_list %}
-                            <table id="list" class="table table-bordered span10 offset1 invoices staff-table">
+                    <div class="span10 offset1">
+                            <table id="list" class="table table-bordered invoices staff-table">
                                 <thead>
                                     <tr>
                                         <td class="center" colspan="5"><h4>{% trans "Factures" %}:</h4></td>
@@ -33,6 +34,7 @@
                                     {% endfor %}
                                 </tbody>
                             </table>
+                        </div>
                 {% else %}
                     <div class="span8 offset2 invoices">
                         <h3>{% trans "No hi ha factures" %}</h3>
@@ -40,7 +42,8 @@
                     </div>
                 {% endif %}
                 {% if rect_invoice_list %}
-                            <table class="table table-bordered span10 offset1 invoices staff-table">
+                    <div class="span10 offset1">
+                            <table class="table table-bordered invoices staff-table">
                                 <thead>
                                     <tr>
                                         <td class="center" colspan="5"><h4>{% trans "Factures rectificatives" %}:</h4></td>
@@ -65,9 +68,11 @@
                                     {% endfor %}
                                 </tbody>
                             </table>
+                        </div>
                 {% endif %}
                 {% if order_list %}
-                            <table class="table table-bordered span10 offset1 invoices staff-table">
+                    <div class="span10 offset1">
+                            <table class="table table-bordered invoices staff-table">
                                 <thead>
                                     <tr>
                                         <td class="center" colspan="5"><h4>{% trans "Comandes no facturades" %}:</h4></td>
@@ -92,6 +97,7 @@
                                     {% endfor %}
                                 </tbody>
                             </table>
+                        </div>
                 {% endif %}
 
 

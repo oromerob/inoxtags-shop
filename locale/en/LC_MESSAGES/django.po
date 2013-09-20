@@ -3,165 +3,163 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-20 10:00+0200\n"
-"PO-Revision-Date: 2013-09-20 10:05+0200\n"
+"POT-Creation-Date: 2013-09-20 11:14+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: accounts/forms.py:21
 msgid "E-mail"
-msgstr "Email"
+msgstr ""
 
 #: accounts/forms.py:22
 msgid "Password"
-msgstr "Contrasenya"
+msgstr ""
 
 #: accounts/forms.py:23
 msgid "Password (again)"
-msgstr "Contrasenya (una altra vegada)"
+msgstr ""
 
 #: accounts/forms.py:25
 msgid "I have read and agree to the Terms of Service"
-msgstr "He llegit i entenc les Condicions d'ús del lloc"
+msgstr ""
 
 #: accounts/forms.py:25
 msgid "You must agree to the terms to register"
-msgstr "Has d'acceptar les Condicions d'ús per poder-te registrar."
+msgstr ""
 
 #: accounts/forms.py:32
 msgid ""
 "This email address is already in use. Please supply a different email "
 "address."
-msgstr "Aquest email ja està registrat. Useu-ne un altre si us plau."
+msgstr ""
 
 #: accounts/forms.py:44
 msgid "The two password fields didn't match."
-msgstr "Les dues contrasenyes no coincideixen."
+msgstr ""
 
 #: accounts/models.py:16
 msgid "Country"
-msgstr "País"
+msgstr ""
 
 #: accounts/models.py:68
 msgid "staff status"
-msgstr "Membre del personal"
+msgstr ""
 
 #: accounts/models.py:68
 msgid "Designates whether the user can log into this admin site."
-msgstr "Indica si l'usuari pot entrar a aquest lloc d'administració."
+msgstr ""
 
 #: accounts/models.py:69
 msgid "date joined"
-msgstr "data d'ingrés"
+msgstr ""
 
 #: accounts/models.py:71
 msgid "full name or company's name"
-msgstr "Nom complert o nom comercial del negoci."
+msgstr ""
 
 #: accounts/models.py:72
 msgid "shipping address"
-msgstr "adreça d'enviament"
+msgstr ""
 
 #: accounts/models.py:73 accounts/models.py:82
 msgid "postal code"
-msgstr "codi postal"
+msgstr ""
 
 #: accounts/models.py:74 accounts/models.py:83
 msgid "town"
-msgstr "localitat"
+msgstr ""
 
 #: accounts/models.py:75
 msgid "country"
-msgstr "país"
+msgstr ""
 
 #: accounts/models.py:77
 msgid "wants invoice"
-msgstr "vol factura"
+msgstr ""
 
 #: accounts/models.py:78
 msgid "legal name"
-msgstr "nom fiscal"
+msgstr ""
 
 #: accounts/models.py:79
 msgid "tax code"
-msgstr "NIF"
+msgstr ""
 
 #: accounts/models.py:80
 msgid "extra charge for equivalence only for spanish professional customers"
-msgstr "recàrrec d'equivalència, només per clients professionals espanyols"
+msgstr ""
 
 #: accounts/models.py:81
 msgid "legal address"
-msgstr "adreça fiscal"
+msgstr ""
 
 #: accounts/models.py:85
 msgid "is professional"
-msgstr "és professional"
+msgstr ""
 
 #: accounts/models.py:86
 msgid "share professional customer data"
-msgstr "comparteix les dades professionals"
+msgstr ""
 
 #: accounts/models.py:87
 msgid "main phone number"
-msgstr "telèfon principal"
+msgstr ""
 
 #: accounts/models.py:88
 msgid "alternative phone number"
-msgstr "telèfon alternatiu"
+msgstr ""
 
 #: accounts/views.py:127
 msgid "Shipping data"
-msgstr "Adreça d'enviament"
+msgstr ""
 
 #: accounts/views.py:162
 msgid "Invoice data"
-msgstr "Dades de facturació"
+msgstr ""
 
 #: accounts/views.py:197
 msgid "Professional data"
-msgstr "Dades professionals"
+msgstr ""
 
 #: accounts/templates/accounts/main.html:6
 msgid "Dades del compte"
-msgstr "Dades del compte"
+msgstr ""
 
 #: accounts/templates/accounts/main.html:15
 #: apps/checkout/templates/checkout/checkout_summary.html:45
 msgid "Dades d'enviament"
-msgstr "Dades d'enviament"
+msgstr ""
 
 #: accounts/templates/accounts/main.html:23
 #: accounts/templates/accounts/main.html:64
 msgid "Modifica"
-msgstr "Modifica"
+msgstr ""
 
 #: accounts/templates/accounts/main.html:26
 msgid ""
 "Encara no has introduit les teves dades d'enviament, recorda que és "
 "inprescindible per poder enviar-te el que compris."
 msgstr ""
-"Encara no has introduit les teves dades d'enviament, recorda que és "
-"inprescindible per poder enviar-te el que compris."
 
 #: accounts/templates/accounts/main.html:28
 #: accounts/templates/accounts/main.html:41
 #: accounts/templates/accounts/update_data.html:14
 msgid "Add"
-msgstr "Afegeix"
+msgstr ""
 
 #: accounts/templates/accounts/main.html:36
 msgid "Dades de facturació"
-msgstr "Dades de facturació"
+msgstr ""
 
 #: accounts/templates/accounts/main.html:39
 msgid "Per poder-te fer factura, cal que ens facilitis les teves dades."
@@ -169,19 +167,19 @@ msgstr ""
 
 #: accounts/templates/accounts/main.html:49
 msgid "Update"
-msgstr "Actualitza"
+msgstr ""
 
 #: accounts/templates/accounts/main.html:58
 msgid "Dades professionals"
-msgstr "Dades professionals"
+msgstr ""
 
 #: accounts/templates/accounts/update_data.html:13
 msgid "Back"
-msgstr "Torna"
+msgstr ""
 
 #: accounts/templates/registration/activate.html:8
 msgid "Account successfully activated"
-msgstr "Compte activat exitosament"
+msgstr ""
 
 #: accounts/templates/registration/activate.html:10
 #: accounts/templates/registration/login.html:13
@@ -189,118 +187,114 @@ msgstr "Compte activat exitosament"
 #: inoxtags/templates/base.html:145 inoxtags/templates/base.html.py:146
 #: inoxtags/templates/base.html:177 inoxtags/templates/base.html.py:188
 msgid "Log in"
-msgstr "Iniciar sessió"
+msgstr ""
 
 #: accounts/templates/registration/activate.html:14
 msgid "Account activation failed"
-msgstr "L'activació del compte ha fallat"
+msgstr ""
 
 #: accounts/templates/registration/activation_complete.html:5
 msgid "Your account is now activated."
-msgstr "El teu compte està actiu"
+msgstr ""
 
 #: accounts/templates/registration/activation_email.txt:2
 msgid "Activate account at"
-msgstr "Activa el compte a"
+msgstr ""
 
 #: accounts/templates/registration/activation_email.txt:6
 #, python-format
 msgid "Link is valid for %(expiration_days)s days."
-msgstr "El link és vàlid per %(expiration_days)s dies."
+msgstr ""
 
 #: accounts/templates/registration/activation_email_subject.txt:1
 msgid "Account activation on"
-msgstr "Compte activat"
+msgstr ""
 
 #: accounts/templates/registration/login.html:17
 #: inoxtags/templates/base.html:183
 msgid "Forgot password"
-msgstr "Has oblidat la contrasenya"
+msgstr ""
 
 #: accounts/templates/registration/login.html:17
 #: inoxtags/templates/base.html:183
 msgid "Reset it"
-msgstr "Restableix-la"
+msgstr ""
 
 #: accounts/templates/registration/login.html:18
 #: inoxtags/templates/base.html:184
 msgid "Not member"
-msgstr "No estàs registrat"
+msgstr ""
 
 #: accounts/templates/registration/login.html:18
 #: inoxtags/templates/base.html:184
 msgid "Register"
-msgstr "Registra't"
+msgstr ""
 
 #: accounts/templates/registration/logout.html:5
 msgid "Logged out"
-msgstr "Sessió finalitzada"
+msgstr ""
 
 #: accounts/templates/registration/password_change_done.html:9
 msgid "Password changed"
-msgstr "Contrasenya canviada"
+msgstr ""
 
 #: accounts/templates/registration/password_change_form.html:13
 #: accounts/templates/registration/password_reset_confirm.html:17
 #: accounts/templates/registration/password_reset_form.html:13
 #: accounts/templates/registration/registration_form.html:13
 msgid "Submit"
-msgstr "Envia"
+msgstr ""
 
 #: accounts/templates/registration/password_reset_complete.html:10
 msgid "Password reset successfully"
-msgstr "Contrasenya restablerta amb èxit"
+msgstr ""
 
 #: accounts/templates/registration/password_reset_confirm.html:22
 msgid "Password reset failed"
-msgstr "El restabliment de la vostra contrasenya ha fallat"
+msgstr ""
 
 #: accounts/templates/registration/password_reset_done.html:9
 msgid "Email with password reset instructions has been sent."
 msgstr ""
-"T'hem enviat un email amb les instruccions per restablir la vostra "
-"contrasenya"
 
 #: accounts/templates/registration/password_reset_email.html:2
 #, python-format
 msgid "Reset password at %(site_name)s"
-msgstr "Restableix contrasenya a %(site_name)s"
+msgstr ""
 
 #: accounts/templates/registration/registration_closed.html:5
 msgid "Registration is currently closed."
-msgstr "Actualment el registre de nous usuaris està tancat."
+msgstr ""
 
 #: accounts/templates/registration/registration_complete.html:5
 msgid "You are now registered. Activation email sent."
-msgstr "Estàs registrat, t'hem enviat un email d'activació."
+msgstr ""
 
 #: apps/checkout/views.py:102
 msgid "Comanda gestionada correctament a la web d'INOXtags."
-msgstr "Comanda gestionada correctament a la web d'INOXtags."
+msgstr ""
 
 #: apps/checkout/views.py:157
 msgid "Dades d'INOXtags per tramitar comanda."
-msgstr "Dades d'INOXtags per tramitar comanda."
+msgstr ""
 
 #: apps/checkout/templates/checkout/bank_transfer.html:12
 msgid "La teva compra s'ha gestionat correctament"
-msgstr "La teva compra s'ha gestionat correctament"
+msgstr ""
 
 #: apps/checkout/templates/checkout/bank_transfer.html:13
 msgid ""
 "En breu rebràs a la bústia del teu correu electrònic un missatge amb les "
 "dades perque puguis fer el pagament de la teva compra."
 msgstr ""
-"En breu rebràs a la bústia del teu correu electrònic un missatge amb les "
-"dades perque puguis fer el pagament de la teva compra."
 
 #: apps/checkout/templates/checkout/bank_transfer.html:14
 msgid "Si tens qualsevol dubte, et pots posar en contacte amb nosaltres"
-msgstr "Si tens qualsevol dubte, et pots posar en contacte amb nosaltres"
+msgstr ""
 
 #: apps/checkout/templates/checkout/bank_transfer.html:14
 msgid "aquí"
-msgstr "aquí"
+msgstr ""
 
 #: apps/checkout/templates/checkout/bank_transfer.html:15
 #: apps/checkout/templates/email/bank_transfer.html:40
@@ -314,54 +308,44 @@ msgid ""
 "registrant-te a la nostra web. També hi podràs visualitzar les teves "
 "factures si et cal."
 msgstr ""
-"Has de saber que fins que no rebem la transferència, no començarem a produir "
-"la teva comanda, així que si t'en desdius no cal que facis res, simplement "
-"no fent efectiu el pagament, la comanda no es tramitarà. Un cop rebem "
-"l'ingrés, entre el temps que necessitem per fer-la i l'enviament, t'arribarà "
-"en un plaç d'uns 7 dies per enviaments a la península ibèrica, o 10 per a la "
-"resta d'Europa. Recorda que pots consultar l'estat de les teves comandes "
-"registrant-te a la nostra web. També hi podràs visualitzar les teves "
-"factures si et cal."
 
 #: apps/checkout/templates/checkout/checkout_summary.html:12
 msgid "Ens falten dades."
-msgstr "Ens falten dades."
+msgstr ""
 
 #: apps/checkout/templates/checkout/checkout_summary.html:13
 msgid ""
 "Per poder continuar tramitant la teva comanda, primer cal que ens facilitis "
 "totes les teves dades d'enviament."
 msgstr ""
-"Per poder continuar tramitant la teva comanda, primer cal que ens facilitis "
-"totes les teves dades d'enviament."
 
 #: apps/checkout/templates/checkout/checkout_summary.html:16
 msgid "El vostre nom."
-msgstr "El vostre nom."
+msgstr ""
 
 #: apps/checkout/templates/checkout/checkout_summary.html:19
 msgid "La vostra adreça."
-msgstr "La vostra adreça."
+msgstr ""
 
 #: apps/checkout/templates/checkout/checkout_summary.html:22
 msgid "El vostre codi postal."
-msgstr "El vostre codi postal."
+msgstr ""
 
 #: apps/checkout/templates/checkout/checkout_summary.html:25
 msgid "La vostra població."
-msgstr "La vostra població."
+msgstr ""
 
 #: apps/checkout/templates/checkout/checkout_summary.html:28
 msgid "El vostre país."
-msgstr "El vostre país."
+msgstr ""
 
 #: apps/checkout/templates/checkout/checkout_summary.html:31
 msgid "Completa les teves dades d'enviament."
-msgstr "Completa les teves dades d'enviament."
+msgstr ""
 
 #: apps/checkout/templates/checkout/checkout_summary.html:41
 msgid "Resum de la compra"
-msgstr "Resum de la compra"
+msgstr ""
 
 #: apps/checkout/templates/checkout/checkout_summary.html:42
 msgid "Nº de productes"
@@ -742,19 +726,19 @@ msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:82
 msgid "Contado"
-msgstr "Comptat"
+msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:82
 msgid "giro bancario"
-msgstr "gir bancari"
+msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:82
 msgid "Pagado"
-msgstr "Pagat"
+msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:95
 msgid "Albarán"
-msgstr "Albarà"
+msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:105
 msgid "Total Imponible"
@@ -766,7 +750,7 @@ msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:107
 msgid "Cuota"
-msgstr "Quota"
+msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:108
 msgid "TOTAL FACTURA"
@@ -774,23 +758,23 @@ msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:115
 msgid "Observaciones"
-msgstr "Observacions"
+msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:117
 msgid "Productos en el pedido"
-msgstr "Productes a la comanda"
+msgstr ""
 
 #: apps/contact/models.py:7
 msgid "name"
-msgstr "nom"
+msgstr ""
 
 #: apps/contact/templates/contact/contact_form.html:11
 msgid "Contact us"
-msgstr "Contacta'ns"
+msgstr ""
 
 #: apps/contact/templates/contact/contact_form.html:32
 msgid "Image courtesy of"
-msgstr "Imatge cortesia de"
+msgstr ""
 
 #: apps/contact/templates/contact/contact_form.html:37
 msgid "Envía"
@@ -798,23 +782,24 @@ msgstr ""
 
 #: apps/contact/templates/contact/contact_success.html:10
 msgid "Message recieved successfully"
-msgstr "Missatge rebut amb èxit"
+msgstr ""
 
 #: apps/contact/templates/contact/contact_success.html:12
 msgid "Home"
-msgstr "Inici"
+msgstr ""
 
 #: apps/partners/templates/partners/partner_main.html:5
+#: inoxtags/templates/base.html:76
 msgid "On trobar-nos"
 msgstr ""
 
 #: apps/settings/models.py:57
 msgid "terms of service"
-msgstr "condicions d'ús"
+msgstr ""
 
 #: apps/settings/models.py:58
 msgid "privacity"
-msgstr "política de privacitat"
+msgstr ""
 
 #: apps/shop/models.py:13
 msgid "Category"
@@ -977,20 +962,28 @@ msgstr ""
 
 #: inoxtags/settings.py:40 inoxtags/settings.py:222
 msgid "Catalan"
-msgstr "Català"
+msgstr ""
 
 #: inoxtags/settings.py:41 inoxtags/settings.py:223
 msgid "Spanish"
-msgstr "Castellà"
+msgstr ""
 
 #: inoxtags/settings.py:42 inoxtags/settings.py:224
 msgid "English"
-msgstr "Anglès"
+msgstr ""
+
+#: inoxtags/templates/base.html:75 inoxtags/templates/shop_base.html:5
+msgid "Botiga"
+msgstr ""
+
+#: inoxtags/templates/base.html:77
+msgid "Contacta"
+msgstr ""
 
 #: inoxtags/templates/base.html:123 inoxtags/templates/base.html.py:137
 #: inoxtags/templates/base.html:140
 msgid "Log out"
-msgstr "Finalitza sessió"
+msgstr ""
 
 #: inoxtags/templates/base.html:127 inoxtags/templates/base.html.py:133
 msgid "Configuració del compte"
@@ -998,11 +991,11 @@ msgstr ""
 
 #: inoxtags/templates/base.html:128 inoxtags/templates/base.html.py:134
 msgid "Change password"
-msgstr "Canvia la contrasenya"
+msgstr ""
 
 #: inoxtags/templates/base.html:191
 msgid "Close"
-msgstr "Tanca"
+msgstr ""
 
 #: inoxtags/templates/base.html:200
 msgid "Qui som"
@@ -1016,23 +1009,6 @@ msgstr ""
 msgid "Condicions d'ús"
 msgstr ""
 
-#: inoxtags/templates/shop_base.html:5
-msgid "Botiga"
-msgstr ""
-
 #: inoxtags/templates/shop_base.html:23
 msgid "Tots els productes"
 msgstr ""
-
-#~ msgid ""
-#~ "Si desitges que amb el teu enviament t'enviem una factura en comptes d'un "
-#~ "albarà, cal que ens facilitis les teves dades."
-#~ msgstr ""
-#~ "Si desitges que amb el teu enviament t'enviem una factura en comptes d'un "
-#~ "albarà, cal que ens facilitis les teves dades."
-
-#~ msgid "Privacy"
-#~ msgstr "Política de privacitat"
-
-#~ msgid "Terms of service"
-#~ msgstr "Condicions d'ús"

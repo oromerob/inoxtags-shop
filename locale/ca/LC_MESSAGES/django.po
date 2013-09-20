@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-20 10:00+0200\n"
+"POT-Creation-Date: 2013-09-20 11:14+0200\n"
 "PO-Revision-Date: 2013-09-20 10:05+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -805,6 +805,7 @@ msgid "Home"
 msgstr "Inici"
 
 #: apps/partners/templates/partners/partner_main.html:5
+#: inoxtags/templates/base.html:76
 msgid "On trobar-nos"
 msgstr ""
 
@@ -987,6 +988,15 @@ msgstr "Castellà"
 msgid "English"
 msgstr "Anglès"
 
+#: inoxtags/templates/base.html:75 inoxtags/templates/shop_base.html:5
+msgid "Botiga"
+msgstr ""
+
+#: inoxtags/templates/base.html:77
+#, fuzzy
+msgid "Contacta"
+msgstr "Contacta'ns"
+
 #: inoxtags/templates/base.html:123 inoxtags/templates/base.html.py:137
 #: inoxtags/templates/base.html:140
 msgid "Log out"
@@ -1014,10 +1024,6 @@ msgstr ""
 
 #: inoxtags/templates/base.html:200
 msgid "Condicions d'ús"
-msgstr ""
-
-#: inoxtags/templates/shop_base.html:5
-msgid "Botiga"
 msgstr ""
 
 #: inoxtags/templates/shop_base.html:23

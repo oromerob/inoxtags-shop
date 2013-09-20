@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-10 11:06+0200\n"
+"POT-Creation-Date: 2013-09-20 10:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,6 +45,10 @@ msgstr ""
 
 #: accounts/forms.py:44
 msgid "The two password fields didn't match."
+msgstr ""
+
+#: accounts/models.py:16
+msgid "Country"
 msgstr ""
 
 #: accounts/models.py:68
@@ -148,7 +152,7 @@ msgid ""
 msgstr ""
 
 #: accounts/templates/accounts/main.html:28
-#: accounts/templates/accounts/main.html:49
+#: accounts/templates/accounts/main.html:41
 #: accounts/templates/accounts/update_data.html:14
 msgid "Add"
 msgstr ""
@@ -157,14 +161,12 @@ msgstr ""
 msgid "Dades de facturació"
 msgstr ""
 
-#: accounts/templates/accounts/main.html:44
-msgid "Update"
+#: accounts/templates/accounts/main.html:39
+msgid "Per poder-te fer factura, cal que ens facilitis les teves dades."
 msgstr ""
 
-#: accounts/templates/accounts/main.html:47
-msgid ""
-"Si desitges que amb el teu enviament t'enviem una factura en comptes d'un "
-"albarà, cal que ens facilitis les teves dades."
+#: accounts/templates/accounts/main.html:49
+msgid "Update"
 msgstr ""
 
 #: accounts/templates/accounts/main.html:58
@@ -239,7 +241,7 @@ msgstr ""
 #: accounts/templates/registration/password_change_form.html:13
 #: accounts/templates/registration/password_reset_confirm.html:17
 #: accounts/templates/registration/password_reset_form.html:13
-#: accounts/templates/registration/registration_form.html:9
+#: accounts/templates/registration/registration_form.html:13
 msgid "Submit"
 msgstr ""
 
@@ -272,7 +274,7 @@ msgstr ""
 msgid "Comanda gestionada correctament a la web d'INOXtags."
 msgstr ""
 
-#: apps/checkout/views.py:155
+#: apps/checkout/views.py:157
 msgid "Dades d'INOXtags per tramitar comanda."
 msgstr ""
 
@@ -365,15 +367,7 @@ msgstr ""
 msgid "Si totes les dades són correctes, selecciona la forma de pagament"
 msgstr ""
 
-#: apps/checkout/templates/checkout/checkout_summary.html:65
-msgid "Número de la tarjeta"
-msgstr ""
-
-#: apps/checkout/templates/checkout/checkout_summary.html:77
-msgid "Caducitat (MM/AAAA)"
-msgstr ""
-
-#: apps/checkout/templates/checkout/checkout_summary.html:96
+#: apps/checkout/templates/checkout/checkout_summary.html:99
 msgid ""
 "Si prefereixes pagar-nos amb transferència bancaria, recorda que al concepte "
 "has d'indicar la referència que t'indiquem i que començarem a preparar-te "
@@ -383,15 +377,15 @@ msgid ""
 "moment."
 msgstr ""
 
-#: apps/checkout/templates/checkout/checkout_summary.html:98
+#: apps/checkout/templates/checkout/checkout_summary.html:101
 msgid "Pagar amb transferència"
 msgstr ""
 
-#: apps/checkout/templates/checkout/checkout_summary.html:108
+#: apps/checkout/templates/checkout/checkout_summary.html:111
 msgid "Productes al carro"
 msgstr ""
 
-#: apps/checkout/templates/checkout/checkout_summary.html:121
+#: apps/checkout/templates/checkout/checkout_summary.html:124
 #: apps/checkout/templates/checkout/order_detail.html:46
 #: apps/checkout/templates/email/bank_transfer.html:62
 #: apps/checkout/templates/email/conf_order.html:57
@@ -400,7 +394,7 @@ msgstr ""
 msgid "Nom de l'animal"
 msgstr ""
 
-#: apps/checkout/templates/checkout/checkout_summary.html:121
+#: apps/checkout/templates/checkout/checkout_summary.html:124
 #: apps/checkout/templates/checkout/order_detail.html:46
 #: apps/checkout/templates/email/bank_transfer.html:62
 #: apps/checkout/templates/email/conf_order.html:57
@@ -409,8 +403,8 @@ msgstr ""
 msgid "en color"
 msgstr ""
 
-#: apps/checkout/templates/checkout/checkout_summary.html:122
-#: apps/checkout/templates/checkout/checkout_summary.html:124
+#: apps/checkout/templates/checkout/checkout_summary.html:125
+#: apps/checkout/templates/checkout/checkout_summary.html:127
 #: apps/checkout/templates/checkout/order_detail.html:47
 #: apps/checkout/templates/checkout/order_detail.html:49
 #: apps/checkout/templates/email/bank_transfer.html:63
@@ -426,7 +420,7 @@ msgstr ""
 msgid "Telèfon"
 msgstr ""
 
-#: apps/checkout/templates/checkout/checkout_summary.html:123
+#: apps/checkout/templates/checkout/checkout_summary.html:126
 #: apps/checkout/templates/checkout/order_detail.html:48
 #: apps/checkout/templates/email/bank_transfer.html:64
 #: apps/checkout/templates/email/conf_order.html:59
@@ -436,7 +430,7 @@ msgstr ""
 msgid "Nom propietari"
 msgstr ""
 
-#: apps/checkout/templates/checkout/checkout_summary.html:125
+#: apps/checkout/templates/checkout/checkout_summary.html:128
 #: apps/checkout/templates/checkout/order_detail.html:50
 #: apps/checkout/templates/email/bank_transfer.html:66
 #: apps/checkout/templates/email/conf_order.html:61
@@ -774,16 +768,16 @@ msgstr ""
 msgid "name"
 msgstr ""
 
-#: apps/contact/templates/contact/contact_form.html:12
-msgid "Envía"
-msgstr ""
-
-#: apps/contact/templates/contact/contact_form.html:17
+#: apps/contact/templates/contact/contact_form.html:11
 msgid "Contact us"
 msgstr ""
 
-#: apps/contact/templates/contact/contact_form.html:38
+#: apps/contact/templates/contact/contact_form.html:32
 msgid "Image courtesy of"
+msgstr ""
+
+#: apps/contact/templates/contact/contact_form.html:37
+msgid "Envía"
 msgstr ""
 
 #: apps/contact/templates/contact/contact_success.html:10
@@ -792,14 +786,6 @@ msgstr ""
 
 #: apps/contact/templates/contact/contact_success.html:12
 msgid "Home"
-msgstr ""
-
-#: apps/content_pages/templates/pages/terms.html:10
-msgid "Privacy"
-msgstr ""
-
-#: apps/content_pages/templates/pages/terms.html:13
-msgid "Terms of service"
 msgstr ""
 
 #: apps/partners/templates/partners/partner_main.html:5
@@ -812,6 +798,26 @@ msgstr ""
 
 #: apps/settings/models.py:58
 msgid "privacity"
+msgstr ""
+
+#: apps/shop/models.py:13
+msgid "Category"
+msgstr ""
+
+#: apps/shop/models.py:15
+msgid "Image"
+msgstr ""
+
+#: apps/shop/models.py:16 apps/shop/models.py:74
+msgid "Description"
+msgstr ""
+
+#: apps/shop/models.py:43
+msgid "Shape"
+msgstr ""
+
+#: apps/shop/models.py:55 apps/shop/templates/shop/shop_product_form.html:40
+msgid "Color"
 msgstr ""
 
 #: apps/shop/templates/shop/cart.html:5 inoxtags/templates/shop_base.html:24
@@ -863,7 +869,7 @@ msgstr ""
 
 #: apps/shop/templates/shop/cart.html:97
 #: apps/shop/templates/shop/cart.html:195
-#: apps/staff/templates/staff/checkout.html:62
+#: apps/staff/templates/staff/checkout.html:66
 msgid "El carro està buit"
 msgstr ""
 
@@ -889,10 +895,6 @@ msgstr ""
 
 #: apps/shop/templates/shop/shop_product_form.html:17
 msgid "Descripció"
-msgstr ""
-
-#: apps/shop/templates/shop/shop_product_form.html:40
-msgid "Color"
 msgstr ""
 
 #: apps/shop/templates/shop/shop_product_form.html:49
@@ -957,15 +959,15 @@ msgid ""
 "factures si et cal."
 msgstr ""
 
-#: inoxtags/settings.py:47 inoxtags/settings.py:226
+#: inoxtags/settings.py:40 inoxtags/settings.py:222
 msgid "Catalan"
 msgstr ""
 
-#: inoxtags/settings.py:48 inoxtags/settings.py:227
+#: inoxtags/settings.py:41 inoxtags/settings.py:223
 msgid "Spanish"
 msgstr ""
 
-#: inoxtags/settings.py:49 inoxtags/settings.py:228
+#: inoxtags/settings.py:42 inoxtags/settings.py:224
 msgid "English"
 msgstr ""
 

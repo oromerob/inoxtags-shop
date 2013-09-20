@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-20 10:00+0200\n"
-"PO-Revision-Date: 2013-09-20 10:05+0200\n"
+"POT-Creation-Date: 2013-09-20 11:14+0200\n"
+"PO-Revision-Date: 2013-09-20 10:13+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -23,29 +23,30 @@ msgstr "Email"
 
 #: accounts/forms.py:22
 msgid "Password"
-msgstr "Contrasenya"
+msgstr "Contraseña"
 
 #: accounts/forms.py:23
 msgid "Password (again)"
-msgstr "Contrasenya (una altra vegada)"
+msgstr "Contraseña (otra vez)"
 
 #: accounts/forms.py:25
 msgid "I have read and agree to the Terms of Service"
-msgstr "He llegit i entenc les Condicions d'ús del lloc"
+msgstr "He leído y acepto las Condiciones de uso"
 
 #: accounts/forms.py:25
 msgid "You must agree to the terms to register"
-msgstr "Has d'acceptar les Condicions d'ús per poder-te registrar."
+msgstr "Debes aceptar las Condiciones de uso"
 
 #: accounts/forms.py:32
 msgid ""
 "This email address is already in use. Please supply a different email "
 "address."
-msgstr "Aquest email ja està registrat. Useu-ne un altre si us plau."
+msgstr ""
+"Esta dirección de email ya está en uso. Por favor, introduzca otra diferente"
 
 #: accounts/forms.py:44
 msgid "The two password fields didn't match."
-msgstr "Les dues contrasenyes no coincideixen."
+msgstr "Las dos contraseñas no coinciden"
 
 #: accounts/models.py:16
 msgid "Country"
@@ -53,31 +54,31 @@ msgstr "País"
 
 #: accounts/models.py:68
 msgid "staff status"
-msgstr "Membre del personal"
+msgstr "miembro del personal"
 
 #: accounts/models.py:68
 msgid "Designates whether the user can log into this admin site."
-msgstr "Indica si l'usuari pot entrar a aquest lloc d'administració."
+msgstr "Indica si el usuario puede entrar en este sitio de administración."
 
 #: accounts/models.py:69
 msgid "date joined"
-msgstr "data d'ingrés"
+msgstr "fecha de alta"
 
 #: accounts/models.py:71
 msgid "full name or company's name"
-msgstr "Nom complert o nom comercial del negoci."
+msgstr "Nombre completo o nombre comercial"
 
 #: accounts/models.py:72
 msgid "shipping address"
-msgstr "adreça d'enviament"
+msgstr "dirección de envío"
 
 #: accounts/models.py:73 accounts/models.py:82
 msgid "postal code"
-msgstr "codi postal"
+msgstr "código postal"
 
 #: accounts/models.py:74 accounts/models.py:83
 msgid "town"
-msgstr "localitat"
+msgstr "ciudad"
 
 #: accounts/models.py:75
 msgid "country"
@@ -85,11 +86,11 @@ msgstr "país"
 
 #: accounts/models.py:77
 msgid "wants invoice"
-msgstr "vol factura"
+msgstr "quiere factura"
 
 #: accounts/models.py:78
 msgid "legal name"
-msgstr "nom fiscal"
+msgstr "nombre fiscal"
 
 #: accounts/models.py:79
 msgid "tax code"
@@ -97,71 +98,71 @@ msgstr "NIF"
 
 #: accounts/models.py:80
 msgid "extra charge for equivalence only for spanish professional customers"
-msgstr "recàrrec d'equivalència, només per clients professionals espanyols"
+msgstr "recargo de equivalencia, sólo para professionales españoles"
 
 #: accounts/models.py:81
 msgid "legal address"
-msgstr "adreça fiscal"
+msgstr "dirección de facturación"
 
 #: accounts/models.py:85
 msgid "is professional"
-msgstr "és professional"
+msgstr "es professional"
 
 #: accounts/models.py:86
 msgid "share professional customer data"
-msgstr "comparteix les dades professionals"
+msgstr "compartir datos professionales"
 
 #: accounts/models.py:87
 msgid "main phone number"
-msgstr "telèfon principal"
+msgstr "teléfono principal"
 
 #: accounts/models.py:88
 msgid "alternative phone number"
-msgstr "telèfon alternatiu"
+msgstr "teléfono alternativo"
 
 #: accounts/views.py:127
 msgid "Shipping data"
-msgstr "Adreça d'enviament"
+msgstr "Datos de envío"
 
 #: accounts/views.py:162
 msgid "Invoice data"
-msgstr "Dades de facturació"
+msgstr "Datos de facturación"
 
 #: accounts/views.py:197
 msgid "Professional data"
-msgstr "Dades professionals"
+msgstr "Datos professionales"
 
 #: accounts/templates/accounts/main.html:6
 msgid "Dades del compte"
-msgstr "Dades del compte"
+msgstr "Datos de la cuenta"
 
 #: accounts/templates/accounts/main.html:15
 #: apps/checkout/templates/checkout/checkout_summary.html:45
 msgid "Dades d'enviament"
-msgstr "Dades d'enviament"
+msgstr "Datos de envío"
 
 #: accounts/templates/accounts/main.html:23
 #: accounts/templates/accounts/main.html:64
 msgid "Modifica"
-msgstr "Modifica"
+msgstr ""
 
 #: accounts/templates/accounts/main.html:26
 msgid ""
 "Encara no has introduit les teves dades d'enviament, recorda que és "
 "inprescindible per poder enviar-te el que compris."
 msgstr ""
-"Encara no has introduit les teves dades d'enviament, recorda que és "
-"inprescindible per poder enviar-te el que compris."
+"Aún no has introducido tus datos de envío, recuerda que són imprescindibles "
+"para poder enviarte lo que compres."
 
 #: accounts/templates/accounts/main.html:28
 #: accounts/templates/accounts/main.html:41
 #: accounts/templates/accounts/update_data.html:14
 msgid "Add"
-msgstr "Afegeix"
+msgstr "Añade"
 
 #: accounts/templates/accounts/main.html:36
 msgid "Dades de facturació"
-msgstr "Dades de facturació"
+msgstr "Datos de facturación"
 
 #: accounts/templates/accounts/main.html:39
 msgid "Per poder-te fer factura, cal que ens facilitis les teves dades."
@@ -169,19 +170,19 @@ msgstr ""
 
 #: accounts/templates/accounts/main.html:49
 msgid "Update"
-msgstr "Actualitza"
+msgstr "Actualiza"
 
 #: accounts/templates/accounts/main.html:58
 msgid "Dades professionals"
-msgstr "Dades professionals"
+msgstr "Datos professionales"
 
 #: accounts/templates/accounts/update_data.html:13
 msgid "Back"
-msgstr "Torna"
+msgstr "Vuelve"
 
 #: accounts/templates/registration/activate.html:8
 msgid "Account successfully activated"
-msgstr "Compte activat exitosament"
+msgstr "Cuenta activada con éxito"
 
 #: accounts/templates/registration/activate.html:10
 #: accounts/templates/registration/login.html:13
@@ -189,114 +190,113 @@ msgstr "Compte activat exitosament"
 #: inoxtags/templates/base.html:145 inoxtags/templates/base.html.py:146
 #: inoxtags/templates/base.html:177 inoxtags/templates/base.html.py:188
 msgid "Log in"
-msgstr "Iniciar sessió"
+msgstr "Iniciar sessión"
 
 #: accounts/templates/registration/activate.html:14
 msgid "Account activation failed"
-msgstr "L'activació del compte ha fallat"
+msgstr "Error en la activación de la cuenta"
 
 #: accounts/templates/registration/activation_complete.html:5
 msgid "Your account is now activated."
-msgstr "El teu compte està actiu"
+msgstr "Tu cuenta se ha activado."
 
 #: accounts/templates/registration/activation_email.txt:2
 msgid "Activate account at"
-msgstr "Activa el compte a"
+msgstr "Activa la cuenta en"
 
 #: accounts/templates/registration/activation_email.txt:6
 #, python-format
 msgid "Link is valid for %(expiration_days)s days."
-msgstr "El link és vàlid per %(expiration_days)s dies."
+msgstr "Enlace válido por %(expiration_days)s días."
 
 #: accounts/templates/registration/activation_email_subject.txt:1
 msgid "Account activation on"
-msgstr "Compte activat"
+msgstr "Activación de la cuenta de"
 
 #: accounts/templates/registration/login.html:17
 #: inoxtags/templates/base.html:183
 msgid "Forgot password"
-msgstr "Has oblidat la contrasenya"
+msgstr "Has olvidado tu contraseña"
 
 #: accounts/templates/registration/login.html:17
 #: inoxtags/templates/base.html:183
 msgid "Reset it"
-msgstr "Restableix-la"
+msgstr "Reiniciala"
 
 #: accounts/templates/registration/login.html:18
 #: inoxtags/templates/base.html:184
 msgid "Not member"
-msgstr "No estàs registrat"
+msgstr "No estas registrado"
 
 #: accounts/templates/registration/login.html:18
 #: inoxtags/templates/base.html:184
 msgid "Register"
-msgstr "Registra't"
+msgstr "Registrate"
 
 #: accounts/templates/registration/logout.html:5
 msgid "Logged out"
-msgstr "Sessió finalitzada"
+msgstr "Sessión finalizada"
 
 #: accounts/templates/registration/password_change_done.html:9
 msgid "Password changed"
-msgstr "Contrasenya canviada"
+msgstr "Cambio de contraseña"
 
 #: accounts/templates/registration/password_change_form.html:13
 #: accounts/templates/registration/password_reset_confirm.html:17
 #: accounts/templates/registration/password_reset_form.html:13
 #: accounts/templates/registration/registration_form.html:13
 msgid "Submit"
-msgstr "Envia"
+msgstr "Envía"
 
 #: accounts/templates/registration/password_reset_complete.html:10
 msgid "Password reset successfully"
-msgstr "Contrasenya restablerta amb èxit"
+msgstr "Contraseña reiniciada correctamente"
 
 #: accounts/templates/registration/password_reset_confirm.html:22
 msgid "Password reset failed"
-msgstr "El restabliment de la vostra contrasenya ha fallat"
+msgstr "Fallo en el reinicio de la contraseña"
 
 #: accounts/templates/registration/password_reset_done.html:9
 msgid "Email with password reset instructions has been sent."
 msgstr ""
-"T'hem enviat un email amb les instruccions per restablir la vostra "
-"contrasenya"
+"Te hemos mandado un email con las instrucciones para reiniciar la contraseña."
 
 #: accounts/templates/registration/password_reset_email.html:2
 #, python-format
 msgid "Reset password at %(site_name)s"
-msgstr "Restableix contrasenya a %(site_name)s"
+msgstr "Reinicia la contrseña en %(site_name)s"
 
 #: accounts/templates/registration/registration_closed.html:5
 msgid "Registration is currently closed."
-msgstr "Actualment el registre de nous usuaris està tancat."
+msgstr "Por el momento, el registro de nuevos usuarios está cerrado."
 
 #: accounts/templates/registration/registration_complete.html:5
 msgid "You are now registered. Activation email sent."
-msgstr "Estàs registrat, t'hem enviat un email d'activació."
+msgstr ""
 
 #: apps/checkout/views.py:102
 msgid "Comanda gestionada correctament a la web d'INOXtags."
-msgstr "Comanda gestionada correctament a la web d'INOXtags."
+msgstr "Pedido gestionado correctamente en la web de INOXtags."
 
 #: apps/checkout/views.py:157
 msgid "Dades d'INOXtags per tramitar comanda."
-msgstr "Dades d'INOXtags per tramitar comanda."
+msgstr "Datos de INOXtags para tramitar el pedido."
 
 #: apps/checkout/templates/checkout/bank_transfer.html:12
 msgid "La teva compra s'ha gestionat correctament"
-msgstr "La teva compra s'ha gestionat correctament"
+msgstr "Tu compra se ha gestionado correctamente"
 
 #: apps/checkout/templates/checkout/bank_transfer.html:13
 msgid ""
 "En breu rebràs a la bústia del teu correu electrònic un missatge amb les "
 "dades perque puguis fer el pagament de la teva compra."
 msgstr ""
-"En breu rebràs a la bústia del teu correu electrònic un missatge amb les "
-"dades perque puguis fer el pagament de la teva compra."
+"En breve recibirás en tu buzón de correo electrónico un mensaje con los "
+"datos para que puedas realizar el pago de tu compra."
 
 #: apps/checkout/templates/checkout/bank_transfer.html:14
 msgid "Si tens qualsevol dubte, et pots posar en contacte amb nosaltres"
-msgstr "Si tens qualsevol dubte, et pots posar en contacte amb nosaltres"
+msgstr "Si tienes cualquier duda, puedes ponerte en contacto con nosotros"
 
 #: apps/checkout/templates/checkout/bank_transfer.html:14
 msgid "aquí"
@@ -314,58 +314,58 @@ msgid ""
 "registrant-te a la nostra web. També hi podràs visualitzar les teves "
 "factures si et cal."
 msgstr ""
-"Has de saber que fins que no rebem la transferència, no començarem a produir "
-"la teva comanda, així que si t'en desdius no cal que facis res, simplement "
-"no fent efectiu el pagament, la comanda no es tramitarà. Un cop rebem "
-"l'ingrés, entre el temps que necessitem per fer-la i l'enviament, t'arribarà "
-"en un plaç d'uns 7 dies per enviaments a la península ibèrica, o 10 per a la "
-"resta d'Europa. Recorda que pots consultar l'estat de les teves comandes "
-"registrant-te a la nostra web. També hi podràs visualitzar les teves "
-"factures si et cal."
+"Tienes que saber que hasta que no recibamos la transferencia, no empezaremos "
+"a producir tu pedido, así que, si decides hecharte atrás, no debes hacer "
+"nada, simplemente no haciendo efectivo el pago, tu pedido no se tramitará. "
+"Una vez recibamos el ingreso, entre el tiempo que necesitamos para producir "
+"tu pedido y el envío, éste te llegará en un plazo de unos 7 días, más o "
+"menos, para envíos a la península ibérica, o 10 días para envíos al resto de "
+"europa. Recuerda que puedes consultar el estado de tu pedido registrándote "
+"en nuestra web. También podrás visualizar tus facturas si las necesitas."
 
 #: apps/checkout/templates/checkout/checkout_summary.html:12
 msgid "Ens falten dades."
-msgstr "Ens falten dades."
+msgstr "Nos faltan datos."
 
 #: apps/checkout/templates/checkout/checkout_summary.html:13
 msgid ""
 "Per poder continuar tramitant la teva comanda, primer cal que ens facilitis "
 "totes les teves dades d'enviament."
 msgstr ""
-"Per poder continuar tramitant la teva comanda, primer cal que ens facilitis "
-"totes les teves dades d'enviament."
+"Para poder continuar tramitando tu pedido, primero tienes que facilitarnos "
+"todos tus datos de envío."
 
 #: apps/checkout/templates/checkout/checkout_summary.html:16
 msgid "El vostre nom."
-msgstr "El vostre nom."
+msgstr "Vuestro nombre."
 
 #: apps/checkout/templates/checkout/checkout_summary.html:19
 msgid "La vostra adreça."
-msgstr "La vostra adreça."
+msgstr "Vuestra dirección."
 
 #: apps/checkout/templates/checkout/checkout_summary.html:22
 msgid "El vostre codi postal."
-msgstr "El vostre codi postal."
+msgstr "Vuestro código postal."
 
 #: apps/checkout/templates/checkout/checkout_summary.html:25
 msgid "La vostra població."
-msgstr "La vostra població."
+msgstr "Vuestra población."
 
 #: apps/checkout/templates/checkout/checkout_summary.html:28
 msgid "El vostre país."
-msgstr "El vostre país."
+msgstr "Vuestro país."
 
 #: apps/checkout/templates/checkout/checkout_summary.html:31
 msgid "Completa les teves dades d'enviament."
-msgstr "Completa les teves dades d'enviament."
+msgstr "Completa vuestros datos de envío."
 
 #: apps/checkout/templates/checkout/checkout_summary.html:41
 msgid "Resum de la compra"
-msgstr "Resum de la compra"
+msgstr "Resumen de la compra"
 
 #: apps/checkout/templates/checkout/checkout_summary.html:42
 msgid "Nº de productes"
-msgstr ""
+msgstr "Nº de productos"
 
 #: apps/checkout/templates/checkout/checkout_summary.html:43
 #: apps/checkout/templates/checkout/invoice_list.html:22
@@ -373,15 +373,15 @@ msgstr ""
 #: apps/checkout/templates/checkout/invoice_list.html:80
 #: apps/checkout/templates/checkout/order_list.html:31
 msgid "Import total"
-msgstr ""
+msgstr "Importe total"
 
 #: apps/checkout/templates/checkout/checkout_summary.html:52
 msgid "Canvia les teves dades d'enviament."
-msgstr ""
+msgstr "Cambia vuestros datos de envío."
 
 #: apps/checkout/templates/checkout/checkout_summary.html:55
 msgid "Si totes les dades són correctes, selecciona la forma de pagament"
-msgstr ""
+msgstr "Si todos vuestros datos són correctos, elige la forma de pago"
 
 #: apps/checkout/templates/checkout/checkout_summary.html:99
 msgid ""
@@ -392,14 +392,20 @@ msgid ""
 "t'enviarem al mateix moment un mail perquè puguis consultar-ho en qualsevol "
 "moment."
 msgstr ""
+"Si prefieres pagar con transferéncia bancária, recuerda que en el concepto "
+"debes inicar la referencia que te damos y que empezaremos a preparartelo "
+"cuando hayamos recibido el ingreso. Para seguir pulsa el botón 'Pagar con "
+"transferéncia' y te mostraremos los datos que necesitas para poder hacer el "
+"pago y te mandaremos un correo a tu buzón con los datos para que los puedas "
+"consultar en cualquier momento."
 
 #: apps/checkout/templates/checkout/checkout_summary.html:101
 msgid "Pagar amb transferència"
-msgstr ""
+msgstr "Pagar con transferéncia"
 
 #: apps/checkout/templates/checkout/checkout_summary.html:111
 msgid "Productes al carro"
-msgstr ""
+msgstr "Productos en el carro"
 
 #: apps/checkout/templates/checkout/checkout_summary.html:124
 #: apps/checkout/templates/checkout/order_detail.html:46
@@ -408,7 +414,7 @@ msgstr ""
 #: apps/staff/templates/email/bank_transfer_done.html:58
 #: apps/staff/templates/email/order_modification.html:58
 msgid "Nom de l'animal"
-msgstr ""
+msgstr "Nombre del animal"
 
 #: apps/checkout/templates/checkout/checkout_summary.html:124
 #: apps/checkout/templates/checkout/order_detail.html:46
@@ -434,7 +440,7 @@ msgstr ""
 #: apps/staff/templates/email/order_modification.html:59
 #: apps/staff/templates/email/order_modification.html:61
 msgid "Telèfon"
-msgstr ""
+msgstr "Teléfono"
 
 #: apps/checkout/templates/checkout/checkout_summary.html:126
 #: apps/checkout/templates/checkout/order_detail.html:48
@@ -444,7 +450,7 @@ msgstr ""
 #: apps/staff/templates/email/bank_transfer_done.html:60
 #: apps/staff/templates/email/order_modification.html:60
 msgid "Nom propietari"
-msgstr ""
+msgstr "Nombre del propietario"
 
 #: apps/checkout/templates/checkout/checkout_summary.html:128
 #: apps/checkout/templates/checkout/order_detail.html:50
@@ -454,19 +460,19 @@ msgstr ""
 #: apps/staff/templates/email/bank_transfer_done.html:62
 #: apps/staff/templates/email/order_modification.html:62
 msgid "Altres"
-msgstr ""
+msgstr "Otros"
 
 #: apps/checkout/templates/checkout/invoice_list.html:14
 #: inoxtags/templates/base.html:126 inoxtags/templates/base.html.py:136
 msgid "Factures"
-msgstr ""
+msgstr "Facturas"
 
 #: apps/checkout/templates/checkout/invoice_list.html:19
 #: apps/checkout/templates/checkout/invoice_list.html:51
 #: apps/checkout/templates/checkout/invoice_list.html:78
 #: apps/checkout/templates/checkout/order_list.html:29
 msgid "Data"
-msgstr ""
+msgstr "Fecha"
 
 #: apps/checkout/templates/checkout/invoice_list.html:20
 msgid "Número de factura"
@@ -474,13 +480,13 @@ msgstr ""
 
 #: apps/checkout/templates/checkout/invoice_list.html:21
 msgid "Comanda corresponent"
-msgstr ""
+msgstr "Pedido correspondiente"
 
 #: apps/checkout/templates/checkout/invoice_list.html:23
 #: apps/checkout/templates/checkout/invoice_list.html:55
 #: apps/checkout/templates/checkout/order_list.html:33
 msgid "Detall"
-msgstr ""
+msgstr "Detalle"
 
 #: apps/checkout/templates/checkout/invoice_list.html:31
 #: apps/checkout/templates/checkout/invoice_list.html:63
@@ -489,7 +495,7 @@ msgstr ""
 
 #: apps/checkout/templates/checkout/invoice_list.html:38
 msgid "No hi ha factures"
-msgstr ""
+msgstr "No hay facturas"
 
 #: apps/checkout/templates/checkout/invoice_list.html:39
 msgid ""
@@ -500,7 +506,7 @@ msgstr ""
 
 #: apps/checkout/templates/checkout/invoice_list.html:46
 msgid "Factures rectificatives"
-msgstr ""
+msgstr "Facturas rectificativas"
 
 #: apps/checkout/templates/checkout/invoice_list.html:52
 msgid "Número de factura rectificativa"
@@ -508,15 +514,15 @@ msgstr ""
 
 #: apps/checkout/templates/checkout/invoice_list.html:53
 msgid "Factura corresponent"
-msgstr ""
+msgstr "Factura correspondiente"
 
 #: apps/checkout/templates/checkout/invoice_list.html:73
 msgid "Comandes no facturades"
-msgstr ""
+msgstr "Pedidos no facturados"
 
 #: apps/checkout/templates/checkout/invoice_list.html:79
 msgid "Comanda"
-msgstr ""
+msgstr "Pedido"
 
 #: apps/checkout/templates/checkout/invoice_list.html:81
 msgid "Generar factura"
@@ -528,7 +534,7 @@ msgstr ""
 
 #: apps/checkout/templates/checkout/invoice_list.html:100
 msgid "Atenció"
-msgstr ""
+msgstr "Atención"
 
 #: apps/checkout/templates/checkout/invoice_list.html:101
 msgid ""
@@ -537,10 +543,14 @@ msgid ""
 "facturació'. Per a qualsevol dubte, poseu-vos en contacte amb nosaltres, us "
 "atendrem el més aviat possible."
 msgstr ""
+"Para poder generar facturas, primero teneis que facilitarnos vuestros datos "
+"de facturación. Lo podeis hacer en 'Configuración de la cuenta', 'Datos de "
+"facturación'. Para cualquier duda, poneros en contacto con nosotros, os "
+"atenderemos lo antes posible."
 
 #: apps/checkout/templates/checkout/order_detail.html:13
 msgid "Comanda de"
-msgstr ""
+msgstr "Pedido de"
 
 #: apps/checkout/templates/checkout/order_detail.html:14
 #: apps/checkout/templates/email/conf_order.html:27
@@ -548,7 +558,7 @@ msgstr ""
 #: apps/staff/templates/email/order_deleted.html:28
 #: apps/staff/templates/email/order_modification.html:28
 msgid "Comanda número"
-msgstr ""
+msgstr "Pedido número"
 
 #: apps/checkout/templates/checkout/order_detail.html:15
 #: apps/checkout/templates/email/bank_transfer.html:28
@@ -557,7 +567,7 @@ msgstr ""
 #: apps/staff/templates/email/order_deleted.html:29
 #: apps/staff/templates/email/order_modification.html:29
 msgid "Realitzada"
-msgstr ""
+msgstr "Realizada"
 
 #: apps/checkout/templates/checkout/order_detail.html:16
 #: apps/checkout/templates/email/bank_transfer.html:29
@@ -565,41 +575,41 @@ msgstr ""
 #: apps/staff/templates/email/bank_transfer_done.html:30
 #: apps/staff/templates/email/order_modification.html:30
 msgid "Import"
-msgstr ""
+msgstr "Importe"
 
 #: apps/checkout/templates/checkout/order_detail.html:17
 #: apps/checkout/templates/checkout/order_list.html:32
 msgid "Estat"
-msgstr ""
+msgstr "Estado"
 
 #: apps/checkout/templates/checkout/order_detail.html:19
 msgid "La teva comanda ha sigut enviada."
-msgstr ""
+msgstr "Tu pedido ha sido enviado."
 
 #: apps/checkout/templates/checkout/order_detail.html:20
 msgid "L'enviament es va fer"
-msgstr ""
+msgstr "El envío se hizo"
 
 #: apps/checkout/templates/checkout/order_detail.html:21
 msgid "Pots seguir l'enviament de la teva comanda amb aquest codi"
-msgstr ""
+msgstr "Puedes hacer el seguimineto de tu pedido con este código"
 
 #: apps/checkout/templates/checkout/order_detail.html:21
 msgid ""
 "En breu publicarem el codi de seguiment de l'enviament de la teva comanda."
-msgstr ""
+msgstr "En breve publicaremos el código de seguimiento del envío de tu pedido."
 
 #: apps/checkout/templates/checkout/order_detail.html:23
 msgid "Estem produïnt la teva comanda, quan estigui en transit, t'avisarem."
-msgstr ""
+msgstr "Estamos produciendo tu pedido, cuando esté en tránsito, te avisaremos."
 
 #: apps/checkout/templates/checkout/order_detail.html:33
 msgid "Productes"
-msgstr ""
+msgstr "Productos"
 
 #: apps/checkout/templates/checkout/order_list.html:12
 msgid "Encara no has fet cap comanda"
-msgstr ""
+msgstr "aún no has realizado ningún pedido"
 
 #: apps/checkout/templates/checkout/order_list.html:13
 msgid ""
@@ -608,15 +618,19 @@ msgid ""
 "podràs consultar el codi de seguiment perquè puguis veure si ja està a punt "
 "d'arribar-te."
 msgstr ""
+"Cuando hayais hecho alguna compra, aquí podreis hacer el seguimiento para "
+"saber si están ya acabados los productos que habeis pedido, o si están ya en "
+"camino,  o podrás consultar el código de seguimiento del envío, para saber "
+"si está a punto de llegarte."
 
 #: apps/checkout/templates/checkout/order_list.html:24
 #: inoxtags/templates/base.html:125 inoxtags/templates/base.html.py:135
 msgid "Comandes"
-msgstr ""
+msgstr "Pedidos"
 
 #: apps/checkout/templates/checkout/order_list.html:30
 msgid "Número de comanda"
-msgstr ""
+msgstr "Número de pedido"
 
 #: apps/checkout/templates/checkout/order_list.html:42
 msgid "Enviada"
@@ -624,20 +638,20 @@ msgstr ""
 
 #: apps/checkout/templates/checkout/order_list.html:44
 msgid "En producció"
-msgstr ""
+msgstr "En producción"
 
 #: apps/checkout/templates/checkout/order_list.html:47
 msgid "detalls"
-msgstr ""
+msgstr "detalles"
 
 #: apps/checkout/templates/checkout/payment_result.html:5
 msgid "Payment result"
-msgstr ""
+msgstr "Resultado del pago"
 
 #: apps/checkout/templates/checkout/payment_result.html:13
 #: apps/checkout/templates/checkout/payment_success.html:11
 msgid "La teva comanda s'ha gestionat correctament"
-msgstr ""
+msgstr "Tu pedido se ha gestionado correctamente"
 
 #: apps/checkout/templates/checkout/payment_result.html:14
 #: apps/checkout/templates/checkout/payment_success.html:12
@@ -645,6 +659,8 @@ msgid ""
 "En breu rebràs a la bústia del teu correu electrònic un missatge amb totes "
 "les dades de la teva comanda."
 msgstr ""
+"En breve recibirás en tu buzón de correo electrónico un mensaje con todos "
+"los datos de tu pedido."
 
 #: apps/checkout/templates/checkout/payment_result.html:15
 #: apps/checkout/templates/checkout/payment_success.html:13
@@ -652,60 +668,66 @@ msgid ""
 "A partir d'ara podràs consultar l'estat de la teva comanda registrant-te a "
 "la nostra web."
 msgstr ""
+"A partir de ahora podrás consultar el estado de tu pedido registrandote en "
+"nuestra web."
 
 #: apps/checkout/templates/checkout/payment_result.html:16
 msgid "Torna"
-msgstr ""
+msgstr "Vuelve"
 
 #: apps/checkout/templates/checkout/payment_result.html:24
 msgid "Error en el pagament"
-msgstr ""
+msgstr "Error en el pago"
 
 #: apps/checkout/templates/checkout/payment_result.html:25
 msgid "Segons el nostre proveïdor, l'error ha sigut:"
-msgstr ""
+msgstr "Según nuestro proveedor, el error ha sido:"
 
 #: apps/checkout/templates/checkout/payment_result.html:27
 msgid ""
 "Si tens qualsevol dubte, contacta'ns, intentarem ajudat-te en tot el que "
 "puguem."
 msgstr ""
+"Ante cualquier duda, contactadnos, intentaremos ayudarte en todo lo que "
+"podamos."
 
 #: apps/checkout/templates/checkout/payment_result.html:28
 msgid "Reintenta el pagament"
-msgstr ""
+msgstr "reintenta el pago"
 
 #: apps/checkout/templates/email/bank_transfer.html:6
 msgid "Dades per la transferència"
-msgstr ""
+msgstr "Datos para la transferencia"
 
 #: apps/checkout/templates/email/bank_transfer.html:22
 #: apps/checkout/templates/email/conf_order.html:22
 #: apps/staff/templates/email/bank_transfer_done.html:22
 msgid "Moltes gràcies"
-msgstr ""
+msgstr "Muchas gracias"
 
 #: apps/checkout/templates/email/bank_transfer.html:22
 msgid "per comprar a la web d'INOXtags."
-msgstr ""
+msgstr "Por comprar en la web de INOXtags."
 
 #: apps/checkout/templates/email/bank_transfer.html:27
 msgid "Referència"
-msgstr ""
+msgstr "Referencia"
 
 #: apps/checkout/templates/email/bank_transfer.html:34
 msgid ""
 "Has seleccionat fer el pagament amb una transferència bancaria. Aquestes són "
 "les nostres dades:"
 msgstr ""
+"Has seleccionado hacer el pago con transferencia bancaria. Estos son "
+"nuestros datos:"
 
 #: apps/checkout/templates/email/bank_transfer.html:35
 msgid "Compte"
-msgstr ""
+msgstr "Cuenta"
 
 #: apps/checkout/templates/email/bank_transfer.html:36
 msgid "Iban"
-msgstr ""
+msgstr "Iban"
 
 #: apps/checkout/templates/email/bank_transfer.html:37
 msgid "Titular"
@@ -714,16 +736,16 @@ msgstr ""
 #: apps/checkout/templates/email/bank_transfer.html:38
 #: apps/partners/templates/partners/partner_detail.html:14
 msgid "Adreça"
-msgstr ""
+msgstr "Dirección"
 
 #: apps/checkout/templates/email/bank_transfer.html:39
 msgid "Concepte"
-msgstr ""
+msgstr "Concepto"
 
 #: apps/checkout/templates/email/conf_order.html:22
 #: apps/staff/templates/email/bank_transfer_done.html:23
 msgid "La teva comanda s'ha tramitat correctament."
-msgstr ""
+msgstr "Tu pedido se ha tramitado correctamente."
 
 #: apps/checkout/templates/email/conf_order.html:34
 #: apps/staff/templates/email/bank_transfer_done.html:35
@@ -735,6 +757,12 @@ msgid ""
 "comandes registrant-te a la nostra web. També hi podràs visualitzar les "
 "teves factures si et cal."
 msgstr ""
+"Tu pedido ha sido tramitado correctamente y en breve empezaremos a "
+"producirla. Entre el tiempo que necesitamos para la producción y el envío, "
+"te llegará en un plazo de 7 días, más o menos, si estás en la península "
+"ibérica, o 10 para el resto de Europa. Recuerda que puedes consultar el "
+"estado de tus pedidos registrandote en nuestra web. También podrás ver tus "
+"facturas si las necesitas."
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:79
 msgid "Factura comercial"
@@ -742,19 +770,19 @@ msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:82
 msgid "Contado"
-msgstr "Comptat"
+msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:82
 msgid "giro bancario"
-msgstr "gir bancari"
+msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:82
 msgid "Pagado"
-msgstr "Pagat"
+msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:95
 msgid "Albarán"
-msgstr "Albarà"
+msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:105
 msgid "Total Imponible"
@@ -766,7 +794,7 @@ msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:107
 msgid "Cuota"
-msgstr "Quota"
+msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:108
 msgid "TOTAL FACTURA"
@@ -774,23 +802,23 @@ msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:115
 msgid "Observaciones"
-msgstr "Observacions"
+msgstr ""
 
 #: apps/checkout/templates/pdf/invoice_pdf.html:117
 msgid "Productos en el pedido"
-msgstr "Productes a la comanda"
+msgstr ""
 
 #: apps/contact/models.py:7
 msgid "name"
-msgstr "nom"
+msgstr "nombre"
 
 #: apps/contact/templates/contact/contact_form.html:11
 msgid "Contact us"
-msgstr "Contacta'ns"
+msgstr "Contactanos"
 
 #: apps/contact/templates/contact/contact_form.html:32
 msgid "Image courtesy of"
-msgstr "Imatge cortesia de"
+msgstr "Imagen cortesia de "
 
 #: apps/contact/templates/contact/contact_form.html:37
 msgid "Envía"
@@ -798,39 +826,40 @@ msgstr ""
 
 #: apps/contact/templates/contact/contact_success.html:10
 msgid "Message recieved successfully"
-msgstr "Missatge rebut amb èxit"
+msgstr "Mensaje recibido correctamente"
 
 #: apps/contact/templates/contact/contact_success.html:12
 msgid "Home"
-msgstr "Inici"
+msgstr "Inicio"
 
 #: apps/partners/templates/partners/partner_main.html:5
+#: inoxtags/templates/base.html:76
 msgid "On trobar-nos"
-msgstr ""
+msgstr "Donde encontrarnos"
 
 #: apps/settings/models.py:57
 msgid "terms of service"
-msgstr "condicions d'ús"
+msgstr "Condiciones de uso"
 
 #: apps/settings/models.py:58
 msgid "privacity"
-msgstr "política de privacitat"
+msgstr "Privacidad"
 
 #: apps/shop/models.py:13
 msgid "Category"
-msgstr ""
+msgstr "Categoria"
 
 #: apps/shop/models.py:15
 msgid "Image"
-msgstr ""
+msgstr "Imagen"
 
 #: apps/shop/models.py:16 apps/shop/models.py:74
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #: apps/shop/models.py:43
 msgid "Shape"
-msgstr ""
+msgstr "Modelo"
 
 #: apps/shop/models.py:55 apps/shop/templates/shop/shop_product_form.html:40
 msgid "Color"
@@ -844,21 +873,21 @@ msgstr ""
 #: apps/shop/templates/shop/cart.html:14
 #: apps/shop/templates/shop/cart.html:105
 msgid "Producte"
-msgstr ""
+msgstr "Producto"
 
 #: apps/shop/templates/shop/cart.html:15
 #: apps/shop/templates/shop/cart.html:106
 msgid "Personalització"
-msgstr ""
+msgstr "Personalización"
 
 #: apps/shop/templates/shop/cart.html:16
 #: apps/shop/templates/shop/shop_product_form.html:32
 msgid "Quantitat"
-msgstr ""
+msgstr "Cantidad"
 
 #: apps/shop/templates/shop/cart.html:17
 msgid "Preu per placa"
-msgstr ""
+msgstr "Precio por placa"
 
 #: apps/shop/templates/shop/cart.html:67
 #: apps/shop/templates/shop/cart.html:156
@@ -875,19 +904,19 @@ msgstr ""
 #: apps/shop/templates/shop/cart.html:178
 #: apps/shop/templates/shop/cart.html:187
 msgid "Finalitza la compra"
-msgstr ""
+msgstr "Finaliza la compra"
 
 #: apps/shop/templates/shop/cart.html:93
 #: apps/shop/templates/shop/cart.html:180
 #: apps/shop/templates/shop/cart.html:191
 msgid "Torna a la tenda"
-msgstr ""
+msgstr "Vuelve a la tienda"
 
 #: apps/shop/templates/shop/cart.html:97
 #: apps/shop/templates/shop/cart.html:195
 #: apps/staff/templates/staff/checkout.html:66
 msgid "El carro està buit"
-msgstr ""
+msgstr "El carro está vacío"
 
 #: apps/shop/templates/shop/cart.html:107
 msgid "Placa"
@@ -895,55 +924,55 @@ msgstr ""
 
 #: apps/shop/templates/shop/cart.html:108
 msgid "Qu."
-msgstr ""
+msgstr "Cantidad"
 
 #: apps/shop/templates/shop/cart.html:109
 msgid "Preu/placa"
-msgstr ""
+msgstr "Precio/placa"
 
 #: apps/shop/templates/shop/cart.html:204
 msgid "Afegeix més productes al carro"
-msgstr ""
+msgstr "Añade más productos al carro"
 
 #: apps/shop/templates/shop/shop_product_form.html:16
 msgid "Galeria d'imatges"
-msgstr ""
+msgstr "Galeria de imágenes"
 
 #: apps/shop/templates/shop/shop_product_form.html:17
 msgid "Descripció"
-msgstr ""
+msgstr "Descripción"
 
 #: apps/shop/templates/shop/shop_product_form.html:49
 msgid "Nom animal"
-msgstr ""
+msgstr "Nombre del animal"
 
 #: apps/shop/templates/shop/shop_product_form.html:94
 msgid "Repetició"
-msgstr ""
+msgstr "Repetición"
 
 #: apps/shop/templates/shop/shop_product_form.html:102
 msgid "Afegeix al carro"
-msgstr ""
+msgstr "Añade al carro"
 
 #: apps/staff/views.py:102
 msgid "Nova comanda a INOXtags.com"
-msgstr ""
+msgstr "Nuevo pedido en INOXtags.com"
 
 #: apps/staff/views.py:220
 msgid "Rebut pagament a INOXtags.com"
-msgstr ""
+msgstr "Recibido pago en INOXtags.com"
 
 #: apps/staff/views.py:305 apps/staff/views.py:391
 msgid "Comanda anul.lada a INOXtags.com"
-msgstr ""
+msgstr "Pedido anulado en INOXtags.com"
 
 #: apps/staff/views.py:376
 msgid "Comanda modificada a INOXtags.com"
-msgstr ""
+msgstr "Pedido modificado en INOXtags.com"
 
 #: apps/staff/templates/email/bank_transfer_done.html:22
 msgid "Hem rebut la teva transferència"
-msgstr ""
+msgstr "Hemos recibido tu transferencia"
 
 #: apps/staff/templates/email/order_deleted.html:22
 #: apps/staff/templates/email/order_modification.html:22
@@ -952,7 +981,7 @@ msgstr ""
 
 #: apps/staff/templates/email/order_deleted.html:23
 msgid "La teva comanda ha sigut anul·lada."
-msgstr ""
+msgstr "Tu pedido ha sido anulado."
 
 #: apps/staff/templates/email/order_deleted.html:34
 msgid ""
@@ -960,10 +989,13 @@ msgid ""
 "les teves comandes registrant-te a la nostra web. També hi podràs "
 "visualitzar les teves factures si et cal."
 msgstr ""
+"Tu pedido ha sido anulado. Recuerda que puedes consultar el estado de tus "
+"pedidos registrandote en nuestra web. También podrás ver tus facturas si te "
+"hace falta."
 
 #: apps/staff/templates/email/order_modification.html:23
 msgid "La teva comanda ha sigut modificada."
-msgstr ""
+msgstr "Tu pedido ha sido modificado."
 
 #: apps/staff/templates/email/order_modification.html:35
 msgid ""
@@ -974,65 +1006,69 @@ msgid ""
 "registrant-te a la nostra web. També hi podràs visualitzar les teves "
 "factures si et cal."
 msgstr ""
+"Tu pedido ha sido modificado y en breve empezaremos a producirlo. Entre el "
+"tiempo que necesitamos para la producción y el envío, para envíos a la "
+"península ibérica, el tiempo estimado es de unos 7 días y para envíos al "
+"resto de Europa, de unos 10 días. Recuerda que puedes consultar el estado de "
+"tus pedidos registrandote en nuestra web. También podrás ver tus facturas."
 
 #: inoxtags/settings.py:40 inoxtags/settings.py:222
 msgid "Catalan"
-msgstr "Català"
+msgstr "Catalan"
 
 #: inoxtags/settings.py:41 inoxtags/settings.py:223
 msgid "Spanish"
-msgstr "Castellà"
+msgstr "Español"
 
 #: inoxtags/settings.py:42 inoxtags/settings.py:224
 msgid "English"
-msgstr "Anglès"
+msgstr "Inglés"
+
+#: inoxtags/templates/base.html:75 inoxtags/templates/shop_base.html:5
+msgid "Botiga"
+msgstr "Tienda"
+
+#: inoxtags/templates/base.html:77
+#, fuzzy
+msgid "Contacta"
+msgstr "Contactanos"
 
 #: inoxtags/templates/base.html:123 inoxtags/templates/base.html.py:137
 #: inoxtags/templates/base.html:140
 msgid "Log out"
-msgstr "Finalitza sessió"
+msgstr "Desconectarme"
 
 #: inoxtags/templates/base.html:127 inoxtags/templates/base.html.py:133
 msgid "Configuració del compte"
-msgstr ""
+msgstr "Configuración de la cuenta"
 
 #: inoxtags/templates/base.html:128 inoxtags/templates/base.html.py:134
 msgid "Change password"
-msgstr "Canvia la contrasenya"
+msgstr "Camibio de contraseña"
 
 #: inoxtags/templates/base.html:191
 msgid "Close"
-msgstr "Tanca"
+msgstr "Cerrar"
 
 #: inoxtags/templates/base.html:200
 msgid "Qui som"
-msgstr ""
+msgstr "Quién somos"
 
 #: inoxtags/templates/base.html:200
 msgid "Política de privacitat"
-msgstr ""
+msgstr "Política de privacidad"
 
 #: inoxtags/templates/base.html:200
 msgid "Condicions d'ús"
-msgstr ""
-
-#: inoxtags/templates/shop_base.html:5
-msgid "Botiga"
-msgstr ""
+msgstr "Condiciones de uso"
 
 #: inoxtags/templates/shop_base.html:23
 msgid "Tots els productes"
-msgstr ""
+msgstr "Todos los productos"
 
 #~ msgid ""
 #~ "Si desitges que amb el teu enviament t'enviem una factura en comptes d'un "
 #~ "albarà, cal que ens facilitis les teves dades."
 #~ msgstr ""
-#~ "Si desitges que amb el teu enviament t'enviem una factura en comptes d'un "
-#~ "albarà, cal que ens facilitis les teves dades."
-
-#~ msgid "Privacy"
-#~ msgstr "Política de privacitat"
-
-#~ msgid "Terms of service"
-#~ msgstr "Condicions d'ús"
+#~ "Si deseas que con tu envío te mandemos una factura en vez de un albarán, "
+#~ "debes facilitarnos tus datos"

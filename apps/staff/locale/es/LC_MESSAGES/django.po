@@ -1,0 +1,149 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-20 13:55+0200\n"
+"PO-Revision-Date: 2013-09-20 17:56+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: views.py:102
+msgid "Nova comanda a INOXtags.com"
+msgstr "Nuevo pedido en INOXtags.com"
+
+#: views.py:220
+msgid "Rebut pagament a INOXtags.com"
+msgstr "Recibido pago en INOXtags.com"
+
+#: views.py:305 views.py:391
+msgid "Comanda anul.lada a INOXtags.com"
+msgstr "Pedido anulado en INOXtags.com"
+
+#: views.py:376
+msgid "Comanda modificada a INOXtags.com"
+msgstr "Pedido modificado en INOXtags.com"
+
+#: templates/email/bank_transfer_done.html:22
+msgid "Moltes gràcies"
+msgstr ""
+"Muchas gracias"
+
+#: templates/email/bank_transfer_done.html:22
+msgid "Hem rebut la teva transferència"
+msgstr "Hemos recibido tu transferencia"
+
+#: templates/email/bank_transfer_done.html:23
+msgid "La teva comanda s'ha tramitat correctament."
+msgstr "Tu pedido se ha tramitado correctamente."
+
+#: templates/email/bank_transfer_done.html:28
+#: templates/email/order_deleted.html:28
+#: templates/email/order_modification.html:28
+msgid "Comanda número"
+msgstr "Pedido número"
+
+#: templates/email/bank_transfer_done.html:29
+#: templates/email/order_deleted.html:29
+#: templates/email/order_modification.html:29
+msgid "Realitzada"
+msgstr "Realizada"
+
+#: templates/email/bank_transfer_done.html:30
+#: templates/email/order_modification.html:30
+msgid "Import"
+msgstr "Importe"
+
+#: templates/email/bank_transfer_done.html:35
+msgid ""
+"La teva comanda ha sigut tramitada correctament i en breu començarem a "
+"produir-la. Entre el temps que necessitem per fer-la i l'enviament, "
+"t'arribarà en un plaç d'uns 7 dies per enviaments a la península ibèrica, o "
+"10 per a la resta d'Europa. Recorda que pots consultar l'estat de les teves "
+"comandes registrant-te a la nostra web. També hi podràs visualitzar les "
+"teves factures si et cal."
+msgstr ""
+"Tu pedido ha sido tramitado correctamente y en breve empezaremos a "
+"producirla. Entre el tiempo que necesitamos para la producción y el envío, "
+"te llegará en un plazo de 7 días, más o menos, si estás en la península "
+"ibérica, o 10 para el resto de Europa. Recuerda que puedes consultar el "
+"estado de tus pedidos registrandote en nuestra web. También podrás ver tus "
+"facturas si las necesitas."
+
+#: templates/email/bank_transfer_done.html:58
+#: templates/email/order_modification.html:58
+msgid "Nom de l'animal"
+msgstr "Nombre del animal"
+
+#: templates/email/bank_transfer_done.html:58
+#: templates/email/order_modification.html:58
+msgid "en color"
+msgstr ""
+
+#: templates/email/bank_transfer_done.html:59
+#: templates/email/bank_transfer_done.html:61
+#: templates/email/order_modification.html:59
+#: templates/email/order_modification.html:61
+msgid "Telèfon"
+msgstr "Teléfono"
+
+#: templates/email/bank_transfer_done.html:60
+#: templates/email/order_modification.html:60
+msgid "Nom propietari"
+msgstr "Nombre del propietario"
+
+#: templates/email/bank_transfer_done.html:62
+#: templates/email/order_modification.html:62
+msgid "Altres"
+msgstr "Otros"
+
+#: templates/email/order_deleted.html:22
+#: templates/email/order_modification.html:22
+msgid "Hola"
+msgstr ""
+
+#: templates/email/order_deleted.html:23
+msgid "La teva comanda ha sigut anul·lada."
+msgstr "Tu pedido ha sido anulado."
+
+#: templates/email/order_deleted.html:34
+msgid ""
+"La teva comanda ha sigut anul·lada. Recorda que pots consultar l'estat de "
+"les teves comandes registrant-te a la nostra web. També hi podràs "
+"visualitzar les teves factures si et cal."
+msgstr ""
+"Tu pedido ha sido anulado. Recuerda que puedes consultar el estado de tus "
+"pedidos registrandote en nuestra web. También podrás ver tus facturas si te "
+"hace falta."
+
+#: templates/email/order_modification.html:23
+msgid "La teva comanda ha sigut modificada."
+msgstr "Tu pedido ha sido modificado."
+
+#: templates/email/order_modification.html:35
+msgid ""
+"La teva comanda ha sigut modificada i en breu començarem a produir-la. Entre "
+"el temps que necessitem per fer-la i l'enviament, t'arribarà en un plaç "
+"d'uns 7 dies per enviaments a la península ibèrica, o 10 per a la resta "
+"d'Europa. Recorda que pots consultar l'estat de les teves comandes "
+"registrant-te a la nostra web. També hi podràs visualitzar les teves "
+"factures si et cal."
+msgstr ""
+"Tu pedido ha sido modificado y en breve empezaremos a producirlo. Entre el "
+"tiempo que necesitamos para la producción y el envío, para envíos a la "
+"península ibérica, el tiempo estimado es de unos 7 días y para envíos al "
+"resto de Europa, de unos 10 días. Recuerda que puedes consultar el estado de "
+"tus pedidos registrandote en nuestra web. También podrás ver tus facturas."
+
+#: templates/staff/checkout.html:66
+msgid "El carro està buit"
+msgstr "El carro está vacío"

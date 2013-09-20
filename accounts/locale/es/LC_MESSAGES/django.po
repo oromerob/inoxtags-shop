@@ -1,15 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# ORIOL ROMERO <oriol@inoxtags.com>, 2013.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-10 11:05+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2013-09-20 13:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -20,121 +19,122 @@ msgstr ""
 
 #: forms.py:21
 msgid "E-mail"
-msgstr ""
+msgstr "Email"
 
 #: forms.py:22
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
 #: forms.py:23
 msgid "Password (again)"
-msgstr ""
+msgstr "Contraseña (otra vez)"
 
 #: forms.py:25
 msgid "I have read and agree to the Terms of Service"
-msgstr ""
+msgstr "He leído y acepto las Condiciones de uso"
 
 #: forms.py:25
 msgid "You must agree to the terms to register"
-msgstr ""
+msgstr "Debes aceptar las Condiciones de uso"
 
 #: forms.py:32
 msgid ""
 "This email address is already in use. Please supply a different email "
 "address."
 msgstr ""
+"Esta dirección de email ya está en uso. Por favor, introduzca otra diferente"
 
 #: forms.py:44
 msgid "The two password fields didn't match."
-msgstr ""
+msgstr "Las dos contraseñas no coinciden"
 
 #: models.py:68
 msgid "staff status"
-msgstr ""
+msgstr "miembro del personal"
 
 #: models.py:68
 msgid "Designates whether the user can log into this admin site."
-msgstr ""
+msgstr "Indica si el usuario puede entrar en este sitio de administración."
 
 #: models.py:69
 msgid "date joined"
-msgstr ""
+msgstr "fecha de alta"
 
 #: models.py:71
 msgid "full name or company's name"
-msgstr ""
+msgstr "Nombre completo o nombre comercial"
 
 #: models.py:72
 msgid "shipping address"
-msgstr ""
+msgstr "dirección de envío"
 
 #: models.py:73 models.py:82
 msgid "postal code"
-msgstr ""
+msgstr "código postal"
 
 #: models.py:74 models.py:83
 msgid "town"
-msgstr ""
+msgstr "ciudad"
 
 #: models.py:75
 msgid "country"
-msgstr ""
+msgstr "país"
 
 #: models.py:77
 msgid "wants invoice"
-msgstr ""
+msgstr "quiere factura"
 
 #: models.py:78
 msgid "legal name"
-msgstr ""
+msgstr "nombre fiscal"
 
 #: models.py:79
 msgid "tax code"
-msgstr ""
+msgstr "NIF"
 
 #: models.py:80
 msgid "extra charge for equivalence only for spanish professional customers"
-msgstr ""
+msgstr "recargo de equivalencia, sólo para professionales españoles"
 
 #: models.py:81
 msgid "legal address"
-msgstr ""
+msgstr "dirección de facturación"
 
 #: models.py:85
 msgid "is professional"
-msgstr ""
+msgstr "es professional"
 
 #: models.py:86
 msgid "share professional customer data"
-msgstr ""
+msgstr "compartir datos professionales"
 
 #: models.py:87
 msgid "main phone number"
-msgstr ""
+msgstr "teléfono principal"
 
 #: models.py:88
 msgid "alternative phone number"
-msgstr ""
+msgstr "teléfono alternativo"
 
 #: views.py:127
 msgid "Shipping data"
-msgstr ""
+msgstr "Datos de envío"
 
 #: views.py:162
 msgid "Invoice data"
-msgstr ""
+msgstr "Datos de facturación"
 
 #: views.py:197
 msgid "Professional data"
-msgstr ""
+msgstr "Datos professionales"
 
 #: templates/accounts/main.html:6
 msgid "Dades del compte"
-msgstr ""
+msgstr "Datos de la cuenta"
 
 #: templates/accounts/main.html:15
 msgid "Dades d'enviament"
-msgstr ""
+msgstr "Datos de envío"
 
 #: templates/accounts/main.html:23 templates/accounts/main.html.py:64
 msgid "Modifica"
@@ -145,19 +145,21 @@ msgid ""
 "Encara no has introduit les teves dades d'enviament, recorda que és "
 "inprescindible per poder enviar-te el que compris."
 msgstr ""
+"Aún no has introducido tus datos de envío, recuerda que són imprescindibles "
+"para poder enviarte lo que compres."
 
 #: templates/accounts/main.html:28 templates/accounts/main.html.py:49
 #: templates/accounts/update_data.html:14
 msgid "Add"
-msgstr ""
+msgstr "Añade"
 
 #: templates/accounts/main.html:36
 msgid "Dades de facturació"
-msgstr ""
+msgstr "Datos de facturación"
 
 #: templates/accounts/main.html:44
 msgid "Update"
-msgstr ""
+msgstr "Actualiza"
 
 #: templates/accounts/main.html:47
 msgid ""
@@ -167,94 +169,95 @@ msgstr ""
 
 #: templates/accounts/main.html:58
 msgid "Dades professionals"
-msgstr ""
+msgstr "Datos professionales"
 
 #: templates/accounts/update_data.html:13
 msgid "Back"
-msgstr ""
+msgstr "Vuelve"
 
 #: templates/registration/activate.html:8
 msgid "Account successfully activated"
-msgstr ""
+msgstr "Cuenta activada con éxito"
 
 #: templates/registration/activate.html:10
 #: templates/registration/login.html:13
 #: templates/registration/password_reset_complete.html:12
 msgid "Log in"
-msgstr ""
+msgstr "Iniciar sessión"
 
 #: templates/registration/activate.html:14
 msgid "Account activation failed"
-msgstr ""
+msgstr "Error en la activación de la cuenta"
 
 #: templates/registration/activation_complete.html:5
 msgid "Your account is now activated."
-msgstr ""
+msgstr "Tu cuenta se ha activado."
 
 #: templates/registration/activation_email.txt:2
 msgid "Activate account at"
-msgstr ""
+msgstr "Activa la cuenta en"
 
 #: templates/registration/activation_email.txt:6
 #, python-format
 msgid "Link is valid for %(expiration_days)s days."
-msgstr ""
+msgstr "Enlace válido por %(expiration_days)s días."
 
 #: templates/registration/activation_email_subject.txt:1
 msgid "Account activation on"
-msgstr ""
+msgstr "Activación de la cuenta de"
 
 #: templates/registration/login.html:17
 msgid "Forgot password"
-msgstr ""
+msgstr "Has olvidado tu contraseña"
 
 #: templates/registration/login.html:17
 msgid "Reset it"
-msgstr ""
+msgstr "Reiniciala"
 
 #: templates/registration/login.html:18
 msgid "Not member"
-msgstr ""
+msgstr "No estas registrado"
 
 #: templates/registration/login.html:18
 msgid "Register"
-msgstr ""
+msgstr "Registrate"
 
 #: templates/registration/logout.html:5
 msgid "Logged out"
-msgstr ""
+msgstr "Sessión finalizada"
 
 #: templates/registration/password_change_done.html:9
 msgid "Password changed"
-msgstr ""
+msgstr "Contraseña cambiada"
 
 #: templates/registration/password_change_form.html:13
 #: templates/registration/password_reset_confirm.html:17
 #: templates/registration/password_reset_form.html:13
 #: templates/registration/registration_form.html:9
 msgid "Submit"
-msgstr ""
+msgstr "Envía"
 
 #: templates/registration/password_reset_complete.html:10
 msgid "Password reset successfully"
-msgstr ""
+msgstr "Contraseña reiniciada correctamente"
 
 #: templates/registration/password_reset_confirm.html:22
 msgid "Password reset failed"
-msgstr ""
+msgstr "Fallo en el reinicio de la contraseña"
 
 #: templates/registration/password_reset_done.html:9
 msgid "Email with password reset instructions has been sent."
 msgstr ""
+"Te hemos mandado un email con las instrucciones para reiniciar la contraseña."
 
 #: templates/registration/password_reset_email.html:2
 #, python-format
 msgid "Reset password at %(site_name)s"
-msgstr ""
+msgstr "Reinicia la contrseña en %(site_name)s"
 
 #: templates/registration/registration_closed.html:5
 msgid "Registration is currently closed."
-msgstr ""
+msgstr "Por el momento, el registro de nuevos usuarios está cerrado."
 
 #: templates/registration/registration_complete.html:5
 msgid "You are now registered. Activation email sent."

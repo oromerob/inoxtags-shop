@@ -1,0 +1,476 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-20 13:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: views.py:102
+msgid "Comanda gestionada correctament a la web d'INOXtags."
+msgstr ""
+
+#: views.py:157
+msgid "Dades d'INOXtags per tramitar comanda."
+msgstr ""
+
+#: templates/checkout/bank_transfer.html:12
+msgid "La teva compra s'ha gestionat correctament"
+msgstr ""
+
+#: templates/checkout/bank_transfer.html:13
+msgid ""
+"En breu rebràs a la bústia del teu correu electrònic un missatge amb les "
+"dades perque puguis fer el pagament de la teva compra."
+msgstr ""
+
+#: templates/checkout/bank_transfer.html:14
+msgid "Si tens qualsevol dubte, et pots posar en contacte amb nosaltres"
+msgstr ""
+
+#: templates/checkout/bank_transfer.html:14
+msgid "aquí"
+msgstr ""
+
+#: templates/checkout/bank_transfer.html:15
+#: templates/email/bank_transfer.html:40
+msgid ""
+"Has de saber que fins que no rebem la transferència, no començarem a produir "
+"la teva comanda, així que si t'en desdius no cal que facis res, simplement "
+"no fent efectiu el pagament, la comanda no es tramitarà. Un cop rebem "
+"l'ingrés, entre el temps que necessitem per fer-la i l'enviament, t'arribarà "
+"en un plaç d'uns 7 dies per enviaments a la península ibèrica, o 10 per a la "
+"resta d'Europa. Recorda que pots consultar l'estat de les teves comandes "
+"registrant-te a la nostra web. També hi podràs visualitzar les teves "
+"factures si et cal."
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:12
+msgid "Ens falten dades."
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:13
+msgid ""
+"Per poder continuar tramitant la teva comanda, primer cal que ens facilitis "
+"totes les teves dades d'enviament."
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:16
+msgid "El vostre nom."
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:19
+msgid "La vostra adreça."
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:22
+msgid "El vostre codi postal."
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:25
+msgid "La vostra població."
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:28
+msgid "El vostre país."
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:31
+msgid "Completa les teves dades d'enviament."
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:41
+msgid "Resum de la compra"
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:42
+msgid "Nº de productes"
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:43
+#: templates/checkout/invoice_list.html:22
+#: templates/checkout/invoice_list.html:54
+#: templates/checkout/invoice_list.html:80
+#: templates/checkout/order_list.html:31
+msgid "Import total"
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:45
+msgid "Dades d'enviament"
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:52
+msgid "Canvia les teves dades d'enviament."
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:55
+msgid "Si totes les dades són correctes, selecciona la forma de pagament"
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:99
+msgid ""
+"Si prefereixes pagar-nos amb transferència bancaria, recorda que al concepte "
+"has d'indicar la referència que t'indiquem i que començarem a preparar-te "
+"l'enviament un cop rebem l'ingés al nostre compte. Per seguir prem el botó "
+"'Pagar amb transferència' i et mostrarem les dades per fer l'ingés i "
+"t'enviarem al mateix moment un mail perquè puguis consultar-ho en qualsevol "
+"moment."
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:101
+msgid "Pagar amb transferència"
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:111
+msgid "Productes al carro"
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:124
+#: templates/checkout/order_detail.html:46
+#: templates/email/bank_transfer.html:62 templates/email/conf_order.html:57
+msgid "Nom de l'animal"
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:124
+#: templates/checkout/order_detail.html:46
+#: templates/email/bank_transfer.html:62 templates/email/conf_order.html:57
+msgid "en color"
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:125
+#: templates/checkout/checkout_summary.html:127
+#: templates/checkout/order_detail.html:47
+#: templates/checkout/order_detail.html:49
+#: templates/email/bank_transfer.html:63 templates/email/bank_transfer.html:65
+#: templates/email/conf_order.html:58 templates/email/conf_order.html.py:60
+msgid "Telèfon"
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:126
+#: templates/checkout/order_detail.html:48
+#: templates/email/bank_transfer.html:64 templates/email/conf_order.html:59
+msgid "Nom propietari"
+msgstr ""
+
+#: templates/checkout/checkout_summary.html:128
+#: templates/checkout/order_detail.html:50
+#: templates/email/bank_transfer.html:66 templates/email/conf_order.html:61
+msgid "Altres"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:14
+msgid "Factures"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:19
+#: templates/checkout/invoice_list.html:51
+#: templates/checkout/invoice_list.html:78
+#: templates/checkout/order_list.html:29
+msgid "Data"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:20
+msgid "Número de factura"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:21
+msgid "Comanda corresponent"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:23
+#: templates/checkout/invoice_list.html:55
+#: templates/checkout/order_list.html:33
+msgid "Detall"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:31
+#: templates/checkout/invoice_list.html:63
+msgid "pdf"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:38
+msgid "No hi ha factures"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:39
+msgid ""
+"Encara no heu generat cap factura, si teniu comandes realitzades i acabeu "
+"d'introduir les vostres dades de facturació, poseu-vos en contacte amb "
+"nosaltres, hem de generar les factures manualment."
+msgstr ""
+
+#: templates/checkout/invoice_list.html:46
+msgid "Factures rectificatives"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:52
+msgid "Número de factura rectificativa"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:53
+msgid "Factura corresponent"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:73
+msgid "Comandes no facturades"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:79
+msgid "Comanda"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:81
+msgid "Generar factura"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:89
+msgid "generar"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:100
+msgid "Atenció"
+msgstr ""
+
+#: templates/checkout/invoice_list.html:101
+msgid ""
+"Per poder generar les factures, primer ens heu de proveir de les vostres "
+"dades de facturació. Ho podeu fer a 'Configuració del compte', 'Dades de "
+"facturació'. Per a qualsevol dubte, poseu-vos en contacte amb nosaltres, us "
+"atendrem el més aviat possible."
+msgstr ""
+
+#: templates/checkout/order_detail.html:13
+msgid "Comanda de"
+msgstr ""
+
+#: templates/checkout/order_detail.html:14 templates/email/conf_order.html:27
+msgid "Comanda número"
+msgstr ""
+
+#: templates/checkout/order_detail.html:15
+#: templates/email/bank_transfer.html:28 templates/email/conf_order.html:28
+msgid "Realitzada"
+msgstr ""
+
+#: templates/checkout/order_detail.html:16
+#: templates/email/bank_transfer.html:29 templates/email/conf_order.html:29
+msgid "Import"
+msgstr ""
+
+#: templates/checkout/order_detail.html:17
+#: templates/checkout/order_list.html:32
+msgid "Estat"
+msgstr ""
+
+#: templates/checkout/order_detail.html:19
+msgid "La teva comanda ha sigut enviada."
+msgstr ""
+
+#: templates/checkout/order_detail.html:20
+msgid "L'enviament es va fer"
+msgstr ""
+
+#: templates/checkout/order_detail.html:21
+msgid "Pots seguir l'enviament de la teva comanda amb aquest codi"
+msgstr ""
+
+#: templates/checkout/order_detail.html:21
+msgid ""
+"En breu publicarem el codi de seguiment de l'enviament de la teva comanda."
+msgstr ""
+
+#: templates/checkout/order_detail.html:23
+msgid "Estem produïnt la teva comanda, quan estigui en transit, t'avisarem."
+msgstr ""
+
+#: templates/checkout/order_detail.html:33
+msgid "Productes"
+msgstr ""
+
+#: templates/checkout/order_list.html:12
+msgid "Encara no has fet cap comanda"
+msgstr ""
+
+#: templates/checkout/order_list.html:13
+msgid ""
+"Quan hagis fet una compra, aquí hi podràs fer el seguiment per saber si "
+"estan ja acabats els productes que has demanat, o si estan en camí, o hi "
+"podràs consultar el codi de seguiment perquè puguis veure si ja està a punt "
+"d'arribar-te."
+msgstr ""
+
+#: templates/checkout/order_list.html:24
+msgid "Comandes"
+msgstr ""
+
+#: templates/checkout/order_list.html:30
+msgid "Número de comanda"
+msgstr ""
+
+#: templates/checkout/order_list.html:42
+msgid "Enviada"
+msgstr ""
+
+#: templates/checkout/order_list.html:44
+msgid "En producció"
+msgstr ""
+
+#: templates/checkout/order_list.html:47
+msgid "detalls"
+msgstr ""
+
+#: templates/checkout/payment_result.html:5
+msgid "Payment result"
+msgstr "Resultat del pagament"
+
+#: templates/checkout/payment_result.html:13
+#: templates/checkout/payment_success.html:11
+msgid "La teva comanda s'ha gestionat correctament"
+msgstr ""
+
+#: templates/checkout/payment_result.html:14
+#: templates/checkout/payment_success.html:12
+msgid ""
+"En breu rebràs a la bústia del teu correu electrònic un missatge amb totes "
+"les dades de la teva comanda."
+msgstr ""
+
+#: templates/checkout/payment_result.html:15
+#: templates/checkout/payment_success.html:13
+msgid ""
+"A partir d'ara podràs consultar l'estat de la teva comanda registrant-te a "
+"la nostra web."
+msgstr ""
+
+#: templates/checkout/payment_result.html:16
+msgid "Torna"
+msgstr ""
+
+#: templates/checkout/payment_result.html:24
+msgid "Error en el pagament"
+msgstr ""
+
+#: templates/checkout/payment_result.html:25
+msgid "Segons el nostre proveïdor, l'error ha sigut:"
+msgstr ""
+
+#: templates/checkout/payment_result.html:27
+msgid ""
+"Si tens qualsevol dubte, contacta'ns, intentarem ajudat-te en tot el que "
+"puguem."
+msgstr ""
+
+#: templates/checkout/payment_result.html:28
+msgid "Reintenta el pagament"
+msgstr ""
+
+#: templates/email/bank_transfer.html:6
+msgid "Dades per la transferència"
+msgstr ""
+
+#: templates/email/bank_transfer.html:22 templates/email/conf_order.html:22
+msgid "Moltes gràcies"
+msgstr ""
+
+#: templates/email/bank_transfer.html:22
+msgid "per comprar a la web d'INOXtags."
+msgstr ""
+
+#: templates/email/bank_transfer.html:27
+msgid "Referència"
+msgstr ""
+
+#: templates/email/bank_transfer.html:34
+msgid ""
+"Has seleccionat fer el pagament amb una transferència bancaria. Aquestes són "
+"les nostres dades:"
+msgstr ""
+
+#: templates/email/bank_transfer.html:35
+msgid "Compte"
+msgstr ""
+
+#: templates/email/bank_transfer.html:36
+msgid "Iban"
+msgstr ""
+
+#: templates/email/bank_transfer.html:37
+msgid "Titular"
+msgstr ""
+
+#: templates/email/bank_transfer.html:38
+msgid "Adreça"
+msgstr ""
+
+#: templates/email/bank_transfer.html:39
+msgid "Concepte"
+msgstr ""
+
+#: templates/email/conf_order.html:22
+msgid "La teva comanda s'ha tramitat correctament."
+msgstr ""
+
+#: templates/email/conf_order.html:34
+msgid ""
+"La teva comanda ha sigut tramitada correctament i en breu començarem a "
+"produir-la. Entre el temps que necessitem per fer-la i l'enviament, "
+"t'arribarà en un plaç d'uns 7 dies per enviaments a la península ibèrica, o "
+"10 per a la resta d'Europa. Recorda que pots consultar l'estat de les teves "
+"comandes registrant-te a la nostra web. També hi podràs visualitzar les "
+"teves factures si et cal."
+msgstr ""
+
+#: templates/pdf/invoice_pdf.html:79
+msgid "Factura comercial"
+msgstr ""
+
+#: templates/pdf/invoice_pdf.html:82
+msgid "Contado"
+msgstr ""
+
+#: templates/pdf/invoice_pdf.html:82
+msgid "giro bancario"
+msgstr ""
+
+#: templates/pdf/invoice_pdf.html:82
+msgid "Pagado"
+msgstr ""
+
+#: templates/pdf/invoice_pdf.html:95
+msgid "Albarán"
+msgstr ""
+
+#: templates/pdf/invoice_pdf.html:105
+msgid "Total Imponible"
+msgstr ""
+
+#: templates/pdf/invoice_pdf.html:106
+msgid "IVA"
+msgstr ""
+
+#: templates/pdf/invoice_pdf.html:107
+msgid "Cuota"
+msgstr ""
+
+#: templates/pdf/invoice_pdf.html:108
+msgid "TOTAL FACTURA"
+msgstr ""
+
+#: templates/pdf/invoice_pdf.html:115
+msgid "Observaciones"
+msgstr ""
+
+#: templates/pdf/invoice_pdf.html:117
+msgid "Productos en el pedido"
+msgstr ""

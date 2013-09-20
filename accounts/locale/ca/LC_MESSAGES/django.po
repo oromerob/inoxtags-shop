@@ -1,15 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# ORIOL ROMERO <oriol@inoxtags.com>, 2013.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-10 11:04+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2013-09-20 13:23+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -20,113 +19,113 @@ msgstr ""
 
 #: forms.py:21
 msgid "E-mail"
-msgstr ""
+msgstr "Email"
 
 #: forms.py:22
 msgid "Password"
-msgstr ""
+msgstr "Contrasenya"
 
 #: forms.py:23
 msgid "Password (again)"
-msgstr ""
+msgstr "Contrasenya (una altra vegada)"
 
 #: forms.py:25
 msgid "I have read and agree to the Terms of Service"
-msgstr ""
+msgstr "He llegit i entenc les Condicions d'ús del lloc"
 
 #: forms.py:25
 msgid "You must agree to the terms to register"
-msgstr ""
+msgstr "Has d'acceptar les Condicions d'ús per poder-te registrar."
 
 #: forms.py:32
 msgid ""
 "This email address is already in use. Please supply a different email "
 "address."
-msgstr ""
+msgstr "Aquest email ja està registrat. Useu-ne un altre si us plau."
 
 #: forms.py:44
 msgid "The two password fields didn't match."
-msgstr ""
+msgstr "Les dues contrasenyes no coincideixen."
 
 #: models.py:68
 msgid "staff status"
-msgstr ""
+msgstr "Membre del personal"
 
 #: models.py:68
 msgid "Designates whether the user can log into this admin site."
-msgstr ""
+msgstr "Indica si l'usuari pot entrar a aquest lloc d'administració."
 
 #: models.py:69
 msgid "date joined"
-msgstr ""
+msgstr "data d'ingrés"
 
 #: models.py:71
 msgid "full name or company's name"
-msgstr ""
+msgstr "Nom complert o nom comercial del negoci."
 
 #: models.py:72
 msgid "shipping address"
-msgstr ""
+msgstr "adreça d'enviament"
 
 #: models.py:73 models.py:82
 msgid "postal code"
-msgstr ""
+msgstr "codi postal"
 
 #: models.py:74 models.py:83
 msgid "town"
-msgstr ""
+msgstr "localitat"
 
 #: models.py:75
 msgid "country"
-msgstr ""
+msgstr "país"
 
 #: models.py:77
 msgid "wants invoice"
-msgstr ""
+msgstr "vol factura"
 
 #: models.py:78
 msgid "legal name"
-msgstr ""
+msgstr "nom fiscal"
 
 #: models.py:79
 msgid "tax code"
-msgstr ""
+msgstr "NIF"
 
 #: models.py:80
 msgid "extra charge for equivalence only for spanish professional customers"
-msgstr ""
+msgstr "recàrrec d'equivalència, només per clients professionals espanyols"
 
 #: models.py:81
 msgid "legal address"
-msgstr ""
+msgstr "adreça fiscal"
 
 #: models.py:85
 msgid "is professional"
-msgstr ""
+msgstr "és professional"
 
 #: models.py:86
 msgid "share professional customer data"
-msgstr ""
+msgstr "comparteix les dades professionals"
 
 #: models.py:87
 msgid "main phone number"
-msgstr ""
+msgstr "telèfon principal"
 
 #: models.py:88
 msgid "alternative phone number"
-msgstr ""
+msgstr "telèfon alternatiu"
 
 #: views.py:127
 msgid "Shipping data"
-msgstr ""
+msgstr "Adreça d'enviament"
 
 #: views.py:162
 msgid "Invoice data"
-msgstr ""
+msgstr "Dades de facturació"
 
 #: views.py:197
 msgid "Professional data"
-msgstr ""
+msgstr "Dades professionals"
 
 #: templates/accounts/main.html:6
 msgid "Dades del compte"
@@ -149,7 +148,7 @@ msgstr ""
 #: templates/accounts/main.html:28 templates/accounts/main.html.py:49
 #: templates/accounts/update_data.html:14
 msgid "Add"
-msgstr ""
+msgstr "Afegeix"
 
 #: templates/accounts/main.html:36
 msgid "Dades de facturació"
@@ -157,7 +156,7 @@ msgstr ""
 
 #: templates/accounts/main.html:44
 msgid "Update"
-msgstr ""
+msgstr "Actualitza"
 
 #: templates/accounts/main.html:47
 msgid ""
@@ -171,91 +170,93 @@ msgstr ""
 
 #: templates/accounts/update_data.html:13
 msgid "Back"
-msgstr ""
+msgstr "Torna"
 
 #: templates/registration/activate.html:8
 msgid "Account successfully activated"
-msgstr ""
+msgstr "Compte activat exitosament"
 
 #: templates/registration/activate.html:10
 #: templates/registration/login.html:13
 #: templates/registration/password_reset_complete.html:12
 msgid "Log in"
-msgstr ""
+msgstr "Iniciar sessió"
 
 #: templates/registration/activate.html:14
 msgid "Account activation failed"
-msgstr ""
+msgstr "L'activació del compte ha fallat"
 
 #: templates/registration/activation_complete.html:5
 msgid "Your account is now activated."
-msgstr ""
+msgstr "El teu compte està actiu"
 
 #: templates/registration/activation_email.txt:2
 msgid "Activate account at"
-msgstr ""
+msgstr "Activa el compte a"
 
 #: templates/registration/activation_email.txt:6
 #, python-format
 msgid "Link is valid for %(expiration_days)s days."
-msgstr ""
+msgstr "El link és vàlid per %(expiration_days)s dies."
 
 #: templates/registration/activation_email_subject.txt:1
 msgid "Account activation on"
-msgstr ""
+msgstr "Compte activat"
 
 #: templates/registration/login.html:17
 msgid "Forgot password"
-msgstr ""
+msgstr "Has oblidat la contrasenya"
 
 #: templates/registration/login.html:17
 msgid "Reset it"
-msgstr ""
+msgstr "Restableix-la"
 
 #: templates/registration/login.html:18
 msgid "Not member"
-msgstr ""
+msgstr "No estàs registrat"
 
 #: templates/registration/login.html:18
 msgid "Register"
-msgstr ""
+msgstr "Registra't"
 
 #: templates/registration/logout.html:5
 msgid "Logged out"
-msgstr ""
+msgstr "Sessió finalitzada"
 
 #: templates/registration/password_change_done.html:9
 msgid "Password changed"
-msgstr ""
+msgstr "Contrasenya canviada"
 
 #: templates/registration/password_change_form.html:13
 #: templates/registration/password_reset_confirm.html:17
 #: templates/registration/password_reset_form.html:13
 #: templates/registration/registration_form.html:9
 msgid "Submit"
-msgstr ""
+msgstr "Envia"
 
 #: templates/registration/password_reset_complete.html:10
 msgid "Password reset successfully"
-msgstr ""
+msgstr "Contrasenya restablerta amb èxit"
 
 #: templates/registration/password_reset_confirm.html:22
 msgid "Password reset failed"
-msgstr ""
+msgstr "El restabliment de la vostra contrasenya ha fallat"
 
 #: templates/registration/password_reset_done.html:9
 msgid "Email with password reset instructions has been sent."
 msgstr ""
+"T'hem enviat un email amb les instruccions per restablir la vostra "
+"contrasenya"
 
 #: templates/registration/password_reset_email.html:2
 #, python-format
 msgid "Reset password at %(site_name)s"
-msgstr ""
+msgstr "Restableix contrasenya a %(site_name)s"
 
 #: templates/registration/registration_closed.html:5
 msgid "Registration is currently closed."
-msgstr ""
+msgstr "Actualment el registre de nous usuaris està tancat."
 
 #: templates/registration/registration_complete.html:5
 msgid "You are now registered. Activation email sent."
-msgstr ""
+msgstr "Estàs registrat, t'hem enviat un email d'activació."

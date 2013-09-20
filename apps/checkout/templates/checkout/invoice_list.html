@@ -8,7 +8,7 @@
         <div class="row">
             {% if user.invoice_tax_code and user.invoice_address and user.invoice_code and user.invoice_town and user.invoice_name %}
                 {% if invoice_list %}
-                            <table id="list" class="table table-bordered span10 offset1 invoices">
+                            <table id="list" class="table table-bordered span10 offset1 invoices staff-table">
                                 <thead>
                                     <tr>
                                         <td class="center" colspan="5"><h4>{% trans "Factures" %}:</h4></td>
@@ -36,11 +36,11 @@
                 {% else %}
                     <div class="span8 offset2 invoices">
                         <h3>{% trans "No hi ha factures" %}</h3>
-                        <p class="lead">{% trans "Encara no heu generat cap factura, si teniu comandes realitzades i acabeu d'introduir les vostres dades de facturació, poseu-vos en contacte amb nosaltres, hem de generar les factures manualment." %}</p>
+                        <p class="lead">{% trans "Encara no heu generat cap factura." %}</p>
                     </div>
                 {% endif %}
                 {% if rect_invoice_list %}
-                            <table class="table table-bordered span10 offset1 invoices">
+                            <table class="table table-bordered span10 offset1 invoices staff-table">
                                 <thead>
                                     <tr>
                                         <td class="center" colspan="5"><h4>{% trans "Factures rectificatives" %}:</h4></td>
@@ -67,7 +67,7 @@
                             </table>
                 {% endif %}
                 {% if order_list %}
-                            <table class="table table-bordered span10 offset1 invoices">
+                            <table class="table table-bordered span10 offset1 invoices staff-table">
                                 <thead>
                                     <tr>
                                         <td class="center" colspan="5"><h4>{% trans "Comandes no facturades" %}:</h4></td>

@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# MIA <mia.bcn@gmail.com>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-20 18:00+0200\n"
-"PO-Revision-Date: 2013-09-20 17:59+0200\n"
+"PO-Revision-Date: 2013-09-22 20:46+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -30,15 +30,15 @@ msgstr ""
 
 #: templates/base.html:75 templates/shop_base.html:5
 msgid "Botiga"
-msgstr "Shop"
+msgstr "Store"
 
 #: templates/base.html:76
 msgid "On trobar-nos"
-msgstr ""
+msgstr "Find us"
 
 #: templates/base.html:77
 msgid "Contacta"
-msgstr ""
+msgstr "Contact us"
 
 #: templates/base.html:123 templates/base.html.py:137 templates/base.html:140
 msgid "Log out"
@@ -46,15 +46,15 @@ msgstr ""
 
 #: templates/base.html:125 templates/base.html.py:135
 msgid "Comandes"
-msgstr ""
+msgstr "Orders"
 
 #: templates/base.html:126 templates/base.html.py:136
 msgid "Factures"
-msgstr ""
+msgstr "Invoices"
 
 #: templates/base.html:127 templates/base.html.py:133
 msgid "Configuració del compte"
-msgstr ""
+msgstr "Account settings"
 
 #: templates/base.html:128 templates/base.html.py:134
 msgid "Change password"
@@ -87,20 +87,20 @@ msgstr ""
 
 #: templates/base.html:200
 msgid "Qui som"
-msgstr ""
+msgstr "Who are we?"
 
 #: templates/base.html:200
 msgid "Política de privacitat"
-msgstr ""
+msgstr "Privacy"
 
 #: templates/base.html:200
 msgid "Condicions d'ús"
-msgstr ""
+msgstr "Terms and conditions"
 
 #: templates/shop_base.html:23
 msgid "Tots els productes"
-msgstr ""
+msgstr "All the products "
 
 #: templates/shop_base.html:24 templates/shop_base.html.py:32
 msgid "Carro"
-msgstr ""
+msgstr "Cart"

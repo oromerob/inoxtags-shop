@@ -1,15 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Mia <mia.bcn@gmail.com>, 2013.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-20 13:55+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2013-09-22 20:57+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -39,27 +38,27 @@ msgstr ""
 
 #: templates/shop/cart.html:5
 msgid "Carro"
-msgstr ""
+msgstr "Cart"
 
 #: templates/shop/cart.html:14 templates/shop/cart.html.py:105
 msgid "Producte"
-msgstr ""
+msgstr "Item"
 
 #: templates/shop/cart.html:15 templates/shop/cart.html.py:106
 msgid "Personalització"
-msgstr ""
+msgstr "Personalize"
 
 #: templates/shop/cart.html:16 templates/shop/shop_product_form.html:32
 msgid "Quantitat"
-msgstr ""
+msgstr "Amount"
 
 #: templates/shop/cart.html:17
 msgid "Preu per placa"
-msgstr ""
+msgstr "Price per Tag"
 
 #: templates/shop/cart.html:67 templates/shop/cart.html.py:156
 msgid "Elimina"
-msgstr ""
+msgstr "Delete"
 
 #: templates/shop/cart.html:89 templates/shop/cart.html.py:176
 #: templates/shop/cart.html:185
@@ -69,20 +68,20 @@ msgstr ""
 #: templates/shop/cart.html:91 templates/shop/cart.html.py:178
 #: templates/shop/cart.html:187
 msgid "Finalitza la compra"
-msgstr ""
+msgstr "Done"
 
 #: templates/shop/cart.html:93 templates/shop/cart.html.py:180
 #: templates/shop/cart.html:191
 msgid "Torna a la tenda"
-msgstr ""
+msgstr "Back to store"
 
 #: templates/shop/cart.html:97 templates/shop/cart.html.py:195
 msgid "El carro està buit"
-msgstr ""
+msgstr "Empty cart"
 
 #: templates/shop/cart.html:107
 msgid "Placa"
-msgstr ""
+msgstr "Tag"
 
 #: templates/shop/cart.html:108
 msgid "Qu."
@@ -90,36 +89,36 @@ msgstr ""
 
 #: templates/shop/cart.html:109
 msgid "Preu/placa"
-msgstr ""
+msgstr "Price/Tag"
 
 #: templates/shop/cart.html:204
 msgid "Afegeix més productes al carro"
-msgstr ""
+msgstr "Add items to your cart"
 
 #: templates/shop/shop_product_form.html:16
 msgid "Galeria d'imatges"
-msgstr ""
+msgstr "Image gallery"
 
 #: templates/shop/shop_product_form.html:17
 msgid "Descripció"
-msgstr ""
+msgstr "Description"
 
 #: templates/shop/shop_product_form.html:49
 msgid "Nom animal"
-msgstr ""
+msgstr "Pet's name"
 
 #: templates/shop/shop_product_form.html:58
 #: templates/shop/shop_product_form.html:76
 msgid "Telèfon"
-msgstr ""
+msgstr "Phone"
 
 #: templates/shop/shop_product_form.html:67
 msgid "Nom propietari"
-msgstr ""
+msgstr "Owner's name"
 
 #: templates/shop/shop_product_form.html:85
 msgid "Altres"
-msgstr ""
+msgstr "Other"
 
 #: templates/shop/shop_product_form.html:94
 msgid "Repetició"
@@ -127,4 +126,4 @@ msgstr ""
 
 #: templates/shop/shop_product_form.html:102
 msgid "Afegeix al carro"
-msgstr ""
+msgstr  "Add to cart"

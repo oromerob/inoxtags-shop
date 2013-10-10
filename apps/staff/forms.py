@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 from django.forms import ModelForm
 
-from apps.checkout.models import OrderItem, Invoice, Order
+from apps.billing.models import OrderItem, Invoice, Order
 
 
 class StaffOrderCreateForm(ModelForm):

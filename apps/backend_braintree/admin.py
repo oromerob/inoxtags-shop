@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.payments.models import *
+from apps.backend_braintree.models import *
 
 
 class BraintreeRawLogAdmin(admin.ModelAdmin):

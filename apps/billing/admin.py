@@ -1,4 +1,4 @@
-from apps.checkout.models import *
+from apps.billing.models import *
 from django.contrib import admin
 
 
@@ -26,14 +26,8 @@ class RectInvoiceAdmin(admin.ModelAdmin):
     ordering = ['-id']
 
 
-class PreOrderAdmin(admin.ModelAdmin):
-    list_display = ['__unicode__', 'user', 'cart', 'price', 'payed', 'deleted']
-    ordering = ['-id']
-
-
 admin.site.register(Iva, IvaAdmin)
 admin.site.register(Invoice, InvoiceAdmin)
 admin.site.register(RectInvoice, RectInvoiceAdmin)
-admin.site.register(PreOrder, PreOrderAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderItem, OrderItemAdmin)

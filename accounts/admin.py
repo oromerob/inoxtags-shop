@@ -4,7 +4,7 @@ from django import forms
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
-from accounts.models import InoxUser, Country, PartnerZone, PartnerTown, Customer
+from accounts.models import InoxUser, Country, PartnerZone, PartnerTown
 
 class UserCreationForm(forms.ModelForm):
     """
@@ -81,12 +81,7 @@ class InoxUserAdmin(UserAdmin):
     filter_horizontal = ()
 
 
-class CustomerAdmin(admin.ModelAdmin):
-    list_display = ('user','stripe_customer_id','date_created','date_modified')
-
-
 admin.site.register(InoxUser, InoxUserAdmin)
 admin.site.register(Country)
 admin.site.register(PartnerTown)
 admin.site.register(PartnerZone)
-admin.site.register(Customer, CustomerAdmin)

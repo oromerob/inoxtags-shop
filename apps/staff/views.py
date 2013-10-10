@@ -19,7 +19,8 @@ from django.utils.html import strip_tags
 from apps.pdf.views import RenderPDF
 
 from apps.staff.forms import StaffOrderCreateForm, StaffOrderItemAddForm, StaffShippingCodeForm, StaffInvoiceCreateForm
-from apps.checkout.models import Iva, OrderItem, Invoice, PreOrder, Order, RectInvoice
+from apps.billing.models import Iva, OrderItem, Invoice, Order, RectInvoice
+from apps.backend_bank_transfer.models import PreOrder
 from apps.settings.models import ProjectSettings
 
 

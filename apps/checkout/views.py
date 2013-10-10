@@ -19,8 +19,6 @@ from apps.payments.models import BraintreeRawLog, PaymentLog, PaymentErrorLog
 from apps.checkout.models import Iva, Order, OrderItem, Invoice, PreOrder, RectInvoice
 from apps.settings.models import ProjectSettings
 
-from apps.shop.tools import cart_count_total
-
 
 class CheckoutSummaryView(TemplateView):
 

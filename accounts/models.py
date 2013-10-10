@@ -8,6 +8,7 @@ from django.utils import timezone
 
 from autoslug import AutoSlugField
 from transmeta import TransMeta
+from zebra.models import StripeCustomer
 
 
 class Country(models.Model):
@@ -109,3 +110,9 @@ class InoxUser(AbstractBaseUser,PermissionsMixin):
 
     def email_user(self, subject, message, from_email=None, **kwargs):
         send_mail(subject, message, from_email, [self.email], **kwargs)
+
+
+class Customer(StripeCustomer):
+    user = models.ForeignKey(InoxUser)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True)

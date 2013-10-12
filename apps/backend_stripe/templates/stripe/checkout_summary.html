@@ -57,7 +57,7 @@
                             <form action="" method="post">
 
 
-                                <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button" data-key="pk_test_lXzPkZ21V6cv6HaOif8OCXSf" data-amount="{% withratio CartPrice 1 100 %}" data-name="INOXtags" data-description="{{CountCartItems}} items ({{CartPrice|floatformat:2}}&euro;)" data-currency="eur" data-image="/128x128.png"></script>
+                                <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button" data-key="{{stripe_key}}" data-amount="{{price_cents}}" data-name="INOXtags" data-description="{{CountCartItems}} items ({{CartPrice|floatformat:2}}&euro;)" data-currency="eur" data-image="/128x128.png"></script>
 
                                               
                             </form>

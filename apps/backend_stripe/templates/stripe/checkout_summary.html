@@ -54,8 +54,6 @@
                     <div class="form">
                         <h3 class="center">{% trans "Si totes les dades són correctes, selecciona la forma de pagament" %}:</h3>
                         <div id="payButton">
-
-
                             {% comment %}
                             <form action="" method="post">
 
@@ -65,8 +63,6 @@
                                               
                             </form>
                             {% endcomment %}
-
-
                             {% if user.country.country == "Espanya" %}
                                 <button class="btn bankTrans btn-large" type="button">Transferència</button>
                             {% endif %}

@@ -2,7 +2,7 @@
 """
 Stripe payment views.
 """
-from django.views.generic.base import View
+from django.views.generic.base import TemplateView
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -14,7 +14,7 @@ from inoxtags.settings import STRIPE_SECRET
 stripe.api_key = STRIPE_SECRET
 
 
-class CheckoutSummaryView(View):
+class CheckoutSummaryView(TemplateView):
 
     template_name = 'stripe/checkout_summary.html'
 

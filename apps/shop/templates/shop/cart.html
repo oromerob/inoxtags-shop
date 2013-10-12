@@ -175,7 +175,7 @@
                 {% if user.is_staff %}
                 <a href="{% url 'staff_checkout' %}" class="btn btn-success full-width">{% trans "Checkout" %}</a>
                 {% else %}
-                <a href="{% url 'checkout_summary' %}" class="btn btn-success full-width">{% trans "Finalitza la compra" %}</a>
+                <a href="{% url 'checkout_summary_stripe' %}" class="btn btn-success full-width">{% trans "Finalitza la compra" %}</a>
                 {% endif %}
                 <a href="{% url 'shop_main' %}" class="btn full-width">{% trans "Torna a la tenda" %}</a>
             </div>
@@ -184,7 +184,7 @@
                     {% if user.is_staff %}
                         <a href="{% url 'staff_checkout' %}" class="btn btn-success span4">{% trans "Checkout" %}</a>
                     {% else %}
-                    <a href="{% url 'checkout_summary' %}" class="btn btn-success span4">{% trans "Finalitza la compra" %}</a>
+                    <a href="{% url 'checkout_summary_stripe' %}" class="btn btn-success span4">{% trans "Finalitza la compra" %}</a>
                     {% endif %}
                 </div>
                 <div class="span4">

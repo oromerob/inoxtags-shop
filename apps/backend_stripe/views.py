@@ -9,7 +9,7 @@ from django.shortcuts import render
 
 import stripe
 
-from inoxtags.settings import STRIPE_SECRET, STRIPE_PUBLISHABLE
+from inoxtags.settings import STRIPE_SECRET
 
 stripe.api_key = STRIPE_SECRET
 
@@ -45,8 +45,3 @@ class CheckoutSummaryView(View):
             HttpResponseRedirect('/payment/error')
 
         return render(request, self.template_name)
-
-    def get_context_data(self, **kwargs):
-        context = super(CheckoutSummaryView, self).get_context_data(**kwargs)
-        context['stripe_key'] = STRIPE_PUBLISHABLE
-        return context

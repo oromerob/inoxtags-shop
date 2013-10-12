@@ -5,6 +5,7 @@ Stripe payment views.
 from django.views.generic.base import View
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
 import stripe
 
@@ -44,3 +45,8 @@ class CheckoutSummaryView(View):
             HttpResponseRedirect('/payment/error')
 
         return render(request, self.template_name)
+
+    def get_context_data(self, **kwargs):
+        context = super(CheckoutSummaryView, self).get_context_data(**kwargs)
+        context['stripe_key'] = STRIPE_PUBLISHABLE
+        return context

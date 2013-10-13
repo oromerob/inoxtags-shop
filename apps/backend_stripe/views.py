@@ -38,6 +38,14 @@ class ChargeView(FormView):
         context_price = RequestContext(self.request).get('CartPrice')
         price_cents = int(context_price * 100)
 
+        # Creates the description
+        count_items = RequestContext(self.request).get('CountCartItems')
+        cart = RequestContext(self.request).get('Cart')
+        description = count_items + ' items(' + context_price + '€) from cart #' + cart
+
+        # Get the products in the current cart
+        product_list = RequestContext(self.request).get('CartProducts')
+
         # Get the credit card details submitted by the form
         token = form.cleaned_data['stripeToken']
 
@@ -48,7 +56,7 @@ class ChargeView(FormView):
                 amount=price_cents,  # amount in cents, again
                 currency="eur",
                 card=token,
-                description="payinguser@example.com"
+                description=description
             )
         except stripe.CardError:
               # The card has been declined

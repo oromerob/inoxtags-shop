@@ -23,7 +23,7 @@ class CheckoutSummaryView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(CheckoutSummaryView, self).get_context_data(**kwargs)
         context_price = RequestContext(self.request).get('CartPrice')
-        context['price_cents'] = context_price * 100
+        context['price_cents'] = int(context_price * 100)
         context['stripe_key'] = STRIPE_PUBLISHABLE
         return context
 

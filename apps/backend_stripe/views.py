@@ -5,8 +5,6 @@ Stripe payment views.
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from django.template import RequestContext
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
 from decimal import Decimal
 from django.utils.translation import ugettext_lazy as _
 from django.template.loader import render_to_string
@@ -16,8 +14,8 @@ from django.core.mail import EmailMultiAlternatives
 import stripe
 
 from inoxtags.settings import STRIPE_SECRET, STRIPE_PUBLISHABLE
-from apps.backend_stripe.forms import StripeForm
-from apps.billing.models import Iva
+#from apps.backend_stripe.forms import StripeForm
+from apps.billing.models import Iva, Order, OrderItem
 
 stripe.api_key = STRIPE_SECRET
 
@@ -69,7 +67,7 @@ class ChargeView(FormView):
             # sends the confirmation email and marks the cart as checked out.
             iva = Iva.objects.filter(is_active=True).get()
             count_total = cart.get_count_total()
-            user=self.request.user,
+            user = self.request.user
 
             # Creates the order
             order = Order.objects.create(

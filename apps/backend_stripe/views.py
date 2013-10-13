@@ -11,6 +11,7 @@ from django.shortcuts import render
 import stripe
 
 from inoxtags.settings import STRIPE_SECRET, STRIPE_PUBLISHABLE
+from apps.backend_stripe.forms import StripeForm
 
 stripe.api_key = STRIPE_SECRET
 
@@ -30,6 +31,7 @@ class CheckoutSummaryView(TemplateView):
 class ChargeView(FormView):
 
     success_url = '/payment/success/'
+    form_class = StripeForm
 
     def form_valid(self, form):
         # Get the CartPrice

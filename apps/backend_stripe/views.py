@@ -41,7 +41,7 @@ class ChargeView(FormView):
         # Creates the description
         count_items = RequestContext(self.request).get('CountCartItems')
         cart = RequestContext(self.request).get('Cart')
-        description = count_items + ' items(' + context_price + '€) from cart #' + cart
+        description = str(count_items + ' items(' + context_price + '€) from cart #' + cart)
 
         # Get the products in the current cart
         product_list = RequestContext(self.request).get('CartProducts')

@@ -39,7 +39,7 @@ class ChargeView(FormView):
         price_cents = context_price * 100
 
         # Get the credit card details submitted by the form
-        token = self.request.POST['stripeToken']
+        token = form.cleaned_data['stripeToken']
 
         # Create the charge on Stripe's servers - this will charge the user's
         # card

@@ -36,7 +36,7 @@ class ChargeView(FormView):
     def form_valid(self, form):
         # Get the CartPrice
         context_price = RequestContext(self.request).get('CartPrice')
-        price_cents = context_price * 100
+        price_cents = int(context_price * 100)
 
         # Get the credit card details submitted by the form
         token = form.cleaned_data['stripeToken']

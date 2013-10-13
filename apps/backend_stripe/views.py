@@ -14,7 +14,7 @@ from django.core.mail import EmailMultiAlternatives
 import stripe
 
 from inoxtags.settings import STRIPE_SECRET, STRIPE_PUBLISHABLE
-#from apps.backend_stripe.forms import StripeForm
+from apps.backend_stripe.forms import StripeForm
 from apps.billing.models import Iva, Order, OrderItem
 
 stripe.api_key = STRIPE_SECRET

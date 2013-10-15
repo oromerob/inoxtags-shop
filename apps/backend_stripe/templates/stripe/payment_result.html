@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block titol %}{% trans "Payment result" %}{% endblock %}
+
+
+{% block content %}
+    {% if Cart %}
+        <div class="container contingut">
+            <div class="row">
+                <div class="span6 offset3 info-box">
+                    <div class="info-box-inner">
+                        <h2>{% trans "Error en el pagament" %}</h2>
+                        <p>{% trans "No s'ha pogut realitzar el càrrec a la targeta, pots provar de repetir el pagament." %}</p>
+                        <p>{% trans "Si tens qualsevol dubte, contacta'ns, intentarem ajudat-te en tot el que puguem." %}</p>
+                        <a class="btn" href="{% url 'checkout_summary' %}">{% trans "Reintenta el pagament" %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="container contingut">
+            <div class="row">
+                <div class="span6 offset3 info-box">
+                    <div class="info-box-inner">
+                        <h2>{% trans "La teva comanda s'ha gestionat correctament" %}</h2>
+                        <p class="lead">{% trans "En breu rebràs a la bústia del teu correu electrònic un missatge amb totes les dades de la teva comanda." %}</p>
+                        <p class="lead">{% trans "A partir d'ara podràs consultar l'estat de la teva comanda registrant-te a la nostra web." %}</p>
+                        <a class="btn" href="/">{% trans "Torna" %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascript %}
+{% endblock %} 

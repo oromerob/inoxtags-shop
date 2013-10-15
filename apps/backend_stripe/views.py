@@ -123,7 +123,7 @@ class ChargeView(FormView):
 
         except stripe.CardError:
               # The card has been declined
-            pass
+            charge = None
 
         if charge:
 

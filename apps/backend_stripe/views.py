@@ -34,7 +34,7 @@ class CheckoutSummaryView(TemplateView):
 
 class ChargeView(FormView):
 
-    success_url = '/payment/success/'
+    success_url = '/charge/success/'
     form_class = StripeForm
 
     def form_valid(self, form):
@@ -125,3 +125,8 @@ class ChargeView(FormView):
             pass
 
         return super(ChargeView, self).form_valid(form)
+
+
+class ChargeSuccessView(TemplateView):
+
+    template_name = 'stripe/payment_success.html'

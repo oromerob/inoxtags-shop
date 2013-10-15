@@ -5,6 +5,7 @@ Stripe payment views.
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from django.template import RequestContext
+from django.http import HttpResponseRedirect
 from decimal import Decimal
 from django.utils.translation import ugettext_lazy as _
 from django.template.loader import render_to_string
@@ -122,7 +123,7 @@ class ChargeView(FormView):
 
         except stripe.CardError:
               # The card has been declined
-            pass
+            HttpResponseRedirect('/charge/error/')
 
         return super(ChargeView, self).form_valid(form)
 
@@ -130,3 +131,8 @@ class ChargeView(FormView):
 class ChargeSuccessView(TemplateView):
 
     template_name = 'stripe/payment_success.html'
+
+
+class ChargeErrorView(TemplateView):
+
+    template_name = 'stripe/payment_error.html'

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block titol %}{% trans "Payment error" %}{% endblock %}
+
+
+{% block content %}
+    <div class="container contingut">
+        <div class="row">
+            <div class="span6 offset3 info-box">
+                <div class="info-box-inner">
+                    <h2>{% trans "Error en el pagament" %}</h2>
+                    <p>{% trans "No s'ha pogut realitzar el càrrec a la targeta, pots provar de repetir el pagament." %}</p>
+                    <p>{% trans "Si tens qualsevol dubte, contacta'ns, intentarem ajudat-te en tot el que puguem." %}</p>
+                    <a class="btn" href="{% url 'checkout_summary' %}">{% trans "Reintenta el pagament" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %} 

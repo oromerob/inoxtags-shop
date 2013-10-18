@@ -9,7 +9,10 @@
                 <div class="span12 product prod-img">
                     <img src="{{MEDIA_URL}}{{product.img_1}}" alt=""> <!--Imatge principal del producte-->
                     <h1 class="num">{{product.category.price|floatformat:2}} &euro;</h1>
-                    <a href="https://twitter.com/share" class="twitter-share-button" data-text="{% trans 'Mira què he trobat!' %}" data-lang="{{}}" data-count="none">{% trans "Tuiteja" %}</a>
+                    <!--<a href="https://twitter.com/share"
+                        class="twitter-share-button" data-text="{% trans 'Mira
+                        què he trobat!' %}" data-lang="{{}}"
+                        data-count="none">{% trans "Tuiteja" %}</a>-->
                     <!--<a
                         href="http://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F
                         &media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg
@@ -134,7 +137,9 @@
             });
         });
     </script>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <!--<script>!function(d,s,id){var
+    js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,
+    'script', 'twitter-wjs');</script>-->
     <!--<div id="fb-root"></div>
     <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if
     (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src =

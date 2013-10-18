@@ -275,6 +275,13 @@
         color:white;
         text-shadow: 0 1px 1px rgba(0,0,0,.4);
         }
+    .prod-img > .social_buttons {
+        position:absolute;
+        right:0;
+        bottom:0;
+        margin-right:20px;
+        margin-bottom:20px;
+        }
 
     /* shop */
     #products-responsive > .row-fluid > .product > a > img {

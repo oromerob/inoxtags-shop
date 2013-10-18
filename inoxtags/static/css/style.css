@@ -108,10 +108,13 @@
     .social-icon > i {
         padding-right:5px;
         padding-left:5px;
-        color:black;
         }
     .social-icon {
-        font-size:24px;
+        font-size:34px;
+        color:black;
+        }
+    .social-icon:hover {
+        color:#84888C;
         }
     
     /* ESTILS DELS COMPONENTS

@@ -269,9 +269,9 @@
     .prod-img > h1 {
         position:absolute;
         right:0;
-        top:0;
+        bottom:0;
         margin-right:20px;
-        margin-top:20px;
+        margin-bottom:120px;
         color:white;
         text-shadow: 0 1px 1px rgba(0,0,0,.4);
         }

@@ -285,7 +285,7 @@
         margin-bottom:10px;
         }
     .prod-img > .social_buttons > .pin_it {
-        margin-bottom:3px;
+        vertical-align:none;
         }
 
     /* shop */

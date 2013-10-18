@@ -3,6 +3,18 @@
 {% load url from future %}
 
 
+{% block head_extra %}
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="{{ product.description }}" />
+    <meta property="og:type" content="product" />
+    <meta property="og:url" content="{{ request.get_realpath }}" />
+    <meta property="og:site_name" content="INOXtags.com" />
+    <meta property="og:price:amount" content="{{ product.category.price|floatformat:2 }}" />
+    <meta property="og:price:currency" content="EUR" />
+    <meta property="og:availability" content="instock" />
+{% endblock %}
+
+
 {% block shop_content %}
         <div class="span6 prod-marketing">
             <div class="row-fluid">

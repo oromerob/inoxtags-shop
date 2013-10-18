@@ -10,10 +10,10 @@
                     <img src="{{MEDIA_URL}}{{product.img_1}}" alt=""> <!--Imatge principal del producte-->
                     <h1 class="num">{{product.category.price|floatformat:2}} &euro;</h1>
                     <div class="social_buttons">
-                        <div class="fb-like" data-href="{{request.full_path}}" data-width="The pixel width of the plugin" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
                         <a href="https://twitter.com/share" class="twitter-share-button" data-text="Mira què he trobat!" data-lang="{{ Lang }}" data-count="none">Tuiteja</a>
                         <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" ><img class="pin_it_img" src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
                         <div class="g-plusone" data-size="medium" data-annotation="none"></div>
+                        <div class="fb-like" data-href="{{request.full_path}}" data-width="The pixel width of the plugin" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
                     </div>
                 </div>
             </div>

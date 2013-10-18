@@ -102,6 +102,14 @@
         /*background-color:*/
         color:#000000;
         }
+
+    /* Estil dels botons socials */
+
+    .social-icon {
+        margin-right:5px;
+        margin-left:5px;
+        color:black;
+        }
     
     /* ESTILS DELS COMPONENTS
     -------------------------------------------------- */

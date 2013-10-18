@@ -285,7 +285,7 @@
         margin-bottom:10px;
         }
     .pin_it_img {
-        vertical-align:none;
+        vertical-align:none !important;
         }
 
     /* shop */

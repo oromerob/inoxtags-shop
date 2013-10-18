@@ -9,6 +9,7 @@
     <meta name="description" content="{{ Description }}">
     <meta name="author" content="info@elprimoproductions.com">
     <meta name="Keywords" content="{% for tag in Tags %}{{ tag.tag }},{% endfor %}">
+    <meta name="p:domain_verify" content="52b6f475853dbd0c5f763c622e86a5cd"/>
 
     <!-- Le styles -->
 
@@ -198,6 +199,7 @@
       <footer>
           <div class="container">
             <p>&copy; {% if Creation|date:"Y" == Now|date:"Y" %}{{ Creation|date:"Y" }}{% else %}{{ Creation|date:"Y" }}-{{ Now|date:"Y" }}{% endif %} {{ Company }} &middot; <a href="{% url 'about_page' %}">{% trans "Qui som" %}</a> &middot; <a href="{% url 'privacy_page' %}">{% trans "Política de privacitat" %}</a> &middot; <a href="{% url 'terms_page' %}">{% trans "Condicions d'ús" %}</a></p>
+            <a class="push-right" href="https://plus.google.com/108645874294128517914" rel="publisher">Google+</a>
           </div><!-- /.container -->
       </footer>
 

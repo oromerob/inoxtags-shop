@@ -200,11 +200,9 @@
         <div class="container">
             <p>
                 &copy; {% if Creation|date:"Y" == Now|date:"Y" %}{{ Creation|date:"Y" }}{% else %}{{ Creation|date:"Y" }}-{{ Now|date:"Y" }}{% endif %} {{ Company }} &middot; <a href="{% url 'about_page' %}">{% trans "Qui som" %}</a> &middot; <a href="{% url 'privacy_page' %}">{% trans "Política de privacitat" %}</a> &middot; <a href="{% url 'terms_page' %}">{% trans "Condicions d'ús" %}</a>
-                <a class="pull-right social-icon" target="_blank"
-                    href="https://www.facebook.com/pages/INOXtags/"><i
-                        class="icon-facebook-sign"></i></a>&nbsp;
-                <a class="pull-right social-icon" target="_blank" href="http://www.pinterest.com/inoxtags/"><i class="icon-pinterest-sign"></i></a>&nbsp;
-                <a class="pull-right social-icon" target="_blank" href="https://plus.google.com/108645874294128517914" rel="publisher"><i class="icon-google-plus-sign"></i></a>&nbsp;
+                <a class="pull-right social-icon" target="_blank" href="https://www.facebook.com/pages/INOXtags/"><i class="icon-facebook"></i></a>&nbsp;
+                <a class="pull-right social-icon" target="_blank" href="http://www.pinterest.com/inoxtags/"><i class="icon-pinterest"></i></a>&nbsp;
+                <a class="pull-right social-icon" target="_blank" href="https://plus.google.com/108645874294128517914" rel="publisher"><i class="icon-google-plus"></i></a>&nbsp;
             </p>
         </div><!-- /.container -->
     </footer>

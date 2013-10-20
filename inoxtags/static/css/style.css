@@ -115,6 +115,7 @@
         text-indent: -9999em;
         width: 64px;}
     ul.icons {
+        display: inline-block;
         list-style: none outside none;}
 
     

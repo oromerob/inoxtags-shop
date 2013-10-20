@@ -29,6 +29,20 @@
             font-family:'Courgette';
             src: url('{{STATIC_URL}}css/fonts/Courgette-Regular.ttf');
             }
+        /* Estil dels Simple Icons */
+
+        .si-pinterest {
+            background-color: #CB2027;
+            background-image: url('{{STATIC_URL}}ico/pinterest/pinterest-64.png');}
+        .si-facebook {
+            background-color: #3B5998;
+            background-image: url('{{STATIC_URL}}ico/facebook/facebook.png');}
+        .si-twitter {
+            background-color: #00ACED;
+            background-image: url('{{STATIC_URL}}ico/twitter/twitter.png');}
+        .si-googleplus {
+            background-color: #D14836;
+            background-image: url('{{STATIC_URL}}ico/googleplus/googleplus.png');}
     </style>
 
     <link href="{{STATIC_URL}}css/style.css" rel="stylesheet">
@@ -200,10 +214,18 @@
         <div class="container">
             <p>
                 &copy; {% if Creation|date:"Y" == Now|date:"Y" %}{{ Creation|date:"Y" }}{% else %}{{ Creation|date:"Y" }}-{{ Now|date:"Y" }}{% endif %} {{ Company }} &middot; <a href="{% url 'about_page' %}">{% trans "Qui som" %}</a> &middot; <a href="{% url 'privacy_page' %}">{% trans "Política de privacitat" %}</a> &middot; <a href="{% url 'terms_page' %}">{% trans "Condicions d'ús" %}</a>
-                <a class="pull-right social-icon" target="_blank" href="https://www.facebook.com/pages/INOXtags/"><i class="icon-facebook-sign"></i></a>&nbsp;
-                <a class="pull-right social-icon" target="_blank" href="http://www.pinterest.com/inoxtags/"><i class="icon-pinterest-sign"></i></a>&nbsp;
-                <a class="pull-right social-icon" target="_blank" href="https://plus.google.com/108645874294128517914" rel="publisher"><i class="icon-google-plus-sign"></i></a>&nbsp;
             </p>
+            <ul class="icons pull-right">
+                <li>
+                    <a class="si-facebook" target="_blank" href="https://www.facebook.com/pages/INOXtags/">facebook</a>&nbsp;
+                </li>
+                <li>
+                    <a class="si-pinterest" target="_blank" href="http://www.pinterest.com/inoxtags/">pinterest</a>&nbsp;
+                </li>
+                <li>
+                    <a class="si-googleplus" target="_blank" href="https://plus.google.com/108645874294128517914" rel="publisher">googleplus</a>&nbsp;
+                </li>
+            </ul>
         </div><!-- /.container -->
     </footer>
 

@@ -105,17 +105,18 @@
 
     /* Estil dels botons socials */
 
-    .social-icon > i {
-        padding-right:5px;
-        padding-left:5px;
-        }
-    .social-icon {
-        font-size:34px;
-        color:#A7A7A7;
-        }
-    .social-icon:hover {
-        color:#222222;
-        }
+    .icons li a {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 64px 64px;
+        display: inline-block;
+        height: 64px;
+        margin: 5px;
+        text-indent: -9999em;
+        width: 64px;}
+    ul.icons {
+        list-style: none outside none;}
+
     
     /* ESTILS DELS COMPONENTS
     -------------------------------------------------- */

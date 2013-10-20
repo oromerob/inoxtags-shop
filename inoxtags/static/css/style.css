@@ -115,7 +115,10 @@
         text-indent: -9999em;
         width: 32px;}
     ul.icons {
-        list-style: none outside none;}
+        list-style: none outside none;
+        text-indent:0;}
+    .icons.pull-right > li {
+        float: left;}
 
     
     /* ESTILS DELS COMPONENTS

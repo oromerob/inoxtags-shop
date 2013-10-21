@@ -199,7 +199,7 @@
 {% endblock %}
 
 {% block cart_add_products %}
-<div id="add-products" class="row">
+<div id="add-products" class="row hidden-phone">
     <div class="span12">
         <h4>{% trans "Afegeix més productes al carro" %}:</h4>
         {% for i in product_list %}

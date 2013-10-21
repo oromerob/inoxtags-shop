@@ -293,6 +293,9 @@
         color:white;
         text-shadow: 0 1px 1px rgba(0,0,0,.4);
         }
+    .span12.product.prod-img {
+        float: left;
+    }
     .prod-img > .social_buttons {
         position:absolute;
         left:0;

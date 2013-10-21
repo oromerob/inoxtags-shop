@@ -302,9 +302,26 @@
         margin-left:20px;
         margin-bottom:10px;
         }
-    .pin_it_img {
-        vertical-align:top;
-        }
+    .social_buttons > button {
+        background-color: transparent;
+        border-style: none;
+        float: right;
+        margin-top: 0;}
+
+    div.share li a {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 32px 32px;
+        display: inline-block;
+        height: 32px;
+        margin: 5px;
+        text-indent: -9999em;
+        width: 32px;}
+    div.share ul {
+        list-style: none outside none;
+        text-indent:0;}
+    div.share > ul > li {
+        float: left;}
 
     /* shop */
     #products-responsive > .row-fluid > .product > a > img {

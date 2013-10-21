@@ -102,7 +102,15 @@ class StaffCheckoutView(FormView):
 
         subject = _("Nova comanda a INOXtags.com")
         mail = order.user.email
-        html_content = render_to_string('email/conf_order.html', {'order':order, 'product_list':product_list})
+        try:
+            if order.user.lang == "Català":
+                html_content = render_to_string('email/conf_order_ca.html', {'order':order, 'product_list':product_list})
+            elif order.user.lang == "Español":
+                html_content = render_to_string('email/conf_order_es.html', {'order':order, 'product_list':product_list})
+            else:
+                html_content = render_to_string('email/conf_order_en.html', {'order':order, 'product_list':product_list})
+        except:
+            html_content = render_to_string('email/conf_order_en.html', {'order':order, 'product_list':product_list})
         text_content = strip_tags(html_content)
 
         msg = EmailMultiAlternatives(subject, text_content, to=[mail])

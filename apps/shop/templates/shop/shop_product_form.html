@@ -22,9 +22,7 @@
                     <img src="{{MEDIA_URL}}{{product.img_1}}" alt=""> <!--Imatge principal del producte-->
                     <h1 class="num">{{product.category.price|floatformat:2}} &euro;</h1>
                     <div class="social_buttons">
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-text="Mira què he trobat!" data-lang="{{ Lang }}" data-count="none">Tuiteja</a>
-                        <a target="_blank" href="//www.pinterest.com/pin/create/button/?url={{request.build_absolute_uri}}&description={{product.name}}&media={{MEDIA_URL}}{{product.img_1}}" data-pin-do="buttonBookmark" ><img class="pin_it_img" src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
-                        <div class="g-plusone" data-size="medium" data-annotation="none"></div>
+                        <div class="g-plusone" data-size="medium" data-annotation="bubble"></div>
                         <div class="fb-like" data-href="{{request.full_path}}" data-width="The pixel width of the plugin" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
                     </div>
                 </div>
@@ -138,7 +136,6 @@
             });
         });
     </script>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     <div id="fb-root"></div>
     {% if Lang == "ca" %}
         <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/ca_ES/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>

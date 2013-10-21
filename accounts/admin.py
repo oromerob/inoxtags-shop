@@ -61,7 +61,7 @@ class InoxUserAdmin(UserAdmin):
     list_display = ('email','name','shipping_address','shipping_code','shipping_town','shipping_country')
     list_filter = ('shipping_country',)
     fieldsets = (
-        (None, {'fields': ('email','password')}),
+        (None, {'fields': ('email','password','lang')}),
         ('Name', {'fields': ('name',)}),
         ('Basic permissions', {'fields': ('is_active','is_staff','is_superuser')}),
         ('Shipping address', {'fields': ('shipping_address','shipping_code','shipping_town','shipping_country')}),

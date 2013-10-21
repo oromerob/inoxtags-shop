@@ -1,5 +1,6 @@
 #-*- coding:utf-8 -*-
 
+from django.conf import settings
 from django.core.mail import send_mail
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
@@ -63,10 +64,14 @@ class InoxUserManager(BaseUserManager):
 
 
 class InoxUser(AbstractBaseUser,PermissionsMixin):
+
+    LANGUAGES = settings.LANGUAGES
+
     email = models.EmailField(max_length=255,unique=True,db_index=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(_('staff status'), default=False, help_text=_('Designates whether the user can log into this admin site.'))
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
+    lang = models.CharField(max_length=100, choices=LANGUAGES)
     #Name and shipping address required when registering
     name = models.CharField(max_length=255,verbose_name=_("full name or company's name"), blank=True, null=True)
     shipping_address = models.CharField(max_length=255,verbose_name=_('shipping address'), blank=True, null=True)

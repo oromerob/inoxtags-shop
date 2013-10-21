@@ -168,7 +168,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Lang }}&nbsp;<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         {% for lang in LANGUAGES %}
-                        <form class="lang-form" name="setLang{{lang.1}}" action="/i18n/setlang/" method="post">{% csrf_token %}
+                        <form class="lang-form" name="setLang{{lang.1}}" action="/accounts/setlang/" method="post">{% csrf_token %}
                             <li>
                                 <input name="next" type="hidden" value="{{request.get_full_path}}">
                                 <input type="hidden" name="language" value="{{lang.0}}"/>

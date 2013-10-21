@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     url(r'^shipping_data/$', login_required(ShippingDataUpdateView.as_view()), name='shipping_data_update'),
     url(r'^invoice_data/$', login_required(InvoiceDataUpdateView.as_view()), name='invoice_data_update'),
     url(r'^professional_data/$', login_required(ProfessionalDataUpdateView.as_view()), name='professional_data_update'),
+    url(r'^setlang/$', 'accounts.views.set_language', name='user_set_language'),
 )

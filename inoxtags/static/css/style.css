@@ -323,6 +323,29 @@
     div.share > ul > li {
         float: left;}
 
+    div.social-share-icons li a {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 32px 32px;
+        display: inline-block;
+        height: 32px;
+        margin: 5px;
+        text-indent: -9999em;
+        width: 32px;}
+    div.social-share-icons ul {
+        list-style: none outside none;
+        text-indent:0;}
+    div.social-share-icons > ul > li {
+        float: left;}
+    div.social-share-icons p, ul {
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    div.social-share-icons p {
+        margin:10px;
+    }
+
     /* shop */
     #products-responsive > .row-fluid > .product > a > img {
         max-height:202.5px;

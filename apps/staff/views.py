@@ -100,16 +100,19 @@ class StaffCheckoutView(FormView):
 
         # Send the confirmation email
 
-        subject = _("Nova comanda a INOXtags.com")
         mail = order.user.email
         try:
             if order.user.lang == "Català":
+                subject = _("Nova comanda a INOXtags.com")
                 html_content = render_to_string('email/conf_order_ca.html', {'order':order, 'product_list':product_list})
             elif order.user.lang == "Español":
+                subject = _("Nuevo pedido en INOXtags.com")
                 html_content = render_to_string('email/conf_order_es.html', {'order':order, 'product_list':product_list})
             else:
+                subject = _("Your new order from INOXtags.com")
                 html_content = render_to_string('email/conf_order_en.html', {'order':order, 'product_list':product_list})
         except:
+            subject = _("Your new order from INOXtags.com, languages are not working properly.")
             html_content = render_to_string('email/conf_order_en.html', {'order':order, 'product_list':product_list})
         text_content = strip_tags(html_content)
 

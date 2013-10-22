@@ -1,9 +1,8 @@
-{% load i18n %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Confirmació de la modificació de la comanda</title>
+<title>Comanda modificada</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
     @import url(http://fonts.googleapis.com/css?family=Oleo+Script);
@@ -19,20 +18,25 @@
 							<table border="0" cellpadding="0" cellspacing="0" width="100%">
 								<tr>
 									<td align="center" style="color: #153643; font-family: Arial, sans-serif; font-size: 24px;">
-										<p><b>{% trans "Hola" %} {{order.user.name}}:<b></p>
-                                        <p><b>{% trans "La teva comanda ha sigut modificada." %}</b></p>
+										<p><b>Hola {{order.user.name}}:<b></p>
+                                        <p><b>La teva comanda ha sigut modificada.</b></p>
 									</td>
 								</tr>
 								<tr>
 									<td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                        <p>{% trans "Comanda número" %}:&nbsp;<b>{{order}}</b></p>
-                                        <p>{% trans "Realitzada" %}: <b>{{order.creation_date}}</b></p>
-                                        <p>{% trans "Import" %}: <b>{{order.price|floatformat:2}}&euro;</b></p>
+                                        <p>Comanda número:&nbsp;<b>{{order}}</b></p>
+                                        <p>Realitzada: <b>{{order.creation_date}}</b></p>
+                                        <p>Import: <b>{{order.price|floatformat:2}}&euro;</b></p>
 									</td>
 								</tr>
 								<tr>
 									<td align="justify" style="color: #153643; font-family: Arial, sans-serif; font-size: 16px;">
-										<p>{% trans "La teva comanda ha sigut modificada i en breu començarem a produir-la. Entre el temps que necessitem per fer-la i l'enviament, t'arribarà en un plaç d'uns 7 dies per enviaments a la península ibèrica, o 10 per a la resta d'Europa. Recorda que pots consultar l'estat de les teves comandes registrant-te a la nostra web. També hi podràs visualitzar les teves factures si et cal." %}</p>
+										<p>La teva comanda ha sigut modificada i
+                                            en breu començarem a produir-la.
+                                            Entre el temps que necessitem per
+                                            fer-la i l'enviament, t'arribarà en
+                                            un plaç d'uns 7 dies per enviaments
+                                            a Espanya, o 10 per a la resta d'Europa. Recorda que pots consultar l'estat de les teves comandes registrant-te a la nostra web. També hi podràs visualitzar les teves factures si et cal.</p>
 									</td>
 								</tr>
                             </table>
@@ -42,7 +46,7 @@
 				<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; border-collapse: collapse; margin-top:10px;">
 					<tr>
 						<td bgcolor="#ffffff" style="padding: 10px 10px 20px 10px;">
-                            {% for i in products %}
+                            {% for i in order.tags %}
 							<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border: 1px solid #cccccc; border-collapse: collapse; margin-top:10px;">
 								<tr>
 									<td align="" style="margin-top:10px;">
@@ -55,11 +59,11 @@
                                                     <img src="{{MEDIA_URL}}{{i.product.img_1}}" alt=""/>
                                                 </td>
                                                 <td width="50%" style="color: #153643; font-family: Arial, sans-serif; font-size: 16px;padding:5px;">
-                                                    {% if i.front_main %}<p>{% trans "Nom de l'animal" %}:&nbsp;<strong>{{i.front_main|upper}}</strong>{% if i.color %},&nbsp;{% trans "en color" %}&nbsp;{{i.color}}</p>{% endif %}</p>{% endif %}
-                                                {% if i.front_tel %}<p>{% trans "Telèfon" %}:&nbsp;{{i.front_tel|upper}}</p>{% endif %}
-                                                {% if i.back_1 %}<p>{% trans "Nom propietari" %}*:&nbsp;{{i.back_1|upper}}</p>{% endif %}
-                                                {% if i.back_2 %}<p>{% trans "Telèfon" %}*:&nbsp;{{i.back_2|upper}}</p>{% endif %}
-                                                {% if i.back_3 %}<p>{% trans "Altres" %}*:&nbsp;{{i.back_3|upper}}</p>{% endif %}
+                                                    {% if i.front_main %}<p>Nom de l'animal:&nbsp;<strong>{{i.front_main|upper}}</strong>{% if i.color %},&nbsp;en color&nbsp;{{i.color}}</p>{% endif %}</p>{% endif %}
+                                                {% if i.front_tel %}<p>Telèfon:&nbsp;{{i.front_tel|upper}}</p>{% endif %}
+                                                {% if i.back_1 %}<p>Nom propietari*:&nbsp;{{i.back_1|upper}}</p>{% endif %}
+                                                {% if i.back_2 %}<p>Telèfon*:&nbsp;{{i.back_2|upper}}</p>{% endif %}
+                                                {% if i.back_3 %}<p>Altres*:&nbsp;{{i.back_3|upper}}</p>{% endif %}
                                                 </td>
                                             </tr>
                                         </table>

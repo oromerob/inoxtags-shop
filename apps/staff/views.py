@@ -323,17 +323,6 @@ class StaffOrderDeleteView(RedirectView):
     def dispatch(self, *args, **kwargs):
         order = get_object_or_404(Order, pk=self.kwargs.get('pk'))
 
-        # Sending the confirmation email
-
-        subject = _("Comanda anul.lada a INOXtags.com")
-        mail = order.user.email
-        html_content = render_to_string('email/order_deleted.html',{'order':order})
-        text_content = strip_tags(html_content)
-
-        msg = EmailMultiAlternatives(subject, text_content, to=[mail])
-        msg.attach_alternative(html_content, "text/html")
-        msg.send()
-
         # Mark the order as deleted
 
         order.mark_as_deleted()
@@ -392,33 +381,8 @@ class StaffOrderDeleteItemView(RedirectView):
         order.modify()
         product_list = order.orderitem_set.all()
 
-        if product_list:
-
-            # Send mail notifying the modifyed order
-
-            subject = _("Comanda modificada a INOXtags.com")
-            mail = order.user.email
-            html_content = render_to_string('email/order_modification.html',{'order':order,'products':product_list})
-            text_content = strip_tags(html_content)
-
-            msg = EmailMultiAlternatives(subject, text_content, to=[mail])
-            msg.attach_alternative(html_content, "text/html")
-            msg.send()
-
-        else:
-
+        if not product_list:
             order.mark_as_deleted()
-
-            # Sending the confirmation email
-
-            subject = _("Comanda anul.lada a INOXtags.com")
-            mail = order.user.email
-            html_content = render_to_string('email/order_deleted.html',{'order':order})
-            text_content = strip_tags(html_content)
-
-            msg = EmailMultiAlternatives(subject, text_content, to=[mail])
-            msg.attach_alternative(html_content, "text/html")
-            msg.send()
 
         return super(StaffOrderDeleteItemView, self).dispatch(*args, **kwargs)
 

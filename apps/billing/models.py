@@ -3,6 +3,10 @@ from django.db import models
 from django.conf import settings
 from decimal import Decimal
 
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
 from apps.shop.models import Cart, Product, Color
 
 
@@ -92,8 +96,34 @@ class Order(models.Model):
         self.delete_items()
         self.deleted = True
         self.save()
+
+        # Sending the confirmation email
+
+        mail = self.user.email
+        try:
+            if self.user.lang == "ca":
+                subject = "Comanda anul.lada a INOXtags.com"
+                html_content = render_to_string('email/order_deleted_ca.html', {'order': self})
+            elif self.user.lang == "es":
+                subject = "Pedido anulado en INOXtags.com"
+                html_content = render_to_string('email/order_deleted_es.html', {'order': self})
+            else:
+                subject = "Order deleted in INOXtags.com"
+                html_content = render_to_string('email/order_deleted_en.html', {'order': self})
+        except:
+            subject = "Order deleted in INOXtags.com"
+            html_content = render_to_string('email/order_deleted_en.html', {'order': self})
+        text_content = strip_tags(html_content)
+
+        msg = EmailMultiAlternatives(subject, text_content, to=[mail])
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
+
+        # Create the rectificative invoice if needed
+
         if self.invoice():
             self.invoice().rectificate()
+
         return
 
     def invoice(self):
@@ -140,14 +170,33 @@ class Order(models.Model):
         self.count = self.update_count()
         self.price = self.update_price()
         self.save()
+
+        # Send mail notifying the modifyed order
+
+        mail = self.user.email
+        try:
+            if self.user.lang == "ca":
+                subject = "Comanda modificada a INOXtags.com"
+                html_content = render_to_string('email/order_modified_ca.html',{'order':self})
+            elif self.user.lang == "es":
+                subject = "Pedido modificado en INOXtags.com"
+                html_content = render_to_string('email/order_modified_es.html',{'order':self})
+            else:
+                subject = "Order modified in INOXtags.com"
+                html_content = render_to_string('email/order_modified_en.html',{'order':self})
+        except:
+            subject = "Order modified in INOXtags.com"
+            html_content = render_to_string('email/order_modified_en.html',{'order':self})
+        text_content = strip_tags(html_content)
+
+        msg = EmailMultiAlternatives(subject, text_content, to=[mail])
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
+
+        # if invoice exists creates a rectificative invoice
+
         if self.invoice():
             self.invoice().rectificate()
-            Invoice.objects.create(
-                user=self.user,
-                order=self,
-                price=self.price,
-                iva=Decimal(str(self.iva)),
-            )
         return
 
     def mark_as_payed(self):

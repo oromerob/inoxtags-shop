@@ -229,9 +229,20 @@ class StaffBankTransferDoneView(RedirectView):
 
         # Send the confirmation email
 
-        subject = _("Rebut pagament a INOXtags.com")
         mail = order.user.email
-        html_content = render_to_string('email/bank_transfer_done.html', {'order':order, 'product_list':product_list})
+        try:
+            if order.user.lang == "ca":
+                subject = _("Nova comanda a INOXtags.com")
+                html_content = render_to_string('email/bank_transfer_done_ca.html', {'order':order, 'product_list':product_list})
+            elif order.user.lang == "es":
+                subject = _("Nuevo pedido en INOXtags.com")
+                html_content = render_to_string('email/bank_transfer_done_es.html', {'order':order, 'product_list':product_list})
+            else:
+                subject = _("Your new order from INOXtags.com")
+                html_content = render_to_string('email/bank_transfer_done_en.html', {'order':order, 'product_list':product_list})
+        except:
+            subject = _("Your new order from INOXtags.com")
+            html_content = render_to_string('email/bank_transfer_done_en.html', {'order':order, 'product_list':product_list})
         text_content = strip_tags(html_content)
 
         msg = EmailMultiAlternatives(subject, text_content, to=[mail])

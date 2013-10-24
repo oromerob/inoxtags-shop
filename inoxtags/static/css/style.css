@@ -140,7 +140,8 @@
 
     /* number font-style */
     .num {
-        font-family: 'Courgette', cursive;
+        /*font-family: 'Courgette', cursive;*/
+        font-family: 'Nova Script', cursive;
         }
 
     /* Product image style */

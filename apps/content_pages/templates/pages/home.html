@@ -184,15 +184,17 @@
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div><!-- /.carousel -->
 
+    {% comment %}
     <div class="visible-phone">
         <ul class="nav nav-pills">
             <li><a href="/shop" class="tel">A la botiga</a></li>
             {% if user.is_authenticated %}
             {% else %}
-                <li><a href="/accounts/login" class="tel">Identifica't</a></li>
+                <li><a href="/accounts/signin" class="tel">Identifica't</a></li>
             {% endif %}
         </ul>
     </div>
+    {% endcomment %}
 <div class="container">
     <div class="row">
         {% for i in featurettes %}

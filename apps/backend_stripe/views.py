@@ -14,11 +14,12 @@ from django.core.mail import EmailMultiAlternatives
 
 import stripe
 
-from inoxtags.settings import STRIPE_SECRET, STRIPE_PUBLISHABLE
+from django.conf import settings
+#from inoxtags.settings import STRIPE_SECRET, STRIPE_PUBLISHABLE
 from apps.backend_stripe.forms import StripeForm
 from apps.billing.models import Iva, Order, OrderItem
 
-stripe.api_key = STRIPE_SECRET
+stripe.api_key = settings.STRIPE_SECRET
 
 
 class CheckoutSummaryView(TemplateView):
@@ -29,7 +30,7 @@ class CheckoutSummaryView(TemplateView):
         context = super(CheckoutSummaryView, self).get_context_data(**kwargs)
         context_price = RequestContext(self.request).get('CartPrice')
         context['price_cents'] = int(context_price * 100)
-        context['stripe_key'] = STRIPE_PUBLISHABLE
+        context['stripe_key'] = settings.STRIPE_PUBLISHABLE
         return context
 
 

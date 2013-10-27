@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source ~/.virtualenvs/inoxtags/bin/activate
+cd ~/webapps/inoxtags/
+exec python manage.py run_gunicorn :15954 --max-requests=100

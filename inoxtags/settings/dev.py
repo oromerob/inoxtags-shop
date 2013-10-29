@@ -2,13 +2,13 @@ from .base import *
 from unipath import Path
 
 PROJECT_DIR = Path(__file__).ancestor(2)
-MEDIA_ROOT = PROJECT_DIR.child("media")
+MEDIA_ROOT = PROJECT_DIR.child("load")
 STATIC_ROOT = PROJECT_DIR.child("collect_static")
 STATICFILES_DIRS = (
     PROJECT_DIR.child("static"),
 )
 TEMPLATE_DIRS = (
-    PROJECT_DIR.child("templates")
+    PROJECT_DIR.child("templates"),
 )
 
 # Path to the po|mo files

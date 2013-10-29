@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     url(r'', include('apps.backend_stripe.urls')),
     url(r'^find_us/', include('apps.partners.urls')),
     url(r'^staff/', include('apps.staff.urls')),
-    url(r'zebra/', include('zebra.urls', namespace="zebra", app_name='zebra')),
+    url(r'^zebra/', include('zebra.urls', namespace="zebra", app_name='zebra')),
 )
 
 if settings.DEBUG:

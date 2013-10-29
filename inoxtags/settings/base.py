@@ -111,6 +111,7 @@ INSTALLED_APPS = (
     'easy_maps',
     'transmeta',
     'zebra',
+    'gunicorn',
     # Apps pròpies del projecte
     'accounts',
     'apps.settings',

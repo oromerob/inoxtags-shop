@@ -1,10 +1,9 @@
 Django==1.5.2
 Pillow==2.1.0
 South==0.8.2
+Unipath==1.0
 argparse==1.2.1
-braintree==2.23.0
 django-autoslug==1.7.1
-django-ckeditor==4.0.2
 django-easy-maps==0.8.4
 django-grappelli==2.4.6
 django-registration==1.0
@@ -23,3 +22,4 @@ six==1.3.0
 stripe==1.9.6
 wsgiref==0.1.2
 xhtml2pdf==0.0.5
+git+git://github.com/oromerob/django-ckeditor.git

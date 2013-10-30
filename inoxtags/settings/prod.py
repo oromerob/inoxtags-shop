@@ -1,9 +1,9 @@
 from .base import *
 from unipath import Path
 
-PROJECT_DIR = Path(__file__).ancestor(3)
-MEDIA_ROOT = PROJECT_DIR.child("inoxtags_media")
-STATIC_ROOT = PROJECT_DIR.child("inoxtags_static")
+PROJECT_DIR = Path(__file__).ancestor(2)
+MEDIA_ROOT = PROJECT_DIR.ancestor(2).child("inoxtags_media")
+STATIC_ROOT = PROJECT_DIR.ancestor(2).child("inoxtags_static")
 STATICFILES_DIRS = (
     PROJECT_DIR.child("static"),
 )

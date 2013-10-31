@@ -8,7 +8,7 @@ STATICFILES_DIRS = (
     PROJECT_DIR.child("static"),
 )
 TEMPLATE_DIRS = (
-    PROJECT_DIR.child("templates")
+    PROJECT_DIR.child("templates"),
 )
 
 # Path to the po|mo files

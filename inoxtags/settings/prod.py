@@ -14,7 +14,7 @@ TEMPLATE_DIRS = (
 # Path to the po|mo files
 LOCALE_PATHS = PROJECT_DIR.child('locale')
 
-CKEDITOR_UPLOAD_PATH = PROJECT_DIR.child('ck_uploads')
+CKEDITOR_UPLOAD_PATH = PROJECT_DIR.ancestor(2).child('inoxtags_media').child('ck_uploads')
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG

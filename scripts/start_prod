@@ -2,4 +2,4 @@
 
 source ~/bin/virtualenvwrapper.sh
 workon inoxtags
-exec python manage.py run_gunicorn :15954 --max-requests=100 --log-level=DEBUG --settings=inoxtags.settings.prod
+exec newrelic-admin run-program python manage.py run_gunicorn :15954 --max-requests=100 --log-level=DEBUG --settings=inoxtags.settings.prod

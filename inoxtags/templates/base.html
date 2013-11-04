@@ -210,6 +210,7 @@
             <p>
                 &copy; {% if Creation|date:"Y" == Now|date:"Y" %}{{ Creation|date:"Y" }}{% else %}{{ Creation|date:"Y" }}-{{ Now|date:"Y" }}{% endif %} {{ Company }} &middot; <a href="{% url 'about_page' %}">{% trans "Qui som" %}</a> &middot; <a href="{% url 'privacy_page' %}">{% trans "Política de privacitat" %}</a> &middot; <a href="{% url 'terms_page' %}">{% trans "Condicions d'ús" %}</a>
             </p>
+            {% comment %}
             <ul class="icons pull-right">
                 <li>
                     <a class="si-facebook" target="_blank" href="https://www.facebook.com/pages/INOXtags/">facebook</a>&nbsp;
@@ -221,6 +222,7 @@
                     <a class="si-googleplus" target="_blank" href="https://plus.google.com/108645874294128517914" rel="publisher">googleplus</a>&nbsp;
                 </li>
             </ul>
+            {% endcomment %}
         </div><!-- /.container -->
     </footer>
 

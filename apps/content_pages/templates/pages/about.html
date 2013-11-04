@@ -6,24 +6,17 @@
 {% block body %}{% endblock %}
 
 {% block content %}
-
-<div class="container contingut">
-
-      <div class="hero-unit">
-          <h1>Sobre nosaltres</h1>
-      </div>
-
-      <div class="row">
-        <div class="span4">
+    {% if content %}
+        <div class="container contingut">
+            {{content.content}}
         </div>
-        <div class="span4">
-       </div>
-        <div class="span4">
+    {% else %}
+        <div class="container contingut">
+            <div class="row">
+                <div class="span4 offset4">
+                    <img src="{{STATIC_URL}}img/underConstruction.png"/>
+                </div>
+            </div>
         </div>
-      </div>
-
-
-
-</div>
-
+    {% endif %}
 {% endblock %}

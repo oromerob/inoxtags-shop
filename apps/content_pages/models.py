@@ -39,3 +39,18 @@ class HomeFeaturette(models.Model):
     class Meta:
         verbose_name_plural = "Homepage featurettes"
         translate = ('slogan', 'subslogan', 'text', 'img_desc',)
+
+
+class AboutPage(models.Model):
+    __metaclass__ = TransMeta
+
+    title = models.CharField(max_length=100)
+    content = RichTextField()
+    active = models.BooleanField(default=True)
+
+    def __unicode__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = "About page"
+        translate = ('title', 'content',)

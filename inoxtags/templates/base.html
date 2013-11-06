@@ -38,6 +38,19 @@
         .si-googleplus {
             background-color: #D14836;
             background-image: url('{{STATIC_URL}}ico/googleplus/googleplus-32.png');}
+        .cookies {
+            position:fixed;
+            bottom:0;
+            width:100%;
+            background-color:#fff;
+        }
+        .cookies > div {
+            margin:30px;
+            background-color:#fff;
+            font-size: 21px;
+            font-weight: 200;
+            line-height: 30px;
+        }
     </style>
 
     <link href="{{STATIC_URL}}css/style.css" rel="stylesheet">
@@ -201,6 +214,18 @@
             <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "Close" %}</button>
         </div>
     </div>
+    {% if not Cookies %}
+    <div class="container visible-phone">
+        <div class="alert alert-block alert fade in">
+            <form method="post" name="cookie_agreement_mv" action="{% url 'cookies_agreement' %}">{% csrf_token %}
+                <input name="next" type="hidden" value="{{request.get_full_path}}">
+                <button data-dismiss="alert" class="close" onclick="document.cookie_agreement_mv.submit();return false;" type="button">&times;</button>
+            </form>
+            <p>{% trans "Utilitzem cookies pròpies i de tercers per oferir-te una millor experiència i servei, d'acord amb els teus hàbits de navegació." %}</p>
+            <p>{% trans "Si continues navegant, entenem que acceptes el seu ús.  Pots obtenir més informació a la nostra" %}&nbsp;<a href="#">{% trans "política de cookies" %}</a>.</p>
+        </div>
+    </div>
+    {% endif %}
 {% block content %}{% endblock %}
 
 
@@ -226,8 +251,19 @@
         </div><!-- /.container -->
     </footer>
 
-
-
+    {% if not Cookies %}
+        <div class="cookies hidden-phone">
+            <div>
+                <form method="post" name="cookie_agreement" action="{% url 'cookies_agreement' %}">{% csrf_token %}
+                    <input name="next" type="hidden" value="{{request.get_full_path}}">
+                    <input type="hidden" name="cookie_agreement" value="True"/>
+                    <a class="pull-right" href="#" onclick="document.cookie_agreement.submit();return false;"><i class="icon-remove-sign icon-2x"></i></a>
+                </form>
+                <p>{% trans "Utilitzem cookies pròpies i de tercers per oferir-te una millor experiència i servei, d'acord amb els teus hàbits de navegació." %}</p>
+                <p>{% trans "Si continues navegant, entenem que acceptes el seu ús.  Pots obtenir més informació a la nostra" %}&nbsp;<a href="#">{% trans "política de cookies" %}</a>.</p>
+            </div>
+        </div>
+    {% endif %}
 
 
     <!-- Le javascript

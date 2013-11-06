@@ -78,6 +78,7 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
     'apps.settings.context_processors.project',
     'accounts.context_processors.auth_form',
+    'accounts.context_processors.cookies_agreement',
     'apps.shop.context_processors.cart_context',
 )
 

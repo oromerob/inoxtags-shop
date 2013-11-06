@@ -8,7 +8,7 @@ from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, get_user_model
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import UpdateView, FormView
 from django.views.generic import TemplateView
 from django.utils.translation import check_for_language
 from django.utils.http import is_safe_url
@@ -17,8 +17,13 @@ from django import http
 from registration.views import _RequestPassingFormView
 from registration import signals
 
-from accounts.forms import CustomRegistrationForm, ShippingDataForm, InvoiceDataForm, ProfessionalDataForm
-from accounts.models import InoxUser
+from .forms import (
+    CustomRegistrationForm,
+    ShippingDataForm,
+    InvoiceDataForm,
+    ProfessionalDataForm,
+)
+from .models import InoxUser
 
 
 class CustomBaseRegistrationView(_RequestPassingFormView):
@@ -251,3 +256,14 @@ def set_language(request):
             else:
                 response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code)
     return response
+
+
+def cookies_agreement_view(request):
+    next = request.POST.get('next', request.GET.get('next'))
+    if not is_safe_url(url=next, host=request.get_host()):
+        next = request.META.get('HTTP_REFERER')
+        if not is_safe_url(url=next, host=request.get_host()):
+            next = '/'
+    if request.method == 'POST':
+        request.session['COOKIES_AGREEMENT'] = 'accepted'
+    return http.HttpResponseRedirect(next)

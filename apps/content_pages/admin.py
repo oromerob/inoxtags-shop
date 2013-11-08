@@ -1,6 +1,12 @@
 from django.contrib import admin
 
-from apps.content_pages.models import HomeSlider, HomeFeaturette, AboutPage
+from ckeditor.widgets import CKEditorWidget
+
+from .models import (
+    HomeSlider,
+    HomeFeaturette,
+    StaticPage,
+)
 
 
 class HomeSliderAdmin(admin.ModelAdmin):
@@ -11,10 +17,11 @@ class HomeFeaturetteAdmin(admin.ModelAdmin):
     list_display = ['slogan','subslogan','is_active']
 
 
-class AboutPageAdmin(admin.ModelAdmin):
-    list_display = ['title','content','active']
+
+class StaticPageAdmin(admin.ModelAdmin):
+    list_display = ['name', 'title']
 
 
 admin.site.register(HomeSlider, HomeSliderAdmin)
 admin.site.register(HomeFeaturette, HomeFeaturetteAdmin)
-admin.site.register(AboutPage, AboutPageAdmin)
+admin.site.register(StaticPage, StaticPageAdmin)

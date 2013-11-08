@@ -51,15 +51,3 @@ class Tag(models.Model):
         return self.tag
 
 
-class Tos(models.Model):
-    __metaclass__ = TransMeta
-
-    terms = RichTextField(verbose_name=_('terms of service'))
-    privacity = RichTextField(verbose_name=_('privacity'))
-
-    def __unicode__(self):
-        return self.terms[:50]
-
-    class Meta:
-        verbose_name_plural = "Terms of service"
-        translate = ('terms', 'privacity',)

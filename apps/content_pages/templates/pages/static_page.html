@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block titol %}El projecte{% endblock %}
-
-
-{% block body %}{% endblock %}
+{% block title %}
+{{page.title}}
+{% endblock %}
 
 {% block content %}
-    {% if content %}
+    {% if page %}
         <div class="container contingut">
-            {{content.content|safe}}
+            {{page.content|safe}}
         </div>
     {% else %}
         <div class="container contingut">
@@ -19,4 +19,7 @@
             </div>
         </div>
     {% endif %}
+{% endblock %}
+
+{% block javascript %}
 {% endblock %}

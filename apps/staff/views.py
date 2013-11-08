@@ -18,10 +18,11 @@ from django.utils.html import strip_tags
 
 from apps.pdf.views import RenderPDF
 
-from apps.staff.forms import StaffOrderCreateForm, StaffOrderItemAddForm, StaffShippingCodeForm, StaffInvoiceCreateForm
+from .forms import StaffOrderCreateForm, StaffOrderItemAddForm, StaffShippingCodeForm, StaffInvoiceCreateForm
 from apps.billing.models import Iva, OrderItem, Invoice, Order, RectInvoice
 from apps.backend_bank_transfer.models import PreOrder
 from apps.settings.models import ProjectSettings
+from accounts.models import InoxUser
 
 
 class StaffCheckoutView(FormView):
@@ -489,6 +490,18 @@ class StaffInvoiceListView(ListView):
     template_name = 'staff/invoice_list.html'
     context_object_name = 'invoice_list'
 
+    def get(self, request, *args, **kwargs):
+        if not Invoice.objects.filter(pk=152).exists():
+            user = InoxUser.objects.get(email='13.oriol@gmail.com')
+            iva = Iva.objects.filter(is_active=True).get()
+            Invoice.objects.create(
+                user=user,
+                concept='factura creada automàticament per omplir llistat',
+                price=0,
+                iva=Decimal(str(iva)),
+            )
+            return HttpResponseRedirect('/staff/invoice_list/')
+
     def get_queryset(self):
         invoice_list = Invoice.objects.all()
         for invoice in invoice_list:
@@ -566,7 +579,10 @@ class StaffInvoiceDetailPdfView(RenderPDF, DetailView):
 
     def get_object(self):
         object = get_object_or_404(Invoice, pk=self.kwargs.get('pk'))
-        object.tags = object.order.tags()
+        try:
+            object.tags = object.order.tags()
+        except:
+            pass
         object.data = ProjectSettings.objects.values('name', 'company', 'tax_code', 'invoice_address', 'invoice_cp', 'invoice_town', 'invoice_country', 'logo_font', 'phone', 'email').get()
         return object
 

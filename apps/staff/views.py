@@ -490,7 +490,7 @@ class StaffInvoiceListView(ListView):
     template_name = 'staff/invoice_list.html'
     context_object_name = 'invoice_list'
 
-    def get(self, request, *args, **kwargs):
+    '''def get(self, request, *args, **kwargs):
         if not Invoice.objects.filter(pk=152).exists():
             user = InoxUser.objects.get(email='13.oriol@gmail.com')
             iva = Iva.objects.filter(is_active=True).get()
@@ -501,6 +501,7 @@ class StaffInvoiceListView(ListView):
                 iva=Decimal(str(iva)),
             )
             return HttpResponseRedirect('/staff/invoice_list/')
+    '''
 
     def get_queryset(self):
         invoice_list = Invoice.objects.all()

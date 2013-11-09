@@ -88,6 +88,8 @@ class InoxUser(AbstractBaseUser,PermissionsMixin):
     invoice_town = models.CharField(max_length=200,verbose_name=_('town'),blank=True,null=True)
     #Professional optional data
     is_professional = models.BooleanField(default=False,verbose_name=_('is professional'))
+    hand_delivery = models.BooleanField(default=False, verbose_name='entrega en mà')
+    money_order = models.BooleanField(default=False, verbose_name='pagament en gir bancari')
     share = models.BooleanField(_('share professional customer data'),default=False)
     phone_1 = models.CharField(max_length=15,verbose_name=_('main phone number'),blank=True,null=True)
     phone_2 = models.CharField(max_length=15,verbose_name=_('alternative phone number'),blank=True,null=True)

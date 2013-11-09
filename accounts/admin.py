@@ -4,7 +4,7 @@ from django import forms
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
-from accounts.models import InoxUser, Country, PartnerZone, PartnerTown
+from .models import InoxUser, Country, PartnerZone, PartnerTown
 
 class UserCreationForm(forms.ModelForm):
     """
@@ -66,7 +66,7 @@ class InoxUserAdmin(UserAdmin):
         ('Basic permissions', {'fields': ('is_active','is_staff','is_superuser')}),
         ('Shipping address', {'fields': ('shipping_address','shipping_code','shipping_town','shipping_country')}),
         ('Invoice data', {'fields': ('invoice_required','invoice_name','invoice_tax_code','invoice_extra_charge','invoice_address','invoice_code','invoice_town')}),
-        ('Specific professional data', {'fields': ('is_professional','share','phone_1','phone_2','website','zone','town')}),
+        ('Specific professional data', {'fields': ('is_professional','hand_delivery','order_money','share','phone_1','phone_2','website','zone','town')}),
         ('Extended permissions', {'fields': ('groups','user_permissions')}),
         ('Important dates', {'fields': ('last_login','date_joined')}),
     )

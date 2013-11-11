@@ -47,16 +47,10 @@ class StaffCheckoutView(FormView):
         order.town = order.user.shipping_town
         order.country = order.user.shipping_country.country
         order.count = cart.get_count_total()
-        if order.hand_delivery and order.user.is_professional:
-            result = 0
-            for item in cart.customproduct_set.all():
-                if not item.repetition:
-                    result += item.product.category.price_in_hand * item.quantity
-            order.price = result
-        else:
-            order.price = cart.get_price(order.user)
+        order.price = cart.get_price(order.user)
         order.iva = Decimal(str(iva))
         order.payed = False
+        order.hand_delivery = order.user.hand_delivery
         order.save()
 
         # Creates the order items from the customized products
@@ -81,18 +75,6 @@ class StaffCheckoutView(FormView):
                 made=product.made,
                 repetition=product.repetition
             )
-
-        # Auto generates the invoice if required
-
-        if order.user.invoice_required:
-            Invoice.objects.create(
-                user=order.user,
-                order=order,
-                price=order.price,
-                iva=order.iva
-            )
-            order.has_invoice = True
-            order.save()
 
         # Mark the cart as checked out
 

@@ -12,7 +12,7 @@ from django.core.mail import EmailMultiAlternatives
 
 
 from apps.billing.models import Iva
-from apps.backend_bank_transfer.models import PreOrder
+from .models import PreOrder
 from apps.settings.models import ProjectSettings
 
 

@@ -49,14 +49,18 @@
                             <td class="center">{{i.quantity}}</td>
                             <td class="center">
                                 {% if user.is_professional %}
-                                    {% if CountCartItems == 1 %}
-                                        {{i.price_special_1|floatformat:"2"}}&nbsp;&euro;
-                                    {% elif CountCartItems == 2 %}
-                                        {{i.price_special_2|floatformat:"2"}}&nbsp;&euro;
-                                    {% elif CountCartItems == 3 %}
-                                        {{i.price_special_3|floatformat:"2"}}&nbsp;&euro;
+                                    {% if user.hand_delivery %}
+                                        {{i.price_in_hand|floatformat:"2"}}&nbsp;&euro;
                                     {% else %}
-                                        {{i.price_special_4|floatformat:"2"}}&nbsp;&euro;
+                                        {% if CountCartItems == 1 %}
+                                            {{i.price_special_1|floatformat:"2"}}&nbsp;&euro;
+                                        {% elif CountCartItems == 2 %}
+                                            {{i.price_special_2|floatformat:"2"}}&nbsp;&euro;
+                                        {% elif CountCartItems == 3 %}
+                                            {{i.price_special_3|floatformat:"2"}}&nbsp;&euro;
+                                        {% else %}
+                                            {{i.price_special_4|floatformat:"2"}}&nbsp;&euro;
+                                        {% endif %}
                                     {% endif %}
                                 {% else %}
                                     {{i.price|floatformat:"2"}}&nbsp;&euro;
@@ -138,14 +142,18 @@
                             <td class="center">{{i.quantity}}</td>
                             <td class="center">
                                 {% if user.is_professional %}
-                                    {% if CountCartItems == 1 %}
-                                        {{i.price_special_1|floatformat:"2"}}&nbsp;&euro;
-                                    {% elif CountCartItems == 2 %}
-                                        {{i.price_special_2|floatformat:"2"}}&nbsp;&euro;
-                                    {% elif CountCartItems == 3 %}
-                                        {{i.price_special_3|floatformat:"2"}}&nbsp;&euro;
+                                    {% if user.hand_delivery %}
+                                        {{i.price_in_hand|floatformat:"2"}}&nbsp;&euro;
                                     {% else %}
-                                        {{i.price_special_4|floatformat:"2"}}&nbsp;&euro;
+                                        {% if CountCartItems == 1 %}
+                                            {{i.price_special_1|floatformat:"2"}}&nbsp;&euro;
+                                        {% elif CountCartItems == 2 %}
+                                            {{i.price_special_2|floatformat:"2"}}&nbsp;&euro;
+                                        {% elif CountCartItems == 3 %}
+                                            {{i.price_special_3|floatformat:"2"}}&nbsp;&euro;
+                                        {% else %}
+                                            {{i.price_special_4|floatformat:"2"}}&nbsp;&euro;
+                                        {% endif %}
                                     {% endif %}
                                 {% else %}
                                     {{i.price|floatformat:"2"}}&nbsp;&euro;

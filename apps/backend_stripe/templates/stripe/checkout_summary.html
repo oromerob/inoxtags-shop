@@ -11,23 +11,25 @@
                 <div class="info-box-inner">
                     <h3 class="center">{% trans "Ens falten dades." %}</h3>
                     <p class="lead">{% trans "Per poder continuar tramitant la teva comanda, primer cal que ens facilitis totes les teves dades d'enviament." %}</p>
-                    <ul>
-                        {% if not user.name %}
-                        <li>{% trans "El vostre nom." %}</li>
-                        {% endif %}
-                        {% if not user.shipping_address %}
-                        <li>{% trans "La vostra adreça." %}</li>
-                        {% endif %}
-                        {% if not user.shipping_code %}
-                        <li>{% trans "El vostre codi postal." %}</li>
-                        {% endif %}
-                        {% if not user.shipping_town %}
-                        <li>{% trans "La vostra població." %}</li>
-                        {% endif %}
-                        {% if not user.shipping_country %}
-                        <li>{% trans "El vostre país." %}</li>
-                        {% endif %}
-                    </ul>
+                    <p>
+                        <ul>
+                            {% if not user.name %}
+                                <li>{% trans "El vostre nom." %}</li>
+                            {% endif %}
+                            {% if not user.shipping_address %}
+                                <li>{% trans "La vostra adreça." %}</li>
+                            {% endif %}
+                            {% if not user.shipping_code %}
+                                <li>{% trans "El vostre codi postal." %}</li>
+                            {% endif %}
+                            {% if not user.shipping_town %}
+                                <li>{% trans "La vostra població." %}</li>
+                            {% endif %}
+                            {% if not user.shipping_country %}
+                                <li>{% trans "El vostre país." %}</li>
+                            {% endif %}
+                        </ul>
+                    </p>
                     <a href="{% url 'shipping_data_update' %}">{% trans "Completa les teves dades d'enviament." %}</a>
                 </div>
             </div>
@@ -51,6 +53,11 @@
                     </p>
                     <a href="{% url 'shipping_data_update' %}">{% trans "Canvia les teves dades d'enviament." %}</a>
                     <hr>
+                    {% if user.hand_delivery or user.money_order %}
+                        <div id="bankTrans">
+                            <a href="{% url 'unpayed_checkout' %}" class="btn btn-success btn-large">{% trans "Finalitzar la comanda" %}</a>
+                        </div>
+                    {% else %}
                     <div class="form">
                         <h3 class="center">{% trans "Si totes les dades són correctes, selecciona la forma de pagament" %}:</h3>
                         <div id="payButton">
@@ -74,6 +81,7 @@
                             </div>
                         {% endif %}
                     </div>
+                    {% endif %}
                 </div>
             </div>
             <div class="span6">

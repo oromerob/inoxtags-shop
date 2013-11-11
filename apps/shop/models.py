@@ -117,22 +117,27 @@ class Cart(models.Model):
         count = self.get_count()
         try:
             if user.is_professional:
-                if count >= 4:
+                if user.hand_delivery:
                     for item in self.customproduct_set.all():
                         if not item.repetition:
-                            result += item.price_special_4 * item.quantity
-                elif count == 3:
-                    for item in self.customproduct_set.all():
-                        if not item.repetition:
-                            result += item.price_special_3 * item.quantity
-                elif count == 2:
-                    for item in self.customproduct_set.all():
-                        if not item.repetition:
-                            result += item.price_special_2 * item.quantity
+                            result += item.price_in_hand * item.quantity
                 else:
-                    for item in self.customproduct_set.all():
-                        if not item.repetition:
-                            result += item.price_special_1 * item.quantity
+                    if count >= 4:
+                        for item in self.customproduct_set.all():
+                            if not item.repetition:
+                                result += item.price_special_4 * item.quantity
+                    elif count == 3:
+                        for item in self.customproduct_set.all():
+                            if not item.repetition:
+                                result += item.price_special_3 * item.quantity
+                    elif count == 2:
+                        for item in self.customproduct_set.all():
+                            if not item.repetition:
+                                result += item.price_special_2 * item.quantity
+                    else:
+                        for item in self.customproduct_set.all():
+                            if not item.repetition:
+                                result += item.price_special_1 * item.quantity
             else:
                 for item in self.customproduct_set.all():
                     if not item.repetition:

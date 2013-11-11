@@ -72,7 +72,6 @@ class Order(models.Model):
         self.save()
         return
 
-
     def check_made(self):
         if not self.orderitem_set.filter(made=False).exists():
             self.made = True

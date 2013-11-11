@@ -112,7 +112,10 @@ class InoxUser(AbstractBaseUser,PermissionsMixin):
         return self.email
 
     def __unicode__(self):
-        return self.email
+        if self.name:
+            return self.name
+        else:
+            return self.email
 
     def email_user(self, subject, message, from_email=None, **kwargs):
         send_mail(subject, message, from_email, [self.email], **kwargs)

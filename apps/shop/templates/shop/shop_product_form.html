@@ -20,7 +20,25 @@
             <div class="row-fluid">
                 <div class="span12 product prod-img">
                     <img src="{{MEDIA_URL}}{{product.img_1}}" alt=""> <!--Imatge principal del producte-->
-                    <h1 class="num">{{product.category.price|floatformat:2}} &euro;</h1>
+                    <h1 class="num">
+                        {% if user.is_professional %}
+                            {% if user.hand_delivery %}
+                                {{product.category.price_in_hand|floatformat:2}}
+                            {% else %}
+                                {% if CountCartItems > 2 %}
+                                    {{product.category.price_special_4|floatformat:2}}
+                                {% elif CountCartItems == 2 %}
+                                    {{product.category.price_special_3|floatformat:2}}
+                                {% elif CountCartItems == 1 %}
+                                    {{product.category.price_special_2|floatformat:2}}
+                                {% else %}
+                                    {{product.category.price_special_1|floatformat:2}}
+                                {% endif %}
+                            {% endif %}
+                        {% else %}
+                            {{product.category.price|floatformat:2}}
+                        {% endif %}
+                    &nbsp;&euro;</h1>
                     <div class="social_buttons">
                         <div class="g-plusone" data-size="medium" data-annotation="bubble"></div>
                         <div class="fb-like" data-href="{{request.full_path}}" data-width="The pixel width of the plugin" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>

@@ -8,7 +8,7 @@ class StaffOrderCreateForm(ModelForm):
 
     class Meta:
         model = Order
-        fields = ['user', 'hand_delivery']
+        fields = ['user']
 
 
 class StaffOrderItemAddForm(ModelForm):

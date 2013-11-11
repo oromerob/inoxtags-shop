@@ -26,7 +26,25 @@
                 <a href="{% url 'shop_product_create' product.slug %}">
                     <img src='{{MEDIA_URL}}{{product.img_1}}' alt="{{product.description}}">
                     <div id="imgText">
-                        <h2 class="num">{{product.category.price|floatformat:2}} &euro;</h2>
+                        <h2 class="num">
+                            {% if user.is_professional %}
+                                {% if user.hand_delivery %}
+                                    {{product.category.price_in_hand|floatformat:2}}
+                                {% else %}
+                                    {% if CountCartItems > 3 %}
+                                        {{product.category.price_special_4|floatformat:2}}
+                                    {% elif CountCartItems == 3 %}
+                                        {{product.category.price_special_3|floatformat:2}}
+                                    {% elif CountCartItems == 2 %}
+                                        {{product.category.price_special_2|floatformat:2}}
+                                    {% else %}
+                                        {{product.category.price_special_1|floatformat:2}}
+                                    {% endif %}
+                                {% endif %}
+                            {% else %}
+                                {{product.category.price|floatformat:2}}
+                            {% endif %}
+                        &euro;</h2>
                     </div>
                 </a>
             </div>

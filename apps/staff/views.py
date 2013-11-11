@@ -277,6 +277,8 @@ class StaffOrderList(ListView):
     template_name = 'staff/order_list.html'
     context_object_name = 'order_list'
     model = Order
+    test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
+    queryset = Order.objects.exclude(user=test_user)
 
     def dispatch(self, *args, **kwargs):
         for order in Order.objects.filter(made=False):
@@ -486,7 +488,8 @@ class StaffInvoiceListView(ListView):
     '''
 
     def get_queryset(self):
-        invoice_list = Invoice.objects.all()
+        test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
+        invoice_list = Invoice.objects.all().exclude(user=test_user)
         for invoice in invoice_list:
             try:
                 invoice.invoice_rect = invoice.rectinvoice_set.get()

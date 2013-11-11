@@ -79,7 +79,7 @@
                     <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{% trans "Factura comercial" %}</td>
                     <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{{invoice.creation_date|date}}</td>
                     <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{{invoice}}</td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{% if invoice.order.hand_delivery %}{% trans "Contado" %}{% else %}{% if not invoice.order.payed %}{% trans "giro bancario" %}{% else %}{% trans "Pagado" %}{% endif %}{% endif %}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{% if invoice.user.hand_delivery %}{% trans "Contado" %}{% elif invoice.user.money_order %}{% trans "Giro bancario" %}{% else %}{% if invoice.order.payed %}{% trans "Pagado" %}{% else %}{% trans "Transferencia" %}{% endif %}{% endif %}</td>
                 </tr>
             </tbody>
         </table>

@@ -17,11 +17,11 @@
                         {% if user.hand_delivery %}
                             {{product.category.price_in_hand|floatformat:2}}
                         {% else %}
-                            {% if CountCartItems > 3 %}
+                            {% if CountCartItems > 2 %}
                                 {{product.category.price_special_4|floatformat:2}}
-                            {% elif CountCartItems == 3 %}
-                                {{product.category.price_special_3|floatformat:2}}
                             {% elif CountCartItems == 2 %}
+                                {{product.category.price_special_3|floatformat:2}}
+                            {% elif CountCartItems == 1 %}
                                 {{product.category.price_special_2|floatformat:2}}
                             {% else %}
                                 {{product.category.price_special_1|floatformat:2}}
@@ -50,11 +50,11 @@
                                 {% if user.hand_delivery %}
                                     {{product.category.price_in_hand|floatformat:2}}
                                 {% else %}
-                                    {% if CountCartItems > 3 %}
+                                    {% if CountCartItems > 2 %}
                                         {{product.category.price_special_4|floatformat:2}}
-                                    {% elif CountCartItems == 3 %}
-                                        {{product.category.price_special_3|floatformat:2}}
                                     {% elif CountCartItems == 2 %}
+                                        {{product.category.price_special_3|floatformat:2}}
+                                    {% elif CountCartItems == 1 %}
                                         {{product.category.price_special_2|floatformat:2}}
                                     {% else %}
                                         {{product.category.price_special_1|floatformat:2}}

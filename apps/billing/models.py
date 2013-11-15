@@ -7,15 +7,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
-from apps.shop.models import Cart, Product, Color
-
-
-class Iva(models.Model):
-    iva = models.DecimalField(max_digits=4, decimal_places=2)
-    is_active = models.BooleanField(default=True)
-
-    def __unicode__(self):
-        return u'%s' % (self.iva)
+from apps.shop.models import Cart, Product, Color, Shipping, Iva
 
 
 class Order(models.Model):
@@ -32,6 +24,7 @@ class Order(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     count = models.PositiveIntegerField(blank=True)
     iva = models.DecimalField(max_digits=4, decimal_places=2)
+    management = models.BooleanField(default=False)
     # Process indicators
     payed = models.BooleanField(default=False, verbose_name="Pagat")
     hand_delivery = models.BooleanField(default=False)
@@ -44,7 +37,7 @@ class Order(models.Model):
     def __unicode__(self):
         return u'%s / %s' % (self.creation_date.year, self.id)
 
-    def update_shipment_data(self):
+    '''def update_shipment_data(self):
         if self.user.name:
             self.to = self.user.name
         else:
@@ -70,7 +63,7 @@ class Order(models.Model):
         else:
             self.mark_as_deleted()
         self.save()
-        return
+        return'''
 
     def check_made(self):
         if not self.orderitem_set.filter(made=False).exists():
@@ -78,7 +71,7 @@ class Order(models.Model):
             self.save()
         return
 
-    def update_count(self):
+    def _update_count(self):
         result = 0
         for item in self.orderitem_set.all():
             result += item.quantity
@@ -86,13 +79,13 @@ class Order(models.Model):
         self.save()
         return result
 
-    def delete_items(self):
+    def _delete_items(self):
         for item in self.orderitem_set.all():
             item.delete()
         return
 
     def mark_as_deleted(self):
-        self.delete_items()
+        self._delete_items()
         self.deleted = True
         self.save()
 
@@ -139,35 +132,22 @@ class Order(models.Model):
                 result += item.quantity
         return result
 
-    def update_price(self):
+    def _update_price(self):
         result = 0
-        count = self.count_items()
-        if self.user.is_professional:
-            if count >= 4:
-                for item in self.orderitem_set.all():
-                    if not item.repetition:
-                        result += item.price_special_4 * item.quantity
-            elif count == 3:
-                for item in self.orderitem_set.all():
-                    if not item.repetition:
-                        result += item.price_special_3 * item.quantity
-            elif count == 2:
-                for item in self.orderitem_set.all():
-                    if not item.repetition:
-                        result += item.price_special_2 * item.quantity
+        if self.management:
+            shipping = Shipping.objects.get()
+            if self.country == 'Espanya':
+                result += shipping.es
             else:
-                for item in self.orderitem_set.all():
-                    if not item.repetition:
-                        result += item.price_special_1 * item.quantity
-        else:
-            for item in self.orderitem_set.all():
-                if not item.repetition:
-                    result += item.price * item.quantity
+                result += shipping.eu
+        for item in self.orderitem_set.all():
+            if not item.repetition:
+                result += item.price * item.quantity
         return result
 
     def modify(self):
-        self.count = self.update_count()
-        self.price = self.update_price()
+        self.count = self._update_count()
+        self.price = self._update_price()
         self.save()
 
         # Send mail notifying the modifyed order
@@ -230,17 +210,15 @@ class OrderItem(models.Model):
     back_1 = models.CharField(max_length=15, blank=True, verbose_name="revers 1")
     back_2 = models.CharField(max_length=15, blank=True, verbose_name="revers 2")
     back_3 = models.CharField(max_length=15, blank=True, verbose_name="revers 3")
-    price = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per particulars')
-    price_special_1 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (una placa)')
-    price_special_2 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (dues plaques)')
-    price_special_3 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (tres plaques)')
-    price_special_4 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (més de tres plaques)')
-    price_in_hand = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='hand delivery price')
+    price = models.DecimalField(max_digits=5, decimal_places=2)
     made = models.BooleanField(default=False)
     repetition = models.BooleanField(default=False)
 
     def __unicode__(self):
         return u'%s' % (self.id)
+
+    def price_base(self):
+        return self.price / (1 + (self.order.iva / 100))
 
 
 class Invoice(models.Model):

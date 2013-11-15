@@ -7,6 +7,30 @@ from autoslug import AutoSlugField
 from transmeta import TransMeta
 
 
+class Iva(models.Model):
+    iva = models.DecimalField(max_digits=4, decimal_places=2)
+    is_active = models.BooleanField(default=True)
+
+    def __unicode__(self):
+        return u'%s' % (self.iva)
+
+
+class Shipping(models.Model):
+    es = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Enviaments a Espanya')
+    eu = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Enviaments a Europa')
+
+    def __unicode__(self):
+        return unicode(self.es)
+
+    def es_base(self):
+        iva = Iva.objects.get()
+        return self.es / (1 + (iva / 100))
+
+    def eu_base(self):
+        iva = Iva.objects.get()
+        return self.eu / (1 + (iva / 100))
+
+
 class Category(models.Model):
     __metaclass__ = TransMeta
 
@@ -15,11 +39,8 @@ class Category(models.Model):
     img = models.ImageField(upload_to="product/img/", blank=True, verbose_name=_("Image"))
     description = models.TextField(blank=True, verbose_name=_("Description"))
     # product's price depends on the category
-    price = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per particulars')
-    price_special_1 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (una placa)')
-    price_special_2 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (dues plaques)')
-    price_special_3 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (tres plaques)')
-    price_special_4 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (més de tres plaques)')
+    price_normal = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per particulars')
+    price_prof = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals')
     price_in_hand = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals, entrega en mà')
     has_color = models.BooleanField(default=False)
     has_front_main = models.BooleanField(default=False)
@@ -28,6 +49,13 @@ class Category(models.Model):
     has_back_2 = models.BooleanField(default=False)
     has_back_3 = models.BooleanField(default=False)
 
+    def price_initial_es(self):
+        shipping = Shipping.objects.get()
+        return self.price_prof + shipping.es
+
+    def price_initial_eu(self):
+        shipping = Shipping.objects.get()
+        return self.price_prof + shipping.eu
 
     def __unicode__(self):
         return self.category
@@ -85,11 +113,11 @@ class Product(models.Model):
         translate = ('description',)
 
 
-class CartManager(models.Manager):
+'''class CartManager(models.Manager):
     def create_cart(self):
         cart = self.create(creation_date=datetime.datetime.now())
         request.session['CART_ID'] = cart.id
-        return cart
+        return cart'''
 
 
 class Cart(models.Model):
@@ -115,37 +143,24 @@ class Cart(models.Model):
     def get_price(self, user):
         result = 0
         count = self.get_count()
-        try:
-            if user.is_professional:
-                if user.hand_delivery:
-                    for item in self.customproduct_set.all():
-                        if not item.repetition:
-                            result += item.price_in_hand * item.quantity
+        shipping = Shipping.objects.get()
+        if user.is_professional:
+            if not user.hand_delivery:
+                if user.shipping_country.country == 'Espanya':
+                    result += shipping.es
                 else:
-                    if count >= 4:
-                        for item in self.customproduct_set.all():
-                            if not item.repetition:
-                                result += item.price_special_4 * item.quantity
-                    elif count == 3:
-                        for item in self.customproduct_set.all():
-                            if not item.repetition:
-                                result += item.price_special_3 * item.quantity
-                    elif count == 2:
-                        for item in self.customproduct_set.all():
-                            if not item.repetition:
-                                result += item.price_special_2 * item.quantity
-                    else:
-                        for item in self.customproduct_set.all():
-                            if not item.repetition:
-                                result += item.price_special_1 * item.quantity
+                    result += shipping.eu
+                for item in self.customproduct_set.all():
+                    if not item.repetition:
+                        result += item.price_prof * item.quantity
             else:
                 for item in self.customproduct_set.all():
                     if not item.repetition:
-                        result += item.price * item.quantity
-        except:
+                        result += item.price_in_hand * item.quantity
+        else:
             for item in self.customproduct_set.all():
                 if not item.repetition:
-                    result += item.price * item.quantity
+                    result += item.price_normal * item.quantity
         return result
 
     class Meta:
@@ -174,11 +189,8 @@ class CustomProduct(models.Model):
     back_2 = models.CharField(max_length=15, blank=True, verbose_name="revers 2")
     back_3 = models.CharField(max_length=15, blank=True, verbose_name="revers 3")
     # inherits prices from category
-    price = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per particulars')
-    price_special_1 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (una placa)')
-    price_special_2 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (dues plaques)')
-    price_special_3 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (tres plaques)')
-    price_special_4 = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals (més de tres plaques)')
+    price_normal = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per particulars')
+    price_prof = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals')
     price_in_hand = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='preu per professionals, entrega en mà')
     # internal fields
     made = models.BooleanField(default=False)

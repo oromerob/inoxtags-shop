@@ -14,7 +14,8 @@ from django.core.mail import EmailMultiAlternatives
 
 from apps.pdf.views import RenderPDF
 
-from .models import Order, Invoice, RectInvoice, Iva, OrderItem
+from .models import Order, Invoice, RectInvoice, OrderItem
+from apps.shop.models import Iva
 from apps.settings.models import ProjectSettings
 
 
@@ -83,10 +84,14 @@ class UnpayedCheckoutView(TemplateView):
 
     template_name = 'checkout/unpayed_checkout.html'
 
-    '''def dispatch(self, request, *args, **kwargs):
-        if not request.user.hand_delivery or not request.user.modey_order:
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.hand_delivery:
+            pass
+        elif request.user.money_order:
+            pass
+        else:
             raise http.Http404
-        return super(UnpayedCheckoutView, self).dispatch(request, *args, **kwargs)'''
+        return super(UnpayedCheckoutView, self).dispatch(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
         cart = RequestContext(request).get('Cart')
@@ -95,6 +100,10 @@ class UnpayedCheckoutView(TemplateView):
         iva = Iva.objects.filter(is_active=True).get()
         user = request.user
         count_total = cart.get_count_total()
+        management = False
+        if user.is_professional:
+            if not user.hand_delivery:
+                management = True
 
         # Creates the Order
         order = Order.objects.create(
@@ -110,10 +119,18 @@ class UnpayedCheckoutView(TemplateView):
             iva=Decimal(str(iva)),
             payed=False,
             hand_delivery=user.hand_delivery,
+            management = management,
         )
 
         # Creates the order items
         for item in product_list:
+            if user.is_professional:
+                if user.hand_delivery:
+                    price = item.price_in_hand
+                else:
+                    price = item.price_prof
+            else:
+                price = item.price_normal
             OrderItem.objects.create(
                 order=order,
                 quantity=item.quantity,
@@ -124,15 +141,11 @@ class UnpayedCheckoutView(TemplateView):
                 back_1=item.back_1,
                 back_2=item.back_2,
                 back_3=item.back_3,
-                price=item.price,
-                price_special_1=item.price_special_1,
-                price_special_2=item.price_special_2,
-                price_special_3=item.price_special_3,
-                price_special_4=item.price_special_4,
-                price_in_hand=item.price_in_hand,
+                price=price,
                 made=item.made,
                 repetition=item.repetition
             )
+
         # Mark the cart as checked out
 
         cart.checked_out = True

@@ -48,6 +48,7 @@
                             </td>
                             <td class="center">{{i.quantity}}</td>
                             <td class="center">
+                                {% comment %}
                                 {% if user.is_professional %}
                                     {% if user.hand_delivery %}
                                         {{i.price_in_hand|floatformat:"2"}}&nbsp;&euro;
@@ -65,6 +66,16 @@
                                 {% else %}
                                     {{i.price|floatformat:"2"}}&nbsp;&euro;
                                 {% endif %}
+                                {% endcomment %}
+                                {% if user.is_professional %}
+                                    {% if user.hand_delivery %}
+                                        {{i.price_in_hand|floatformat:"2"}}&nbsp;&euro;
+                                    {% else %}
+                                        {{i.price_prof|floatformat:"2"}}&nbsp;&euro;
+                                    {% endif %}
+                                {% else %}
+                                    {{i.price_normal|floatformat:"2"}}&nbsp;&euro;
+                                {% endif %}
                             </td>
                             <td>
                                 <form method="post" class="cart-form" action="{% url 'cart_remove' i.id %}">{% csrf_token %}
@@ -73,6 +84,24 @@
                             </td>
                         </tr>
                     {% endfor %}
+                    {% if user.is_professional %}
+                        {% if not user.hand_delivery %}
+                            <tr>
+                                <td>{% trans "Gestió i enviament" %}</td>
+                                <td></td>
+                                <td class="center">1</td>
+                                <td class="center">
+                                    {% if user.shipping_country.country == 'Espanya' %}
+                                        {{shipping.es|floatformat:2}}
+                                    {% else %}
+                                        {{shipping.eu|floatformat:2}}
+                                    {% endif %}
+                                    &nbsp;&euro;
+                                </td>
+                                <td></td>
+                            </tr>
+                        {% endif %}
+                    {% endif %}
                 </tbody>
             </table>
             <div class="row-fluid">

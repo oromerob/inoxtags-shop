@@ -19,8 +19,9 @@ from django.utils.html import strip_tags
 from apps.pdf.views import RenderPDF
 
 from .forms import StaffOrderCreateForm, StaffOrderItemAddForm, StaffShippingCodeForm, StaffInvoiceCreateForm
-from apps.billing.models import Iva, OrderItem, Invoice, Order, RectInvoice
+from apps.billing.models import OrderItem, Invoice, Order, RectInvoice
 from apps.backend_bank_transfer.models import PreOrder
+from apps.shop.models import Iva
 from apps.settings.models import ProjectSettings
 from accounts.models import InoxUser
 
@@ -51,11 +52,21 @@ class StaffCheckoutView(FormView):
         order.iva = Decimal(str(iva))
         order.payed = False
         order.hand_delivery = order.user.hand_delivery
+        if order.user.is_professional:
+            if not order.user.hand_delivery:
+                order.management = True
         order.save()
 
         # Creates the order items from the customized products
 
         for product in product_list:
+            if order.user.is_professional:
+                if order.user.hand_delivery:
+                    price = product.price_in_hand
+                else:
+                    price = product.price_prof
+            else:
+                price = product.price_normal
             OrderItem.objects.create(
                 order=order,
                 quantity=product.quantity,
@@ -66,12 +77,7 @@ class StaffCheckoutView(FormView):
                 back_1=product.back_1,
                 back_2=product.back_2,
                 back_3=product.back_3,
-                price=product.price,
-                price_special_1=product.price_special_1,
-                price_special_2=product.price_special_2,
-                price_special_3=product.price_special_3,
-                price_special_4=product.price_special_4,
-                price_in_hand=product.price_in_hand,
+                price=price,
                 made=product.made,
                 repetition=product.repetition
             )
@@ -87,16 +93,16 @@ class StaffCheckoutView(FormView):
         try:
             if order.user.lang == "ca":
                 subject = _("Nova comanda a INOXtags.com")
-                html_content = render_to_string('email/conf_order_ca.html', {'order':order, 'product_list':product_list})
+                html_content = render_to_string('email/conf_order_ca.html', {'order': order, 'product_list': product_list})
             elif order.user.lang == "es":
                 subject = _("Nuevo pedido en INOXtags.com")
-                html_content = render_to_string('email/conf_order_es.html', {'order':order, 'product_list':product_list})
+                html_content = render_to_string('email/conf_order_es.html', {'order': order, 'product_list': product_list})
             else:
                 subject = _("Your new order from INOXtags.com")
-                html_content = render_to_string('email/conf_order_en.html', {'order':order, 'product_list':product_list})
+                html_content = render_to_string('email/conf_order_en.html', {'order': order, 'product_list': product_list})
         except:
             subject = _("Your new order from INOXtags.com")
-            html_content = render_to_string('email/conf_order_en.html', {'order':order, 'product_list':product_list})
+            html_content = render_to_string('email/conf_order_en.html', {'order': order, 'product_list': product_list})
         text_content = strip_tags(html_content)
 
         msg = EmailMultiAlternatives(subject, text_content, to=[mail])
@@ -110,7 +116,7 @@ class StaffWorkshopView(ListView):
 
     template_name = 'staff/workshop.html'
     context_object_name = 'tag_list'
-    queryset =  OrderItem.objects.filter(made=False).order_by('product')
+    queryset = OrderItem.objects.filter(made=False).order_by('product')
 
     def get_context_data(self, **kwargs):
         context = super(StaffWorkshopView, self).get_context_data(**kwargs)
@@ -155,6 +161,9 @@ class StaffBankTransferDoneView(RedirectView):
         # Creates the order
 
         user = pre_order.user
+        if user.is_professional:
+            if not user.hand_delivery:
+                management = True
 
         order = Order.objects.create(
             cart=pre_order.cart,
@@ -168,11 +177,19 @@ class StaffBankTransferDoneView(RedirectView):
             price=pre_order.price,
             iva=Decimal(str(pre_order.iva)),
             payed=True,
+            management=management,
         )
 
         # Creates the order items from the customized products
 
         for product in product_list:
+            if order.user.is_professional:
+                if order.user.hand_delivery:
+                    price = product.price_in_hand
+                else:
+                    price = product.price_prof
+            else:
+                price = product.price_normal
             OrderItem.objects.create(
                 order=order,
                 quantity=product.quantity,
@@ -183,12 +200,7 @@ class StaffBankTransferDoneView(RedirectView):
                 back_1=product.back_1,
                 back_2=product.back_2,
                 back_3=product.back_3,
-                price=product.price,
-                price_special_1=product.price_special_1,
-                price_special_2=product.price_special_2,
-                price_special_3=product.price_special_3,
-                price_special_4=product.price_special_4,
-                price_in_hand=product.price_in_hand,
+                price=price,
                 made=product.made,
                 repetition=product.repetition
             )
@@ -238,7 +250,7 @@ class StaffBankTransferDoneView(RedirectView):
 class StaffHandDeliveryMixin(ListView):
 
     context_object_name = 'order_list'
-    queryset =  Order.objects.filter(deleted=False).filter(made=True).filter(shipped=False).filter(hand_delivery=True).order_by('user',)
+    queryset = Order.objects.filter(deleted=False).filter(made=True).filter(shipped=False).filter(hand_delivery=True).order_by('user',)
 
 
 class StaffHandDeliveryListView(StaffHandDeliveryMixin):
@@ -277,8 +289,8 @@ class StaffOrderList(ListView):
     template_name = 'staff/order_list.html'
     context_object_name = 'order_list'
     model = Order
-    test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
-    queryset = Order.objects.exclude(user=test_user)
+    '''test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
+    queryset = Order.objects.exclude(user=test_user)'''
 
     def dispatch(self, *args, **kwargs):
         for order in Order.objects.filter(made=False):
@@ -332,12 +344,13 @@ class StaffOrderAddItemView(FormView):
         order = get_object_or_404(Order, pk=self.kwargs.get('pk'))
         item = form.save(commit=False)
         item.order = order
-        item.price = form.product.category.price
-        item.price_special_1 = form.product.category.price_special_1
-        item.price_special_2 = form.product.category.price_special_2
-        item.price_special_3 = form.product.category.price_special_3
-        item.price_special_4 = form.product.category.price_special_4
-        item.price_in_hand = form.product.category.price_in_hand
+        if order.user.is_professional:
+            if order.user.hand_delivery:
+                item.price = form.product.category.price_in_hand
+            else:
+                item.price = form.product.category.price_prof
+        else:
+            item.price = form.product.category.price_normal
         item.save()
         order.modify()
         return HttpResponseRedirect(self.get_success_url())
@@ -474,22 +487,10 @@ class StaffInvoiceListView(ListView):
     template_name = 'staff/invoice_list.html'
     context_object_name = 'invoice_list'
 
-    '''def get(self, request, *args, **kwargs):
-        if not Invoice.objects.filter(pk=152).exists():
-            user = InoxUser.objects.get(email='13.oriol@gmail.com')
-            iva = Iva.objects.filter(is_active=True).get()
-            Invoice.objects.create(
-                user=user,
-                concept='factura creada automàticament per omplir llistat',
-                price=0,
-                iva=Decimal(str(iva)),
-            )
-            return HttpResponseRedirect('/staff/invoice_list/')
-    '''
-
     def get_queryset(self):
-        test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
-        invoice_list = Invoice.objects.all().exclude(user=test_user)
+        '''test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
+        invoice_list = Invoice.objects.all().exclude(user=test_user)'''
+        invoice_list = Invoice.objects.all()
         for invoice in invoice_list:
             try:
                 invoice.invoice_rect = invoice.rectinvoice_set.get()

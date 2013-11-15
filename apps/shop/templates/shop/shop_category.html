@@ -10,7 +10,25 @@
             <img src='{{MEDIA_URL}}{{product.img_1}}' alt="{{product.description}}">
             <div class="imgText">
                 <a href="{% url 'shop_product_create' product.slug %}">
-                    <h2 class="num">{{product.category.price|floatformat:2}} &euro;</h2>
+                    <h2 class="num">
+                    {% if user.is_professional %}
+                        {% if user.hand_delivery %}
+                            {{product.category.price_in_hand|floatformat:2}}
+                        {% else %}
+                            {% if CountCartItems == 0 %}
+                                {% if user.shipping_country.country == 'Espanya' %}
+                                    {{product.category.price_initial_es|floatformat:2}}
+                                {% else %}
+                                    {{product.category.price_initial_eu|floatformat:2}}
+                                {% endif %}
+                            {% else %}
+                                {{product.category.price_prof|floatformat:2}}
+                            {% endif %}
+                        {% endif %}
+                    {% else %}
+                        {{product.category.price_normal|floatformat:2}}
+                    {% endif %}
+                    &nbsp;&euro;</h2>
                     <p>{{product.description}}</p>
                 </a>
             </div>
@@ -25,7 +43,25 @@
                 <a href="{% url 'shop_product_create' product.slug %}">
                     <img src='{{MEDIA_URL}}{{product.img_1}}' alt="{{product.description}}">
                     <div id="imgText">
-                        <h2 class="num">{{product.category.price|floatformat:2}} &euro;</h2>
+                        <h2 class="num">
+                    {% if user.is_professional %}
+                        {% if user.hand_delivery %}
+                            {{product.category.price_in_hand|floatformat:2}}
+                        {% else %}
+                            {% if CountCartItems == 0 %}
+                                {% if user.shipping_country.country == 'Espanya' %}
+                                    {{product.category.price_initial_es|floatformat:2}}
+                                {% else %}
+                                    {{product.category.price_initial_eu|floatformat:2}}
+                                {% endif %}
+                            {% else %}
+                                {{product.category.price_prof|floatformat:2}}
+                            {% endif %}
+                        {% endif %}
+                    {% else %}
+                        {{product.category.price_normal|floatformat:2}}
+                    {% endif %}
+                        &nbsp;&euro;</h2>
                     </div>
                 </a>
             </div>

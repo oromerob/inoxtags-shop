@@ -7,8 +7,8 @@ from django.views.generic.list import ListView
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 
-from apps.shop.models import Product, Category, CustomProduct, Cart
-from apps.shop.forms import CustomProductForm
+from .models import Product, Category, CustomProduct, Cart, Shipping
+from .forms import CustomProductForm
 
 
 class ShopMainView(ListView):
@@ -64,11 +64,8 @@ class CustomProductCreateView(CreateView):
         self.object = form.save(commit=False)
         self.object.cart = cart
         self.object.product = self.product
-        self.object.price = self.product.category.price
-        self.object.price_special_1 = self.product.category.price_special_1
-        self.object.price_special_2 = self.product.category.price_special_2
-        self.object.price_special_3 = self.product.category.price_special_3
-        self.object.price_special_4 = self.product.category.price_special_4
+        self.object.price_normal = self.product.category.price_normal
+        self.object.price_prof = self.product.category.price_prof
         self.object.price_in_hand = self.product.category.price_in_hand
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
@@ -90,6 +87,7 @@ class CartView(ListView):
         context = super(CartView, self).get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
         context['product_list'] = Product.objects.all()
+        context['shipping'] = Shipping.objects.get()
         return context
 
 

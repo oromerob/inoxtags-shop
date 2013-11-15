@@ -1,10 +1,11 @@
-from apps.shop.models import *
+from .models import *
 from django.contrib import admin
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['category','price','price_special_1','price_special_2','price_special_3','price_special_4','has_color','has_front_main','has_front_tel','has_back_1','has_back_2','has_back_3']
-    ordering = ['price']
+    list_display = ['category','price_normal','price_prof','price_in_hand','has_color','has_front_main','has_front_tel','has_back_1','has_back_2','has_back_3']
+    #list_display = ['category','price','price_special_1','price_special_2','price_special_3','price_special_4','has_color','has_front_main','has_front_tel','has_back_1','has_back_2','has_back_3']
+    ordering = ['price_normal']
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -22,6 +23,8 @@ class CustomProductAdmin(admin.ModelAdmin):
     ordering = ['id']
 
 
+class ShippingAdmin(admin.ModelAdmin):
+    list_display = ['es', 'eu']
 
 admin.site.register(Category,CategoryAdmin)
 admin.site.register(Color)
@@ -29,3 +32,4 @@ admin.site.register(Product,ProductAdmin)
 admin.site.register(Shape)
 admin.site.register(Cart,CartAdmin)
 admin.site.register(CustomProduct,CustomProductAdmin)
+admin.site.register(Shipping, ShippingAdmin)

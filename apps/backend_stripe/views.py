@@ -15,9 +15,9 @@ from django.core.mail import EmailMultiAlternatives
 import stripe
 
 from django.conf import settings
-#from inoxtags.settings import STRIPE_SECRET, STRIPE_PUBLISHABLE
-from apps.backend_stripe.forms import StripeForm
-from apps.billing.models import Iva, Order, OrderItem
+from .forms import StripeForm
+from apps.billing.models import Order, OrderItem
+from apps.shop.models import Iva
 
 stripe.api_key = settings.STRIPE_SECRET
 
@@ -70,6 +70,10 @@ class ChargeView(FormView):
             iva = Iva.objects.filter(is_active=True).get()
             count_total = cart.get_count_total()
             user = self.request.user
+            management = False
+            if user.is_professional:
+                if not user.hand_delivery:
+                    management = True
 
             # Creates the order
             order = Order.objects.create(
@@ -83,11 +87,19 @@ class ChargeView(FormView):
                 count=count_total,
                 price=context_price,
                 iva=Decimal(str(iva)),
-                payed=True
+                payed=True,
+                management=management,
             )
 
             # Creates the order items
             for item in product_list:
+                if user.is_professional:
+                    if user.hand_delivery:
+                        price = item.price_in_hand
+                    else:
+                        price = item.price_prof
+                else:
+                    price = item.price_normal
                 OrderItem.objects.create(
                     order=order,
                     quantity=item.quantity,
@@ -98,12 +110,7 @@ class ChargeView(FormView):
                     back_1=item.back_1,
                     back_2=item.back_2,
                     back_3=item.back_3,
-                    price=item.price,
-                    price_special_1=item.price_special_1,
-                    price_special_2=item.price_special_2,
-                    price_special_3=item.price_special_3,
-                    price_special_4=item.price_special_4,
-                    price_in_hand=item.price_in_hand,
+                    price=price,
                     made=item.made,
                     repetition=item.repetition
                 )

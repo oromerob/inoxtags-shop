@@ -11,7 +11,7 @@ from django.utils.html import strip_tags
 from django.core.mail import EmailMultiAlternatives
 
 
-from apps.billing.models import Iva
+from apps.shop.models import Iva
 from .models import PreOrder
 from apps.settings.models import ProjectSettings
 

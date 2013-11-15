@@ -504,7 +504,7 @@ class StaffInvoiceListView(ListView):
         if int(invoice.id) < 164:
             _create_new()
             if int(new.id) < 164:
-                _create_new(request)
+                _create_new(self.request)
         return super(StaffInvoiceListView, self).dispatch(*args, **kwargs)
 
     def get_queryset(self):

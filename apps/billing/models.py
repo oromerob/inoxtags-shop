@@ -10,7 +10,7 @@ from django.utils.html import strip_tags
 from apps.shop.models import Cart, Product, Color, Shipping, Iva
 
 
-class Order(models.Model):
+'''class Order(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True)
     cart = models.ForeignKey(Cart)
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
@@ -36,34 +36,6 @@ class Order(models.Model):
 
     def __unicode__(self):
         return u'%s / %s' % (self.creation_date.year, self.id)
-
-    '''def update_shipment_data(self):
-        if self.user.name:
-            self.to = self.user.name
-        else:
-            self.mark_as_deleted()
-            return
-        if self.user.shipping_address:
-            self.address = self.user.shipping_address
-        else:
-            self.mark_as_deleted()
-            return
-        if self.user.shipping_code:
-            self.postal_code = self.user.shipping_code
-        else:
-            self.mark_as_deleted()
-            return
-        if self.user.shipping_town:
-            self.town = self.user.shipping_town
-        else:
-            self.mark_as_deleted()
-            return
-        if self.user.shipping_country:
-            self.country = self.user.shipping_country.country
-        else:
-            self.mark_as_deleted()
-        self.save()
-        return'''
 
     def check_made(self):
         if not self.orderitem_set.filter(made=False).exists():
@@ -271,6 +243,4 @@ class RectInvoice(models.Model):
         return self.price - self.price_base()
 
     class Meta:
-        ordering = ('-creation_date',)
-
-
+        ordering = ('-creation_date',)'''

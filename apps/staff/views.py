@@ -487,18 +487,21 @@ class StaffInvoiceListView(ListView):
     template_name = 'staff/invoice_list.html'
     context_object_name = 'invoice_list'
 
-    '''def get(self, request, *args, **kwargs):
-        n = 1
-        test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
-        for n < 164:
-            Invoice.objects.create(
-                user=test_user,
-                concept='Factures de relleno, les bones són fetes a mà.',
-                price=0,
-                iva=21,
-                )
-            n += 1
-        return super(StaffInvoiceListView, self).get(request, *args, **kwargs)'''
+    def dispatch(self, *args, **kwargs):
+        try:
+            n = 1
+            test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
+            for n < 164:
+                Invoice.objects.create(
+                    user=test_user,
+                    concept='Factures de relleno, les bones són fetes a mà.',
+                    price=0,
+                    iva=21,
+                    )
+                n += 1
+        except:
+            pass
+        return super(StaffInvoiceListView, self).dispatch(*args, **kwargs)
 
     def get_queryset(self):
         '''test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')

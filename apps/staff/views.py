@@ -482,7 +482,7 @@ class StaffShipmentListPdfView(RenderPDF, TemplateView):
         return context
 
 
-def _create_new():
+def _create_new(request):
     test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
     iva = Iva.objects.get()
     new = self.objects.create(
@@ -504,7 +504,7 @@ class StaffInvoiceListView(ListView):
         if int(invoice.id) < 164:
             _create_new()
             if int(new.id) < 164:
-                _create_new()
+                _create_new(request)
         return super(StaffInvoiceListView, self).dispatch(*args, **kwargs)
 
     def get_queryset(self):

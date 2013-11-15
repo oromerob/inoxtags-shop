@@ -482,7 +482,7 @@ class StaffShipmentListPdfView(RenderPDF, TemplateView):
         return context
 
 
-def _create_new(request):
+def _create_new():
     test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
     iva = Iva.objects.get()
     new = self.objects.create(

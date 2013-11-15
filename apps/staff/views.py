@@ -502,7 +502,7 @@ class StaffInvoiceListView(ListView):
     def dispatch(self, *args, **kwargs):
         invoice = Invoice.objects.latest('id')
         if int(invoice.id) < 164:
-            _create_new()
+            _create_new(self.request)
             if int(new.id) < 164:
                 _create_new(self.request)
         return super(StaffInvoiceListView, self).dispatch(*args, **kwargs)

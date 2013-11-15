@@ -489,7 +489,7 @@ def _create_new(request):
         user=test_user,
         concept='Factures fetes a mà',
         price=0,
-        iva=iva,
+        iva=Decimal(str(iva)),
         )
     return new
 

@@ -488,12 +488,12 @@ class StaffInvoiceListView(ListView):
     context_object_name = 'invoice_list'
 
     def dispatch(self, *args, **kwargs):
-        try:
-            invoice = Invoice.objects.all()[:1]
-            if invoice.id < 164:
-                invoice.create_handmade()
-        except:
-            pass
+        #try:
+        invoice = Invoice.objects.all()[:1]
+        if invoice.id < 164:
+            invoice.create_handmade()
+        #except:
+        #    pass
         return super(StaffInvoiceListView, self).dispatch(*args, **kwargs)
 
     def get_queryset(self):

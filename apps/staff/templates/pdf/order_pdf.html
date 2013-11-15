@@ -65,17 +65,17 @@
         <table style="border:1px solid #000000;border-collapse:collapse;">
             <thead>
                 <tr style="border:1px solid #000000;">
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Tipo documento</td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Fecha documento</td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Referencia</td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Forma de pago</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{% trans "Tipo documento" %}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{% trans "Fecha documento" %}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{% trans "Referencia" %}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{% trans "Forma de pago" %}</td>
                 </tr>
             </thead>
             <tbody>
                 <tr style="border:1px solid #000000;">
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">Albarán</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{% trans "Albarán" %}</td>
                     <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{{order.creation_date|date}}</td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">Pedido {{order}}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{% trans "Pedido" %} {{order}}</td>
                     <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">
                         {% if not order.payed %}
                             {% if user.hand_delivery %}

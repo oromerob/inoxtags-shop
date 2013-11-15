@@ -205,6 +205,23 @@ class Invoice(models.Model):
     def __unicode__(self):
         return u'%s / %s' % (self.creation_date.year, self.id)
 
+    def _create_new(self):
+        test_user = get_object_or_404(InoxUser, email='13.oriol@gamil.com')
+        iva = Iva.objects.get()
+        new = self.objects.create(
+            user=test_user,
+            concept='Factures fetes a mà',
+            price=0,
+            iva=iva,
+            )
+        return new
+
+    def create_handmade(self):
+        self._create_new()
+        if new.id < 164:
+            self._create_new()
+        return
+
     def rectificate(self):
         RectInvoice.objects.create(
             user=self.user,

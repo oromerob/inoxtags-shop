@@ -490,7 +490,7 @@ class StaffInvoiceListView(ListView):
     def dispatch(self, *args, **kwargs):
         #try:
         invoice = Invoice.objects.all()[:1]
-        if invoice.id < 164:
+        if int(invoice.id) < 164:
             invoice.create_handmade()
         #except:
         #    pass

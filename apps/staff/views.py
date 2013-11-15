@@ -485,7 +485,7 @@ class StaffShipmentListPdfView(RenderPDF, TemplateView):
 def _create_new(request):
     test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
     iva = Iva.objects.get()
-    new = self.objects.create(
+    new = Invoice.objects.create(
         user=test_user,
         concept='Factures fetes a mà',
         price=0,

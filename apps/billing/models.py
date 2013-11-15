@@ -208,7 +208,7 @@ class Invoice(models.Model):
         return u'%s / %s' % (self.creation_date.year, self.id)
 
     def _create_new(self):
-        test_user = get_object_or_404(InoxUser, email='13.oriol@gamil.com')
+        test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
         iva = Iva.objects.get()
         new = self.objects.create(
             user=test_user,

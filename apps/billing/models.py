@@ -2,6 +2,7 @@
 from django.db import models
 from django.conf import settings
 from decimal import Decimal
+from django.shortcuts import get_object_or_404
 
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string

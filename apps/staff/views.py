@@ -482,7 +482,7 @@ class StaffShipmentListPdfView(RenderPDF, TemplateView):
         return context
 
 
-def _create_new(request):
+'''def _create_new(request):
     test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
     iva = Iva.objects.get()
     new = Invoice.objects.create(
@@ -491,7 +491,7 @@ def _create_new(request):
         price=0,
         iva=Decimal(str(iva)),
         )
-    return new
+    return new'''
 
 
 class StaffInvoiceListView(ListView):
@@ -499,22 +499,9 @@ class StaffInvoiceListView(ListView):
     template_name = 'staff/invoice_list.html'
     context_object_name = 'invoice_list'
 
-    def dispatch(self, *args, **kwargs):
-        invoice = Invoice.objects.latest('id')
-        if int(invoice.id) < 164:
-            new = _create_new(self.request)
-            if int(new.id) < 164:
-                new = _create_new(self.request)
-                if int(new.id) < 164:
-                    new = _create_new(self.request)
-                    if int(new.id) < 164:
-                        new = _create_new(self.request)
-        return super(StaffInvoiceListView, self).dispatch(*args, **kwargs)
-
     def get_queryset(self):
-        '''test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
-        invoice_list = Invoice.objects.all().exclude(user=test_user)'''
-        invoice_list = Invoice.objects.all()
+        test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
+        invoice_list = Invoice.objects.all().exclude(user=test_user)
         for invoice in invoice_list:
             try:
                 invoice.invoice_rect = invoice.rectinvoice_set.get()

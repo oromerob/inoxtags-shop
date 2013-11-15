@@ -75,7 +75,19 @@
                     <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">Albarán</td>
                     <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{{order.creation_date|date}}</td>
                     <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">Pedido {{order}}</td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{% if order.hand_delivery %}Contado{% else %}{% if not order.payed %}Transferencia{% else %}Pagado{% endif %}{% endif %}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">
+                        {% if not order.payed %}
+                            {% if user.hand_delivery %}
+                                {% trans "Comptat" %}
+                            {% elif user.money_order %}
+                                {% trans "Gir bancari" %}
+                            {% else %}
+                                {% trans "Transferència" %}
+                            {% endif %}
+                        {% else %}
+                            {% trans "Pagado" %}
+                        {% endif %}
+                    </td>
                 </tr>
             </tbody>
         </table>

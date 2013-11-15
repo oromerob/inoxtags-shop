@@ -487,7 +487,7 @@ class StaffInvoiceListView(ListView):
     template_name = 'staff/invoice_list.html'
     context_object_name = 'invoice_list'
 
-    def dispatch(self, *args, **kwargs):
+    '''def dispatch(self, *args, **kwargs):
         try:
             n = 1
             test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
@@ -501,7 +501,7 @@ class StaffInvoiceListView(ListView):
                 n += 1
         except:
             pass
-        return super(StaffInvoiceListView, self).dispatch(*args, **kwargs)
+        return super(StaffInvoiceListView, self).dispatch(*args, **kwargs)'''
 
     def get_queryset(self):
         '''test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')

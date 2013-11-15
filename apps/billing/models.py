@@ -10,7 +10,7 @@ from django.utils.html import strip_tags
 from apps.shop.models import Cart, Product, Color, Shipping, Iva
 
 
-'''class Order(models.Model):
+class Order(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True)
     cart = models.ForeignKey(Cart)
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
@@ -243,4 +243,4 @@ class RectInvoice(models.Model):
         return self.price - self.price_base()
 
     class Meta:
-        ordering = ('-creation_date',)'''
+        ordering = ('-creation_date',)

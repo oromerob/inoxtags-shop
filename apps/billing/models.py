@@ -9,6 +9,7 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
 from apps.shop.models import Cart, Product, Color, Shipping, Iva
+from accounts.models import InoxUser
 
 
 class Order(models.Model):

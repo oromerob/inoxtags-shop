@@ -68,10 +68,10 @@
         <table style="border:1px solid #000000;border-collapse:collapse;">
             <thead>
                 <tr style="border:1px solid #000000;">
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Tipo documento</td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Fecha documento</td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Referencia</td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Forma de pago</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{% trans "Tipo documento" %}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{% trans "Fecha documento" %}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{% trans "Referencia" %}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{% trans "Forma de pago" %}</td>
                 </tr>
             </thead>
             <tbody>
@@ -86,17 +86,48 @@
         <table style="border:1px solid #000000;border-collapse:collapse;margin-top:1cm;">
             <tbody>
                 <tr style="border:1px solid #000000;">
-                    <td colspan="3" style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">Descripción</td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">Cantidad</td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">Precio ud.</td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">Importe</td>
+                    <td colspan="4" style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{% trans "Descripción" %}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{% trans "Cantidad" %}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{% trans "Precio ud." %}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:12px;">{% trans "Importe" %}</td>
                 </tr>
-                <tr style="border:1px solid #000000;">
-                    <td colspan="3" style="border:1px solid #000000;padding-top:13px;padding-bottom:100px;text-align:center;font-size:12px;">{% if invoice.order %}{% trans "Albarán" %} {{invoice.order}}{% else %}{{invoice.concept}}{% endif %}</td>
-                    <td style="border:1px solid #000000;padding-top:13px;padding-bottom:100px;text-align:center;font-size:12px;">1</td>
-                    <td style="border:1px solid #000000;padding-top:13px;padding-bottom:100px;text-align:center;font-size:12px;">{{invoice.price_base|floatformat:2}}&euro;</td>
-                    <td style="border:1px solid #000000;padding-top:13px;padding-bottom:100px;text-align:center;font-size:12px;">{{invoice.price_base|floatformat:2}}&euro;</td>
-                </tr>
+                {% if invoice.order %}
+                    <tr style="border-bottom:0px solid #000000;">
+                        <td colspan="4" style="border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;"></td>
+                        <td style="border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;"></td>
+                        <td style="border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;"></td>
+                        <td style="border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;"></td>
+                    </tr>
+                    {% for item in invoice.order.tags %}
+                        <tr style="border-top:0px solid #000000;border-bottom:0px solid #000000;">
+                            <td colspan="4" style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;">{{item.product}}</td>
+                            <td style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;">{{item.quantity}}</td>
+                            <td style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;">{{item.price_base_ud|floatformat:2}}&euro;</td>
+                            <td style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;">{{item.price_base|floatformat:2}}&euro;</td>
+                        </tr>
+                    {% endfor %}
+                    {% if invoice.order.management %}
+                        <tr style="border-top:0px solid #000000;border-bottom:0px solid #000000;">
+                            <td colspan="4" style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;">{% trans "Despeses d'enviament" %}</td>
+                            <td style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;">1</td>
+                            <td style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;">{{invoice.shipping|floatformat:2}}&euro;</td>
+                            <td style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;">{{invoice.shipping|floatformat:2}}&euro;</td>
+                        </tr>
+                    {% endif %}
+                    <tr style="border-top:0px solid #000000;border-bottom:0px solid #000000;">
+                        <td colspan="4" style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:13px;padding-bottom:100px;text-align:center;font-size:12px;"></td>
+                        <td style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:13px;padding-bottom:100px;text-align:center;font-size:12px;"></td>
+                        <td style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:13px;padding-bottom:100px;text-align:center;font-size:12px;"></td>
+                        <td style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:13px;padding-bottom:100px;text-align:center;font-size:12px;"></td>
+                    </tr>
+                {% else %}
+                    <tr style="border:1px solid #000000;">
+                        <td colspan="4" style="border:1px solid #000000;padding-top:13px;padding-bottom:100px;text-align:center;font-size:12px;">{{invoice.concept}}</td>
+                        <td style="border:1px solid #000000;padding-top:13px;padding-bottom:100px;text-align:center;font-size:12px;">1</td>
+                        <td style="border:1px solid #000000;padding-top:13px;padding-bottom:100px;text-align:center;font-size:12px;">{{invoice.price_base|floatformat:2}}&euro;</td>
+                        <td style="border:1px solid #000000;padding-top:13px;padding-bottom:100px;text-align:center;font-size:12px;">{{invoice.price_base|floatformat:2}}&euro;</td>
+                    </tr>
+                {% endif %}
             </tbody>
         </table>
         <table style="border:1px solid #000000;border-collapse:collapse;margin-top:1cm;">

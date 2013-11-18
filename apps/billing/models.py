@@ -189,8 +189,11 @@ class OrderItem(models.Model):
     def __unicode__(self):
         return u'%s' % (self.id)
 
-    def price_base(self):
+    def price_base_ud(self):
         return self.price / (1 + (self.order.iva / 100))
+
+    def price_base(self):
+        return self.price * self.quantity / (1 + (self.order.iva / 100))
 
 
 class Invoice(models.Model):

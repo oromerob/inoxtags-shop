@@ -21,7 +21,7 @@ from apps.pdf.views import RenderPDF
 from .forms import StaffOrderCreateForm, StaffOrderItemAddForm, StaffShippingCodeForm, StaffInvoiceCreateForm
 from apps.billing.models import OrderItem, Invoice, Order, RectInvoice
 from apps.backend_bank_transfer.models import PreOrder
-from apps.shop.models import Iva
+from apps.shop.models import Iva, Shipping
 from apps.settings.models import ProjectSettings
 from accounts.models import InoxUser
 
@@ -60,13 +60,16 @@ class StaffCheckoutView(FormView):
         # Creates the order items from the customized products
 
         for product in product_list:
-            if order.user.is_professional:
-                if order.user.hand_delivery:
-                    price = product.price_in_hand
+            if not product.repetition:
+                if order.user.is_professional:
+                    if order.user.hand_delivery:
+                        price = product.price_in_hand
+                    else:
+                        price = product.price_prof
                 else:
-                    price = product.price_prof
+                    price = product.price_normal
             else:
-                price = product.price_normal
+                price = 0
             OrderItem.objects.create(
                 order=order,
                 quantity=product.quantity,
@@ -577,11 +580,14 @@ class StaffInvoiceDetailPdfView(RenderPDF, DetailView):
 
     def get_object(self):
         object = get_object_or_404(Invoice, pk=self.kwargs.get('pk'))
-        try:
-            object.tags = object.order.tags()
-        except:
-            pass
         object.data = ProjectSettings.objects.values('name', 'company', 'tax_code', 'invoice_address', 'invoice_cp', 'invoice_town', 'invoice_country', 'logo_font', 'phone', 'email').get()
+        if object.order.management:
+            iva = Iva.objects.get()
+            shipping = Shipping.objects.get()
+            if object.order.country == 'Espanya':
+                object.shipping = shipping.es_base
+            else:
+                object.shipping = shipping.eu_base
         return object
 
 

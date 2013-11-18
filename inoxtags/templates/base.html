@@ -214,7 +214,7 @@
             <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "Close" %}</button>
         </div>
     </div>
-    {% if not Cookies %}
+    {% if not user.is_authenticated or not Cookies %}
     <div class="container visible-phone">
         <div class="alert alert-block alert fade in">
             <form method="post" name="cookie_agreement_mv" action="{% url 'cookies_agreement' %}">{% csrf_token %}
@@ -251,7 +251,7 @@
         </div><!-- /.container -->
     </footer>
 
-    {% if not Cookies %}
+    {% if not user.is_authenticated or not Cookies %}
         <div class="cookies hidden-phone">
             <div>
                 <form method="post" name="cookie_agreement" action="{% url 'cookies_agreement' %}">{% csrf_token %}
@@ -269,6 +269,7 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    {% if Cookies or user.is_authenticated %}
     <script type="text/javascript">
 
         var _gaq = _gaq || [];
@@ -284,6 +285,7 @@
         })();
 
     </script>
+    {% endif %}
     <script src="{{STATIC_URL}}js/jquery.js"></script>
     <script src="{{STATIC_URL}}js/bootstrap.js"></script>
     {% block javascript %}{% endblock %}

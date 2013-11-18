@@ -1,5 +1,6 @@
 #-*- coding:utf-8 -*-
 import datetime
+from decimal import Decimal
 from django.db import models
 from django.utils.translation import ugettext as _
 
@@ -24,11 +25,11 @@ class Shipping(models.Model):
 
     def es_base(self):
         iva = Iva.objects.get()
-        return self.es / (1 + (iva / 100))
+        return self.es / (1 + (Decimal(str(iva)) / 100))
 
     def eu_base(self):
         iva = Iva.objects.get()
-        return self.eu / (1 + (iva / 100))
+        return self.eu / (1 + (Decimal(str(iva)) / 100))
 
 
 class Category(models.Model):

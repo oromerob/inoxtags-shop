@@ -24,7 +24,7 @@ class PartnerListView(ListView):
 
     def get_queryset(self):
         zone = get_object_or_404(PartnerZone, slug=self.kwargs.get('slug'))
-        return InoxUser.objects.filter(share=True).filter(zone=zone).order_by('town')
+        return InoxUser.objects.filter(share=True).filter(zone=zone).order_by('shipping_town')
 
     def get_context_data(self, **kwargs):
         context = super(PartnerListView, self).get_context_data(**kwargs)

@@ -100,7 +100,7 @@
                     </tr>
                     {% for item in invoice.order.tags %}
                         <tr style="border-top:0px solid #000000;border-bottom:0px solid #000000;">
-                            <td colspan="4" style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;">{{item.product}}, {{item.front_main}} {% if item.color %}{{item.color}}{% endif %}</td>
+                            <td colspan="4" style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;">{{item.product}}, {{item.front_main|upper}} {% if item.color %}{{item.color}}{% endif %}</td>
                             <td style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;">{{item.quantity}}</td>
                             <td style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;">{{item.price_base_ud|floatformat:2}}&euro;</td>
                             <td style="border-top:0px solid #000000;border-bottom:0px solid #000000;padding-top:5px;padding-bottom:5px;text-align:center;font-size:12px;">{{item.price_base|floatformat:2}}&euro;</td>

@@ -144,9 +144,6 @@
             <tbody>
                 <tr>
                     <td style="border:1px solid #000000;padding-top:8px;padding-bottom:40px;padding-left:5px;font-size:12px;">{% trans "Observaciones" %}:</td>
-                    {% if invoice.order.hand_delivery %}
-                        <td style="border:1px solid #000000;padding-top:8px;padding-bottom:40px;padding-left:5px;font-size:10px;">{% trans "Productos en el pedido" %}:<br> {% for item in invoice.tags %}{{item.quantity}} x {{item.product}}: {{item.front_principal|upper}};<br> {% endfor %}</td>
-                    {% endif %}
                 </tr>
             </tbody>
         </table>

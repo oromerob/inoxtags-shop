@@ -269,7 +269,7 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    {% if Cookies or user.is_authenticated %}
+    {% if Cookies or user.is_authenticated and not user.is_staff %}
     <script type="text/javascript">
 
         var _gaq = _gaq || [];

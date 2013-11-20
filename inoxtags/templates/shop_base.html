@@ -24,12 +24,16 @@
             </ul>
         </div>
         <div class="hidden-desktop span12">
-            <ul class="nav nav-pills">
-                {% for i in categories %}
-                    <li><a href="{% url 'shop_category' i.slug %}"><span class="logo">INOXtags</span> {{i.category}}</a></li>
-                {% endfor %}
-                <li><a href="{% url 'cart' %}"><i class="icon-shopping-cart"></i>&nbsp;{% if Cart %}<span class="num">{{CartPrice|floatformat:2}}&euro;</span>{% else %}{% trans "Carro" %}{% endif %}</a></li>
-            </ul>
+            <div class="row-fluid">
+                <div class="span12">
+                    <ul class="nav nav-pills">
+                        {% for i in categories %}
+                            <li><a href="{% url 'shop_category' i.slug %}"><span class="logo">INOXtags</span> {{i.category}}</a></li>
+                        {% endfor %}
+                        <li><a href="{% url 'cart' %}"><i class="icon-shopping-cart"></i>&nbsp;{% if Cart %}<span class="num">{{CartPrice|floatformat:2}}&euro;</span>{% else %}{% trans "Carro" %}{% endif %}</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="span9">
             <div class="row-fluid">

@@ -51,6 +51,9 @@
             font-weight: 200;
             line-height: 30px;
         }
+        #cookies_mv {
+            margin-top:20px;
+        }
     </style>
 
     <link href="{{STATIC_URL}}css/style.css" rel="stylesheet">
@@ -215,7 +218,7 @@
         </div>
     </div>
     {% if not user.is_authenticated and not Cookies %}
-    <div class="container visible-phone">
+    <div id="cookies_mv" class="container visible-phone">
         <div class="alert alert-block alert fade in">
             <form method="post" name="cookie_agreement_mv" action="{% url 'cookies_agreement' %}">{% csrf_token %}
                 <input name="next" type="hidden" value="{{request.get_full_path}}">

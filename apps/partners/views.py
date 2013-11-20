@@ -5,6 +5,7 @@ from django.views.generic.base import TemplateView
 from django.shortcuts import get_object_or_404
 
 from accounts.models import InoxUser, PartnerZone
+from .models import PartnersHomeText
 
 
 class PartnerMainView(TemplateView):
@@ -14,6 +15,7 @@ class PartnerMainView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(PartnerMainView, self).get_context_data(**kwargs)
         context['nav_list'] = PartnerZone.objects.all().order_by('country')
+        context['presentation'] = PartnersHomeText.objects.get()
         return context
 
 

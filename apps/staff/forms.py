@@ -15,7 +15,17 @@ class StaffOrderItemAddForm(ModelForm):
 
     class Meta:
         model = OrderItem
-        exclude = ('order', 'price', 'price_special_1', 'price_special_2', 'price_special_3', 'price_special_4', 'price_in_hand', 'made', 'processing',)
+        fields = (
+            'quantity',
+            'product',
+            'color',
+            'front_main',
+            'front_tel',
+            'back_1',
+            'back_2',
+            'back_3',
+            'repetition'
+        )
 
 
 class StaffInvoiceCreateForm(ModelForm):

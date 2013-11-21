@@ -349,11 +349,11 @@ class StaffOrderAddItemView(FormView):
         item.order = order
         if order.user.is_professional:
             if order.user.hand_delivery:
-                item.price = form.product.category.price_in_hand
+                item.price = item.product.category.price_in_hand
             else:
-                item.price = form.product.category.price_prof
+                item.price = item.product.category.price_prof
         else:
-            item.price = form.product.category.price_normal
+            item.price = item.product.category.price_normal
         item.save()
         order.modify()
         return HttpResponseRedirect(self.get_success_url())

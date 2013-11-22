@@ -200,10 +200,10 @@
         {% for i in featurettes %}
             <div class="featurette span12">
                 <img class="featurette-image span5" src="{{MEDIA_URL}}{{i.img}}" alt="{{i.img_desc}}">
-                <h2 class="featurette-heading">
+                <h4 class="featurette-heading">
                     {{i.slogan}}
                     <span class="muted">{{i.subslogan}}</span>
-                </h2>
+                </h4>
                 {{i.text|safe}}</p>
             </div>
             <hr class="featurette-divider">

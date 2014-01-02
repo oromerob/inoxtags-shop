@@ -197,7 +197,7 @@ class OrderItem(models.Model):
 
 
 class Invoice(models.Model):
-    creation_date = models.DateTimeField()
+    creation_date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     order = models.ForeignKey(Order, null=True, blank=True)
     concept = models.CharField(max_length=200, blank=True)

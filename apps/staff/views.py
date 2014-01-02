@@ -581,13 +581,16 @@ class StaffInvoiceDetailPdfView(RenderPDF, DetailView):
     def get_object(self):
         object = get_object_or_404(Invoice, pk=self.kwargs.get('pk'))
         object.data = ProjectSettings.objects.values('name', 'company', 'tax_code', 'invoice_address', 'invoice_cp', 'invoice_town', 'invoice_country', 'logo_font', 'phone', 'email').get()
-        if object.order.management:
-            iva = Iva.objects.get()
-            shipping = Shipping.objects.get()
-            if object.order.country == 'Espanya':
-                object.shipping = shipping.es_base
-            else:
-                object.shipping = shipping.eu_base
+        try:
+            if object.order.management:
+                #iva = Iva.objects.get()
+                shipping = Shipping.objects.get()
+                if object.order.country == 'Espanya':
+                    object.shipping = shipping.es_base
+                else:
+                    object.shipping = shipping.eu_base
+        except:
+            pass
         return object
 
 

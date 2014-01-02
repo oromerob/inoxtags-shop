@@ -17,7 +17,8 @@ class OrderItemAdmin(admin.ModelAdmin):
 
 
 class InvoiceAdmin(admin.ModelAdmin):
-    list_display = ['__unicode__', 'user', 'order', 'concept', 'price', 'rect', 'creation_date']
+    readonly_fields = ['creation_date']
+    list_display = ['__unicode__', 'user', 'order', 'concept', 'price', 'rect']
     ordering = ['-id']
 
 

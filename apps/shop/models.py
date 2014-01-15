@@ -114,13 +114,6 @@ class Product(models.Model):
         translate = ('description',)
 
 
-'''class CartManager(models.Manager):
-    def create_cart(self):
-        cart = self.create(creation_date=datetime.datetime.now())
-        request.session['CART_ID'] = cart.id
-        return cart'''
-
-
 class Cart(models.Model):
     creation_date = models.DateTimeField(verbose_name='creation date', auto_now_add=True)
     checked_out = models.BooleanField(default=False, verbose_name="checked out")

@@ -624,8 +624,8 @@ class StaffQuarterlyListInvoicesView(ListView):
         total = 0
         for invoice in self.invoice_list:
             count += 1
-            base = base + invoice.price_base
-            iva = iva + invoice.price_iva
+            base = base + invoice.price_base()
+            iva = iva + invoice.price_iva()
             total = total + invoice.price
         context['count'] = count
         context['base'] = base

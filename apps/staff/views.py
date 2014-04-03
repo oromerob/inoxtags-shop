@@ -611,8 +611,10 @@ class StaffQuarterlyListInvoicesView(ListView):
     context_object_name = 'invoice_list'
 
     def get_queryset(self):
+        start_date = datetime.date(2014, 1, 1)
+        end_date = datetime.date(2014, 3, 31)
         test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
-        invoice_list = Invoice.objects.filter(creation_date__range=['2014-01-01', '2014-03-31']).exclude(user=test_user)
+        invoice_list = Invoice.objects.filter(creation_date__range=(start_date, end_date)).exclude(user=test_user)
         return invoice_list
 
 

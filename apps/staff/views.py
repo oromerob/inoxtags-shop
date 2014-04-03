@@ -607,14 +607,31 @@ class StaffRectInvoiceDetailPdfView(RenderPDF, DetailView):
 
 class StaffQuarterlyListInvoicesView(ListView):
 
-    template_name = 'staff/invoice_list.html'
+    template_name = 'staff/time_based_invoice_list.html'
     context_object_name = 'invoice_list'
 
     def get_queryset(self):
         test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
-        invoice_list = Invoice.objects.filter(creation_date__gte=datetime.date(2014, 1, 1)).filter(creation_date__lte=datetime.date(2014, 3, 31)).exclude(user=test_user)
+        self.invoice_list = Invoice.objects.filter(creation_date__gte=datetime.date(2014, 1, 1)).filter(creation_date__lte=datetime.date(2014, 3, 31)).exclude(user=test_user)
         #invoice_list = Invoice.objects.filter(creation_date__year = '2014').filter(creation_date < datetime.date(2014, 4, 1)).exclude(user=test_user)
-        return invoice_list
+        return self.invoice_list
+
+    def get_context_data(self, **kwargs):
+        context = super(StaffQuarterlyListInvoicesView, self).get_context_data(**kwargs)
+        count = 0
+        base = 0
+        iva = 0
+        total = 0
+        for invoice in self.invoice_list:
+            count += 1
+            base += invoice.price_base
+            iva += invoice.price_iva
+            total += invoice.price
+        context['count'] = count
+        context['base'] = base
+        context['iva'] = iva
+        context['total'] = total
+        return context
 
 
 class StaffQuarterlyListInvoicesPdfView(RenderPDF, StaffQuarterlyListInvoicesView):

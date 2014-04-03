@@ -1,0 +1,49 @@
+{% extends 'staff_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+
+{% block staff_content %}
+    <div class="span12">
+        <div class="row-fluid">
+            <div class="span12 staff-buttons">
+                <a href="{% url 'list_invoices_quarterly_pdf' %}" class="btn">Llista factures pdf</a>
+                <a href="{% url 'staff_quarterly_invoice_list' %}" class="btn">Llista factures</a>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span4 offset4">
+                <p>Suma base: {{ base }}</p>
+                <p>Suma iva: {{ iva }}</p>
+                <p>Suma total: {{ total }}</p>
+                <p>Total factures: {{ count }}</p>
+            </div>
+        </div>
+        <table class="table table-bordered staff-table">
+            <thead>
+                <tr>
+                    <td>Factura</td>
+                    <td>Data</td>
+                    <td>Client</td>
+                    <td>Comanda</td>
+                    <td>Factura rect.</td>
+                    <td>Import</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in invoice_list %}
+                    <tr class="{% if i.rect %}staff-red{% endif %}">
+                        <td><a href="{% url 'staff_invoice_detail_pdf' i.id %}">{{i}}</a></td>
+                        <td>{{i.creation_date}}</td>
+                        <td>{{i.user.name}}</td>
+                        <td>{{i.order}}</td>
+                        <td>{% if i.invoice_rect %}<a href="{% url 'staff_rect_invoice_detail_pdf' i.invoice_rect.id %}">{{i.invoice_rect}}</a>{% endif %}</td>
+                        <td>{{i.price|floatformat:2}}&euro;</td>
+                        <td>{% if not i.rect %}<a href="{% url 'staff_invoice_rectificate' i.id %}">Rectificativa</a>{% endif %}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

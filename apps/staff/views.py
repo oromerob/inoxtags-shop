@@ -617,6 +617,6 @@ class StaffQuarterlyListInvoicesView(ListView):
         return invoice_list
 
 
-class StaffQuarterlyListInvoicesPdfView(RenderPDF, StaffQuarterlyListInvoicesView):
+class StaffQuarterlyListInvoicesPdfView(RenderPDF, StaffInvoiceListView):
 
     template_name = 'pdf/invoice_list_pdf.html'

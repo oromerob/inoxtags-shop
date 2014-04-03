@@ -65,8 +65,8 @@ class InoxUserAdmin(UserAdmin):
         ('Name', {'fields': ('name',)}),
         ('Basic permissions', {'fields': ('is_active','is_staff','is_superuser')}),
         ('Shipping address', {'fields': ('shipping_address','shipping_code','shipping_town','shipping_country')}),
-        ('Invoice data', {'fields': ('invoice_required','invoice_name','invoice_tax_code','invoice_extra_charge','invoice_address','invoice_code','invoice_town')}),
-        ('Specific professional data', {'fields': ('is_professional','hand_delivery','money_order','share','phone_1','phone_2','website','zone','town')}),
+        ('Invoice data', {'fields': ('same_address_for_invoice','invoice_name','invoice_tax_code','invoice_extra_charge','invoice_address','invoice_code','invoice_town')}),
+        ('Specific professional data', {'fields': ('is_professional','hand_delivery','money_order', 'bank_wire', 'old_client', 'share','phone_1','phone_2','website','town')}),
         ('Extended permissions', {'fields': ('groups','user_permissions')}),
         ('Important dates', {'fields': ('last_login','date_joined')}),
     )
@@ -82,6 +82,6 @@ class InoxUserAdmin(UserAdmin):
 
 
 admin.site.register(InoxUser, InoxUserAdmin)
-admin.site.register(Country)
+#admin.site.register(Country)
 admin.site.register(PartnerTown)
 admin.site.register(PartnerZone)

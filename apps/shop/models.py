@@ -137,20 +137,25 @@ class Cart(models.Model):
     def get_price(self, user):
         result = 0
         count = self.get_count()
-        shipping = Shipping.objects.get()
-        if user.is_professional:
-            if not user.hand_delivery:
-                if user.shipping_country.country == 'Espanya':
-                    result += shipping.es
+        #shipping = Shipping.objects.get()
+        if user.is_authenticated():
+            if user.is_professional:
+                if not user.hand_delivery:
+                    #if user.shipping_country.country == 'Espanya':
+                        #result += shipping.es
+                    #else:
+                        #result += shipping.eu
+                    for item in self.customproduct_set.all():
+                        if not item.repetition:
+                            result += item.price_prof * item.quantity
                 else:
-                    result += shipping.eu
-                for item in self.customproduct_set.all():
-                    if not item.repetition:
-                        result += item.price_prof * item.quantity
+                    for item in self.customproduct_set.all():
+                        if not item.repetition:
+                            result += item.price_in_hand * item.quantity
             else:
                 for item in self.customproduct_set.all():
                     if not item.repetition:
-                        result += item.price_in_hand * item.quantity
+                        result += item.price_normal * item.quantity
         else:
             for item in self.customproduct_set.all():
                 if not item.repetition:

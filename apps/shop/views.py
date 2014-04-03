@@ -7,8 +7,9 @@ from django.views.generic.list import ListView
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 
-from .models import Product, Category, CustomProduct, Cart, Shipping
+from .models import Product, Category, CustomProduct, Cart
 from .forms import CustomProductForm
+from apps.shipping.models import Shipping
 
 
 class ShopMainView(ListView):

@@ -116,8 +116,8 @@ INSTALLED_APPS = (
     'zebra',
     'gunicorn',
     # Apps pròpies del projecte
-    'accounts',
     'apps.settings',
+    'accounts',
     'apps.content_pages',
     'apps.contact',
     'apps.shop',
@@ -126,6 +126,8 @@ INSTALLED_APPS = (
     'apps.billing',
     'apps.backend_bank_transfer',
     'apps.backend_stripe',
+    'apps.shipping',
+    #'apps.addresses',
     # Mòdols d'administració
     'grappelli',    # App que canvia l'aparença de l'administrador i que se suposa que aporta funcions de CMS
     'django.contrib.admin',
@@ -194,3 +196,35 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = get_env_variable("INOXTAGS_EMAIL_HOST")
 EMAIL_HOST_USER = get_env_variable("INOXTAGS_EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = get_env_variable("INOXTAGS_EMAIL_HOST_PASSWORD")
+
+# Countries list
+COUNTRIES = (
+    ('DE', ugettext('Alemanya')),
+    ('AT', ugettext('Àustria')),
+    ('BE', ugettext('Bèlgica')),
+    ('BG', ugettext('Bulgària')),
+    ('HR', ugettext('Croàcia')),
+    ('DK', ugettext('Dinamarca')),
+    ('SK', ugettext('Eslovàquia')),
+    ('SI', ugettext('Eslovènia')),
+    ('ES', ugettext('Espanya')),
+    ('EE', ugettext('Estònia')),
+    ('FI', ugettext('Finlàndia')),
+    ('FR', ugettext('França')),
+    ('EL', ugettext('Grècia')),
+    ('HU', ugettext('Hongria')),
+    ('IE', ugettext('Irlanda')),
+    ('IT', ugettext('Itàlia')),
+    ('LV', ugettext('Letònia')),
+    ('LT', ugettext('Lituània')),
+    ('LU', ugettext('Luxemburg')),
+    ('MT', ugettext('Malta')),
+    ('NL', ugettext('Països Baixos')),
+    ('PL', ugettext('Polònia')),
+    ('PT', ugettext('Portugal')),
+    ('UK', ugettext('Regne Unit')),
+    ('RO', ugettext('Romania')),
+    ('SE', ugettext('Suècia')),
+    ('CZ', ugettext('República Txeca')),
+    ('CY', ugettext('Xipre')),
+)

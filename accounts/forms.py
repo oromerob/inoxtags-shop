@@ -56,7 +56,14 @@ class InvoiceDataForm(forms.ModelForm):
 
     class Meta:
         model = InoxUser
-        fields = ('invoice_name', 'invoice_tax_code', 'invoice_address', 'invoice_code', 'invoice_town',)
+        fields = (
+            'invoice_name',
+            'invoice_tax_code',
+            'same_address_for_invoice',
+            'invoice_address',
+            'invoice_code',
+            'invoice_town',
+        )
 
 
 class ProfessionalDataForm(forms.ModelForm):

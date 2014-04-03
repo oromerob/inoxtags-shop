@@ -1,6 +1,7 @@
 from .models import (
     ProjectSettings,
     Tag,
+    Country,
 )
 from django.contrib import admin
 
@@ -16,3 +17,4 @@ class TagAdmin(admin.ModelAdmin):
 
 admin.site.register(ProjectSettings, ProjectSettingsAdmin)
 admin.site.register(Tag, TagAdmin)
+admin.site.register(Country)

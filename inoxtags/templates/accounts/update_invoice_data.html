@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container contingut">
+    <div class="row">
+        <div id="update-user" class="span4 offset4 info-box">
+            <div class="info-box-inner">
+                <fieldset>
+                    <legend>{{ title }}</legend>
+                    <form id="form" method="post">{% csrf_token %}
+                        <p>
+                            {{ form.invoice_name.errors }}
+                            <label for='id_invoice_name'>
+                                {% trans 'Nom fiscal' %}:
+                            </label>
+                            {{ form.invoice_name }}
+                        </p>
+                        <p>
+                            {{ form.invoice_tax_code.errors }}
+                            <label for='id_invoice_tax_code'>
+                                {% trans 'NIF' %}:
+                            </label>
+                            {{ form.invoice_tax_code }}
+                        </p>
+                        <p>
+                            {{ form.same_address_for_invoice.errors }}
+                            <label for='id_same_address_for_invoice'>
+                                {% trans 'Utilitza la mateixa adreça que per als enviaments' %}:
+                            </label>
+                            {{ form.same_address_for_invoice }}
+                        </p>
+                        <div class="invoice_address">
+                            <p>
+                                {{ form.invoice_address.errors }}
+                                <label for='id_invoice_address'>
+                                    {% trans 'Adreça fiscal' %}:
+                                </label>
+                                {{ form.invoice_address }}
+                            </p>
+                            <p>
+                                {{ form.invoice_code.errors }}
+                                <label for='id_invoice_code'>
+                                    {% trans 'Codi postal' %}:
+                                </label>
+                                {{ form.invoice_code }}
+                            </p>
+                            <p>
+                                {{ form.invoice_town.errors }}
+                                <label for='id_invoice_town'>
+                                    {% trans 'Localitat' %}:
+                                </label>
+                                {{ form.invoice_town }}
+                            </p>
+                        </div>
+                        <a href="{% url 'inox_user_detail' %}" class="btn">{% trans "Back" %}</a>
+                        <input type="SUBMIT" class="btn btn-success pull-right" value="{% trans 'Add' %}"/>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $(document).ready(function(){
+        if($('input#id_same_address_for_invoice').prop('checked')) {
+            $('div.invoice_address').hide();
+        } else {
+            $('div.invoice_address').show();
+        }
+        $('input#id_same_address_for_invoice').change(function(){
+            if(this.checked)
+                $('div.invoice_address').hide(600);
+            else
+                $('div.invoice_address').show(600);
+        });
+    });
+</script>
+{% endblock %}

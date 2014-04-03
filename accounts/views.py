@@ -122,7 +122,10 @@ class ShippingDataUpdateView(UpdateView):
     model = User
 
     def get(self, request, **kwargs):
-        self.object = InoxUser.objects.get(email=self.request.user)
+        try:
+            self.object = InoxUser.objects.get(name=self.request.user)
+        except:
+            self.object = InoxUser.objects.get(email=self.request.user)
         form_class = self.get_form_class()
         form = self.get_form(form_class)
         context = self.get_context_data(object=self.object, form=form)
@@ -151,13 +154,16 @@ class InvoiceDataUpdateView(UpdateView):
 
     User = get_user_model()
 
-    template_name = 'accounts/update_data.html'
+    template_name = 'accounts/update_invoice_data.html'
     form_class = InvoiceDataForm
     success_url = "/accounts/"
     model = User
 
     def get(self, request, **kwargs):
-        self.object = InoxUser.objects.get(email=self.request.user)
+        try:
+            self.object = InoxUser.objects.get(name=self.request.user)
+        except:
+            self.object = InoxUser.objects.get(email=self.request.user)
         form_class = self.get_form_class()
         form = self.get_form(form_class)
         context = self.get_context_data(object=self.object, form=form)
@@ -179,6 +185,11 @@ class InvoiceDataUpdateView(UpdateView):
         It should return an HttpResponse.
         """
         form.save()
+        if self.object.same_address_for_invoice:
+            self.object.invoice_address = self.object.shipping_address
+            self.object.invoice_code = self.object.shipping_code
+            self.object.invoice_town = self.object.shipping_town
+        self.object.save()
         return super(InvoiceDataUpdateView, self).form_valid(form)
 
 
@@ -192,7 +203,10 @@ class ProfessionalDataUpdateView(UpdateView):
     model = User
 
     def get(self, request, **kwargs):
-        self.object = InoxUser.objects.filter(is_professional=True).get(email=self.request.user)
+        try:
+            self.object = InoxUser.objects.get(name=self.request.user)
+        except:
+            self.object = InoxUser.objects.get(email=self.request.user)
         form_class = self.get_form_class()
         form = self.get_form(form_class)
         context = self.get_context_data(object=self.object, form=form)

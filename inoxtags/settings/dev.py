@@ -19,10 +19,19 @@ CKEDITOR_UPLOAD_PATH = PROJECT_DIR.child('ck_uploads')
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'database.inoxtags.db',                      # Or path to database file if using sqlite3.
+    }
+}'''
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': get_env_variable("INOXTAGS_DB_NAME"),
+        'USER': get_env_variable("INOXTAGS_DB_USER"),
+        'PASSWORD': get_env_variable("INOXTAGS_DB_PASSWORD"),
     }
 }
 

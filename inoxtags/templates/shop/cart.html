@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}&nbsp;|&nbsp;{% trans "Carro" %}{% endblock %}
+
+{% block css %}
+<style>
+    #cart-summary > a {
+        display: block;
+        margin-top:10px;
+        margin-bottom:10px;
+    }
+    #cart-summary {
+        margin-bottom:10px;
+    }
+    #cart-item-form {
+        display:block;
+    }
+    #cart-item-form input {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width:100%;
+    }
+    @media (min-width:768px) {
+        #cart-summary {
+            position:fixed;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+    <div class='container contingut'>
+        <div class='row'>
+            {% if CartProducts %}
+            <div id="cart-summary" class='span3 offset9'>
+                <h2>{% trans 'Resum' %}</h2>
+                <p class="lead">{% trans 'Productes al carro' %}:&nbsp;<span
+                        class="num"><strong>{{ CountCartItems }}</strong></span></p>
+                <p class="lead">{% trans 'Preu' %}:&nbsp;<span class="num">
+                        <strong>{{ CartPrice|floatformat:2 }}
+                            &euro;</strong></span></p>
+                {% if user.is_staff %}
+                <a href="{% url 'staff_checkout' %}" 
+                        class="btn btn-success btn-large">{% trans "Checkout" %}</a>
+                {% else %}
+                <a href="{% url 'checkout_summary_stripe' %}" 
+                        class="btn btn-success btn-large">
+                        {% trans "Finalitza la compra" %}</a>
+                {% endif %}
+                <a href="{% url 'shop_main' %}" 
+                        class="btn">{% trans "Torna a la tenda" %}</a>
+            </div>
+            <div class='span9'>
+                <h2>{% trans "Al carro" %}:</h2>
+                {% for product in CartProducts %}
+                    <div class="span4 info-box cart-item">
+                        <div class="info-box-inner">
+                            <img src="{{ MEDIA_URL }}{{ product.product.img_1 }}"
+                            alt="{{ product.product.decription }}"
+                            class="img-rounded"/>
+                            <div id="cart-item">
+                                <br>
+                                <p>
+                                    {% trans "Nom" %}:&nbsp;
+                                    <strong>{{ product.front_main|upper }}</strong>
+                                    {% if product.color %}
+                                        &nbsp;{% trans "en" %}&nbsp;
+                                        {{ product.color|lower }}
+                                    {% endif %}
+                                </p>
+                                {% if product.front_tel %}
+                                    <p>
+                                        {% trans "Telèfon" %}:&nbsp;
+                                        <strong>{{ product.front_tel }}</strong>
+                                        {% if product.color %}
+                                            &nbsp;{% trans "en" %}&nbsp;
+                                            {{ product.color|lower }}
+                                        {% endif %}
+                                    </p>
+                                {% endif %}
+                                {% if product.back_1 %}
+                                    <p>
+                                        {% trans "Propietari" %}:&nbsp;
+                                        <strong>{{ product.back_1|upper }}</strong>
+                                    </p>
+                                {% endif %}
+                                {% if product.back_2 %}
+                                    <p>
+                                        {% trans "Telèfon" %}:&nbsp;
+                                        <strong>{{ product.back_2|upper }}</strong>
+                                    </p>
+                                {% endif %}
+                                {% if product.back_3 %}
+                                    <p>
+                                        {% trans "Altres" %}:&nbsp;
+                                        <strong>{{ product.back_3|upper }}</strong>
+                                    </p>
+                                {% endif %}
+                            </div>
+                            <div id="cart-item-form">
+                                <form method="post" class="" 
+                                    action="{% url 'cart_remove' product.id %}">
+                                    {% csrf_token %}
+                                    <input type="submit" class="btn"
+                                        value="{% trans "Elimina del carro" %}"/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="span12">
+                <h1>{% trans "El carro està buit" %}. <a 
+                        href="{% url 'shop_main' %}" class="">
+                        {% trans "Torna a la botiga" %}.</a></h1>
+            </div>
+            {% endif %}
+        </div>
+        <div id="add-products" class="row hidden-phone">
+            <hr>
+            <div class="span12">
+                <h4>{% trans "Afegeix més productes al carro" %}:</h4>
+                {% for i in product_list %}
+                    <div class="span2 product">
+                        <a href="{% url 'shop_product_create' i.slug %}"><img src="{{MEDIA_URL}}{{i.img_1}}"/></a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascript %}
+<script type="text/javascript" src="{{STATIC_URL}}flex-slider/jquery.flexslider.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var linea = $('.product');
+        while (linea.length >= 6) {
+            $(linea.splice(0, 6)).wrapAll('<div class="row-fluid" />');
+        }
+        $(linea.splice(0, linea.length)).wrapAll('<div class="row-fluid" />');
+        var lineaItem = $('.cart-item');
+        while (lineaItem.length >= 3) {
+            $(lineaItem.splice(0, 3)).wrapAll('<div class="row-fluid" />');
+        }
+        $(lineaItem.splice(0, lineaItem.length)).wrapAll('<div class="row-fluid" />');
+    });
+</script>
+
+{% endblock %}

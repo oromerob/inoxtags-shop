@@ -41,13 +41,13 @@
             <tbody>
                 {% for invoice in invoice_list %}
                 <tr style="border:1px solid #000000;">
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice }}/td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.creation_date }}/td>
-                    <td colspan="3" style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.user.invoice_name }}/td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.user.tax_code }}/td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.price_base }}/td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.price_iva }}/td>
-                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.price }}/td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice }}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.creation_date|date }}</td>
+                    <td colspan="3" style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.user.invoice_name }}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.user.tax_code }}</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.price_base|floatformat:2 }}&nbsp;&euro;</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.price_iva|floatformat:2 }}&nbsp;&euro;</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.price|floatformat:2 }}&nbsp;&euro;</td>
                 </tr>
                 {% endfor %}
             </tbody>

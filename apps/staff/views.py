@@ -623,6 +623,6 @@ class StaffQuarterlyListInvoicesPdfView(RenderPDF, ListView):
 
     def get_queryset(self):
         test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
-        invoice_list = Invoice.objects.all().filter(creation_date__range=(datetime.date(2014, 1, 1), datetime.date(2014, 4, 1))).exclude(user=test_user)
+        invoice_list = Invoice.objects.all().exclude(user=test_user)
         #invoice_list = Invoice.objects.filter(creation_date__year = '2014').filter(creation_date < datetime.date(2014, 4, 1)).exclude(user=test_user)
         return invoice_list

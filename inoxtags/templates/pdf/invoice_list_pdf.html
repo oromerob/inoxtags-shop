@@ -1,0 +1,57 @@
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<style>
+    @page {
+        size: a4;
+        margin-top:3cm;
+        margin-left:2.5cm;
+        margin-right:1.5cm;
+        margin-bottom:2cm;
+        @frame invoices {
+            -pdf-frame-content: invoicesContent;
+            top:2cm;
+            left:2cm;
+            right:1.5cm;
+            }
+        }
+    @font-face {
+        font-family: OleoScript;
+        src: url({{MEDIA_URL}}{{invoice.data.logo_font}})
+        }
+</style>
+
+</head>    
+<body>
+    <div id="invoicesContent">
+        <table style="border:1px solid #000000;border-collapse:collapse;">
+            <thead>
+                <tr style="border:1px solid #000000;">
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Número document</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Data document</td>
+                    <td colspan="3" style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Client</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">NIF</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Base imponible</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">IVA</td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">Total factura</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for invoice in invoice_list %}
+                <tr style="border:1px solid #000000;">
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice }}/td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.creation_date }}/td>
+                    <td colspan="3" style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.user.invoice_name }}/td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.user.tax_code }}/td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.price_base }}/td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.price_iva }}/td>
+                    <td style="border:1px solid #000000;padding-top:3px;text-align:center;font-size:10px;">{{ invoice.price }}/td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -110,4 +110,7 @@ urlpatterns = patterns('',
     url(r'^rect_invoice/pdf/(?P<pk>\d+)/$',
         staff_member_required(StaffRectInvoiceDetailPdfView.as_view()),
         name='staff_rect_invoice_detail_pdf'),
+    url(r'^invoice_list/pdf/$',
+        staff_member_required(StaffQuarterlyListInvoicesPdfView.as_view()),
+        name='list_invoices_quarterly_pdf'),
 )

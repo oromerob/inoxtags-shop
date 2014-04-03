@@ -603,3 +603,19 @@ class StaffRectInvoiceDetailPdfView(RenderPDF, DetailView):
         object = get_object_or_404(RectInvoice, pk=self.kwargs.get('pk'))
         object.data = ProjectSettings.objects.values('name', 'company', 'tax_code', 'invoice_address', 'invoice_cp', 'invoice_town', 'invoice_country', 'logo_font', 'phone', 'email').get()
         return object
+
+
+class StaffQuarterlyListInvoicesView(ListView):
+
+    template_name = 'staff/invoice_time_list.html'
+    context_object_name = 'invoice_list'
+
+    def get_queryset(self):
+        test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
+        invoice_list = Invoice.objects.filter(creation_date__range=['2014-01-01', '2014-03-31']).exclude(user=test_user)
+        return invoice_list
+
+
+class StaffQuarterlyListInvoicesPdfView(RenderPDF, StaffQuarterlyListInvoicesView):
+
+    template_name = 'pdf/invoice_list_pdf.html'

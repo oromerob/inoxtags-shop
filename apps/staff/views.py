@@ -637,9 +637,3 @@ class StaffQuarterlyListInvoicesView(ListView):
 class StaffQuarterlyListInvoicesPdfView(RenderPDF, StaffQuarterlyListInvoicesView):
 
     template_name = 'pdf/invoice_list_pdf.html'
-
-    '''def get_queryset(self):
-        test_user = get_object_or_404(InoxUser, email='13.oriol@gmail.com')
-        invoice_list = Invoice.objects.all().exclude(user=test_user)
-        #invoice_list = Invoice.objects.filter(creation_date__year = '2014').filter(creation_date < datetime.date(2014, 4, 1)).exclude(user=test_user)
-        return invoice_list'''

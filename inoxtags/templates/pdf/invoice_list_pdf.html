@@ -1,4 +1,3 @@
-{% load i18n %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
@@ -6,26 +5,14 @@
 <style>
     @page {
         size: a4;
-        margin-top:3cm;
-        margin-left:2.5cm;
-        margin-right:1.5cm;
-        margin-bottom:2cm;
-        @frame invoices {
-            -pdf-frame-content: invoicesContent;
-            top:2cm;
-            left:2cm;
-            right:1.5cm;
-            }
-        }
-    @font-face {
-        font-family: OleoScript;
-        src: url({{MEDIA_URL}}{{invoice.data.logo_font}})
-        }
+        margin:1.5cm;
+        font-size:10px;
+    }
 </style>
 
 </head>    
 <body>
-    <div id="invoicesContent">
+    <div>
         <table style="border:1px solid #000000;border-collapse:collapse;">
             <thead>
                 <tr style="border:1px solid #000000;">

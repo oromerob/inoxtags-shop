@@ -13,9 +13,9 @@
         </div>
         <div class="row-fluid">
             <div class="span4 offset4">
-                <p>Suma base: {{ base }}</p>
-                <p>Suma iva: {{ iva }}</p>
-                <p>Suma total: {{ total }}</p>
+                <p>Suma base: {{ base|floatformat:2 }}&nbsp;&euro;</p>
+                <p>Suma iva: {{ iva|floatformat:2 }}&nbsp;&euro;</p>
+                <p>Suma total: {{ total|floatformat:2 }}&nbsp;&euro;</p>
                 <p>Total factures: {{ count }}</p>
             </div>
         </div>

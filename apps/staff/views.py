@@ -46,7 +46,7 @@ class StaffCheckoutView(FormView):
         order.address = order.user.shipping_address
         order.postal_code = order.user.shipping_code
         order.town = order.user.shipping_town
-        order.country = order.user.shipping_country.country
+        order.country = order.user.shipping_country.name
         order.count = cart.get_count_total()
         order.price = cart.get_price(order.user)
         order.iva = Decimal(str(iva))

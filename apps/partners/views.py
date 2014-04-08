@@ -44,5 +44,5 @@ class PartnerDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(PartnerDetailView, self).get_context_data(**kwargs)
         context['nav_list'] = PartnerZone.objects.all().order_by('country')
-        context['address'] = self.object.shipping_address + ' ' + self.object.shipping_code + ' ' + self.object.shipping_town + ' ' + self.object.shipping_country.country
+        context['address'] = self.object.shipping_address + ' ' + self.object.shipping_code + ' ' + self.object.shipping_town + ' ' + self.object.shipping_country.name
         return context
